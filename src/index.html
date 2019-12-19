@@ -5,10 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Promise Me</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
+    <header class="header">        
+        <ul class="header__fixed">
+            <div class="container">                
+                <li class="header__logo">
+                    <a href="#">Logo</a>                    
+                </li>
+                <li class="header__to-clients dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="#">Клиентам</a>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="11px" height="6px" viewBox="0 0 16.121 10.182"><g><polygon fill="#fff" points="8.061,10.182 0,2.121 2.121,0 8.061,5.939 14,0 16.121,2.121"></polygon></g></svg>
+                    <div class="dropdown-menu header__dropdown-menu header__dropdown-menu-clients" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item header__dropdown-item" href="#">Оплата</a>
+                        <a class="dropdown-item header__dropdown-item" href="#">Доставка</a>
+                        <a class="dropdown-item header__dropdown-item" href="#">О компании</a>
+                        <a class="dropdown-item header__dropdown-item" href="#">Обмен и возврат</a>                     
+                    </div>
+                </li>
+                <li class="header__service">
+                    <a href="#">Сервис</a>
+                </li>
+                <li class="header__callback">
+                    <div class="header__callback-wrap">
+                        <a href="tel">Обратный звонок</a>
+                        <i class="fas fa-phone-slash"></i>
+                    </div>                    
+                </li>
+                <li class="header__call">
+                    <a href="tel">0 800 300 242</a>
+                    <i class="fas fa-phone"></i>                    
+                </li>
+                <li class="header__user-field">
+                    <a href="" class="header__user-login">
+                        <i class="far fa-user"></i>
+                    </a>
+                </li>
+            </div>
+        </ul>
+        <ul class="header__fixed-additional">
+            <li class="header__logo-additional">
+                <a href="#">
+                    Logo
+                </a>                
+            </li>
+            <li class="header__additional-tools">
+                <div class="header__search-additional">
+                    <a href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+                <a href="#" class="header__cart-additional">
+                    <i class="fas fa-shopping-cart"></i>                   
+                </a>
+                <div class="header__dropdown-additional">
+                    <img src="./images/icons/menu.png" alt="catalog-menu">
+                </div>
+            </li>            
+        </ul>
+        <div class="header__main">
+            <div class="container">
+                <div class="dropdown header__catalog-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div>
+                        <img src="./images/icons/menu.png" alt="catalog-menu">
+                    </div>
+                    <div class="header__catalog-title">
+                        Каталог товаров
+                    </div>
+                    <div class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item header__dropdown-item" href="#">Экш-камеры GOPRO</a>
+                      <a class="dropdown-item header__dropdown-item" href="#">Акустика JBL</a>
+                      <a class="dropdown-item header__dropdown-item" href="#">Пульсометры POLAR</a>
+                      <a class="dropdown-item header__dropdown-item" href="#">Спорт-часы GARMIN</a>
+                    </div>
+                </div>
+                <form class="header__form">
+                    <div class="form-group header__seacrh-wrap">                      
+                        <input type="text" class="header__search" placeholder="Поиск" autocomplete="off">
+                        <a href=""><i class="fas fa-search"></i></a>              
+                    </div>                    
+                </form>
+                <a href="#" class="header__cart">
+                    <i class="fas fa-shopping-cart"></i>                   
+                </a>                
+            </div>
+        </div>       
+    </header>
 
     
     
