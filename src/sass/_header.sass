@@ -1,5 +1,178 @@
-.promise__title
-    font-size: 3rem
-    color: $someColor
-    margin-top: 3rem
-    text-align: center
+.header  
+    &__fixed        
+        +fixed-position
+        .container
+            +flex-space-between
+        span
+            font-size: 1rem
+    &__logo
+        padding: 1.2rem
+        color: #ffffff
+        margin-right: 7.5rem
+        a
+            color: #ffffff
+            &:hover
+                text-decoration: none
+    &__to-clients
+        padding: 1.2rem
+        color: #ffffff
+        cursor: pointer
+        &:after
+            display: none
+        a
+            color: #ffffff
+            &:hover
+                color: #bbbbbb
+                text-decoration: none   
+        svg
+            margin-left: .5rem    
+    &__service
+        color: #ffffff
+        padding: 1.2rem
+        font-size: 1rem
+        a
+            color: #ffffff
+            &:hover                
+                color: #bbbbbb
+
+    &__callback
+        padding: 1.2rem
+    &__callback-wrap
+        +flex-space-between
+        cursor: pointer  
+        a
+            font-size: 1rem
+            color: #ffffff
+            transition: .3s all        
+        i
+            margin-left: .8rem
+            color: #ffffff
+            font-size: 1.3rem
+            cursor: pointer
+        &:hover a
+            color: #bbbbbb
+        &:hover i
+            color: #bbbbbb
+    &__call
+        padding: 1.2rem
+        a
+            color: #ffffff
+            font-size: 1rem
+            &:hover                
+                text-decoration: none
+        i
+            margin-left: .8rem
+            color: #ffffff
+            font-size: 1.3rem
+            cursor: pointer
+        &:hover a
+            color: $bdsmColor
+        &:hover i
+            color: $bdsmColor
+                
+    &__user-field
+        padding: 1.2rem
+        color: #ffffff
+    &__user-login
+        color: #ffffff
+        &:hover
+            color: #ffffff
+        i
+            font-size: 1.8rem    
+    &__main        
+        min-height: 6rem
+        background-color: $darkColor
+        .container
+            display: flex
+    &__catalog-dropdown
+        background-color: $bdsmColor
+        width: 14rem
+        padding: 5.5rem .7rem 0rem .7rem
+        display: flex
+        cursor: pointer
+        &:after
+            display: none
+        .header__catalog-title
+            margin-left: 1rem
+            font-size: 1.2rem
+            color: #ffffff
+    &__form
+        margin-top: 5.5rem
+        margin-left: 1.5rem
+        width: 70%
+    &__seacrh-wrap
+        +flex-space-between
+    &__search
+        background-color: $darkColor
+        border: none
+        font-size: 1.1rem
+        width: 80%    
+        &:focus
+           background-color: $darkColor
+           color: #ffffff
+           border: none           
+           width: 100%
+           outline: none !important
+    .fa-search
+        color: #ffffff
+        margin-right: 2rem
+        font-size: 1.5rem
+    &__cart
+        padding: 5.5rem 1.5rem 0 1rem        
+        background-color: $bdsmColor             
+        i
+            font-size: 1.9rem
+            color: #ffffff
+    &__dropdown-menu
+        width: 100%
+        border-radius: 0
+        margin-top: -1px
+        &-clients
+            width: 150%            
+            a
+                color: #000000
+                &:hover
+                    color: $bdsmColor
+                &:active
+                    background-color: transparent
+    &__dropdown-item
+        color: #000000        
+        &:hover
+            color: $bdsmColor
+        &:active
+            background-color: transparent
+    
+    &__fixed-additional
+        +fixed-position
+        min-height: 4rem
+        display: none
+        li
+            padding: 0                
+    &__additional-tools
+        padding: 1.2rem
+        +flex-space-between
+    &__logo-additional
+        +flex-center
+        a
+            color: #ffffff
+            &:hover
+                text-decoration: none
+    &__search-additional
+        +flex-center
+    &__cart-additional
+        margin-right: 2rem
+        +flex-center        
+        &:hover
+            text-decoration: none 
+        i
+            font-size: 1.9rem
+            color: #ffffff
+    &__dropdown-additional        
+        background-color: $bdsmColor
+        width: 4rem
+        +flex-center
+        img
+            transform: scale(1.35)
+            
+
+

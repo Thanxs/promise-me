@@ -1,25 +1,31 @@
 {
-  "name": "promise-me",
-  "version": "1.0.0",
-  "description": "The most important project of the universe",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Oleksandr Nikolskyi",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "browser-sync": "^2.26.7",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-cli": "^2.2.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2"
-  }
+    "name": "promise-me",
+    "version": "1.0.0",
+    "description": "The most important project of the universe",
+    "main": "gulpfile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Oleksandr Nikolskyi",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.7.2",
+        "@babel/preset-env": "^7.7.1",
+        "browser-sync": "^2.26.7",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-uglify": "^3.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-cli": "^2.2.0",
+        "gulp-rename": "^1.4.0",
+        "gulp-sass": "^4.0.2" <<
+            << << < HEAD ===
+            === =
+    },
+    "dependencies": {
+        "font-awesome": "^4.7.0" >>>
+            >>> > 116 a61f6b254c00817bf3a8cdbe8e35b8ed9d239
+    }
 }
