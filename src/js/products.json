@@ -210,7 +210,7 @@
     "id": 20
   },
   {
-    "name": "Спортивные часы GARMIN Vivoactive 3 Music Black with Stainless Hardware",
+    "name": "Спортивные часы GARMIN Instinct Sunburst (010-02064-03)",
     "oldPrice": 9802,
     "newPrice": 6699,
     "src": "../images/products/garmin/3.jpg",
@@ -238,16 +238,6 @@
     "category": "Смарт часы",
     "categoryNumber": 3,
     "id": 22
-  },
-  {
-    "name": "Cпортивные часы GARMIN Forerunner 945 Black",
-    "oldPrice": 18252,
-    "newPrice": 15299,
-    "src": "../images/products/garmin/6.jpg",
-    "brand": "Garmin",
-    "category": "Смарт часы",
-    "categoryNumber": 3,
-    "id": 23
   },
   {
     "name": "Cпортивные часы GARMIN Forerunner 945 Black",
@@ -300,9 +290,9 @@
     "id": 27
   },
   {
-    "name": "Спортивные часы GARMIN Forerunner 645 Music With Black Coloured Band",
-    "oldPrice": 13468,
-    "newPrice": 9777,
+    "name": "Спортивные часы GARMIN Forerunner 45 Lava Red",
+    "oldPrice": 6422,
+    "newPrice": 5199,
     "src": "../images/products/garmin/11.jpg",
     "brand": "Garmin",
     "category": "Смарт часы",
@@ -380,7 +370,7 @@
     "id": 34
   },
   {
-    "name": "Смарт-часы POLAR VANTAGE V White (90070736)",
+    "name": "Спортивные часы Polar M600 + GPS for Android/iOS White (90062397)",
     "oldPrice": 8580,
     "newPrice": 7999,
     "src": "../images/products/polar/7.jpg",
@@ -440,10 +430,10 @@
     "id": 39
   },
   {
-    "name": "Детские смарт-часы Elari KidPhone 2 Green с GPS-трекером (KP-2G)",
+    "name": "Детские смарт-часы Elari KidPhone 2 Black с GPS-трекером (KP-2B)",
     "oldPrice": 1199,
     "newPrice": 799,
-    "src": "../images/products/elari/5.jpg",
+    "src": "../images/products/elari/6.jpg",
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
@@ -453,7 +443,7 @@
     "name": "Детские смарт-часы Elari KidPhone 2 Pink с GPS-трекером (KP-2P)",
     "oldPrice": 1199,
     "newPrice": 799,
-    "src": "../images/products/elari/6.jpg",
+    "src": "../images/products/elari/7.jpg",
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
@@ -463,7 +453,7 @@
     "name": "Детские смарт-часы Elari KidPhone 2 Blue с GPS-трекером (KP-2BL)",
     "oldPrice": 1199,
     "newPrice": 799,
-    "src": "../images/products/elari/7.jpg",
+    "src": "../images/products/elari/8.jpg",
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
@@ -473,7 +463,7 @@
     "name": "Наушники APPLE AirPods 2 with Charging Case (MV7N2)",
     "oldPrice": 6299,
     "newPrice": 4949,
-    "src": "../images/products/apple/2.jpg",
+    "src": "../images/products/apple/1.jpg",
     "brand": "Apple",
     "category": "Наушники",
     "categoryNumber":4,
@@ -550,7 +540,7 @@
     "id": 49
   },
   {
-    "name": "Наушники BEATS Powerbeats Pro Black (MV6Y2)",
+    "name": "Наушники BEATS Powerbeats Pro Green (MV712)",
     "oldPrice": 7999,
     "newPrice": 6199,
     "src": "../images/products/beats/1.jpg",
@@ -673,7 +663,7 @@
     "name": "Наушники Elari EarDrops Bluetooth TWS Black (EDS-001)",
     "oldPrice": 1699,
     "newPrice": 1399,
-    "src": "../images/products/elari/8.jpg",
+    "src": "../images/products/elari/9.jpg",
     "brand": "Elari",
     "category": "Наушники",
     "categoryNumber": 4,
@@ -683,7 +673,7 @@
     "name": "Наушники Elari EarDrops Bluetooth TWS White (EDS-1WHT)",
     "oldPrice": 1699,
     "newPrice": 1399,
-    "src": "../images/products/elari/9.jpg",
+    "src": "../images/products/elari/10.jpg",
     "brand": "Elari",
     "category": "Наушники",
     "categoryNumber": 4,

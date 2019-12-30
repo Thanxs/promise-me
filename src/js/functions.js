@@ -120,6 +120,4 @@ function showProductsOfSelectedCategory(products) {
                                                 </div>                                                
                                             </li>`;
     });
-
-
 }

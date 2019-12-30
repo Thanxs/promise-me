@@ -2,23 +2,87 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b89dd204-ff74-425d-aa59-66ed48b32ecd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/js/functions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sass/_products.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/promise-me-project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/promise-me.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/banners/subscribe-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/banners/subscribe-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/apple/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/apple/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/apple/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/bang &amp; olufsen/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/bang &amp; olufsen/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/bang &amp; olufsen/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/bang &amp; olufsen/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/bang &amp; olufsen/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/beats/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/beats/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/beats/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/beats/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/beats/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/beats/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/beats/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/elari/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/elari/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/elari/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/elari/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/elari/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/elari/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/elari/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/elari/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/elari/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/garmin/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/gopro/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/products/gopro/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/gopro/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/products/gopro/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/gopro/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/products/gopro/3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/gopro/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/products/gopro/4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/jbl/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/marshall/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/marshall/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/marshall/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/marshall/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/marshall/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/polar/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/polar/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/polar/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/polar/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/polar/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/polar/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/polar/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/sony/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/products/sony/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/sony/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/products/sony/2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/xiaomi/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/products/xiaomi/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/xiaomi/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/products/xiaomi/2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/index.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/functions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/products.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sass/_header.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_header.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/_footer.sass" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sass/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/style.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +139,8 @@
       <workItem from="1577552953731" duration="17928000" />
       <workItem from="1577605668846" duration="4607000" />
       <workItem from="1577641481766" duration="5631000" />
-      <workItem from="1577712814768" duration="15094000" />
+      <workItem from="1577712814768" duration="16445000" />
+      <workItem from="1577735006942" duration="3620000" />
     </task>
     <servers />
   </component>
