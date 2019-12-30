@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b89dd204-ff74-425d-aa59-66ed48b32ecd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/js/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/functions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sass/_products.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/products/cameras/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/index.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/index.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/products.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/_header.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_header.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/style.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,7 +72,10 @@
       <updated>1577300623662</updated>
       <workItem from="1577300624841" duration="3539000" />
       <workItem from="1577343424728" duration="59000" />
-      <workItem from="1577552953731" duration="10621000" />
+      <workItem from="1577552953731" duration="17928000" />
+      <workItem from="1577605668846" duration="4607000" />
+      <workItem from="1577641481766" duration="5631000" />
+      <workItem from="1577712814768" duration="15094000" />
     </task>
     <servers />
   </component>
@@ -74,5 +100,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577343481812" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1577725888286">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1577725888286" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1577728376163">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1577728376163" />
   </component>
 </project>

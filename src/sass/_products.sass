@@ -1,0 +1,77 @@
+.products
+  min-height: 70vh
+  width: 100%
+  padding: 2rem 0 2rem 0
+  &__title
+    font-size: 2.8rem
+    font-weight: 900
+    margin-top: 1rem
+
+  &__wrap
+    display: flex
+
+  &__filters
+    width: 350px
+    &-title
+      font-size: 1.6rem
+      font-weight: 900
+      margin-top: 1rem
+
+  &__main
+    flex-grow: 1
+    margin-left: 1rem
+
+  &__sort-btn
+    border: 1px solid #d6d8d9
+    border-radius: 1rem
+    background-color: #ffffff
+    padding: .5rem
+    &-active
+      background-color: darken(#ffffff, 12%)
+
+  &__entities
+    &__list
+      list-style: none
+      padding: 0
+      margin: 0
+      margin-top: 1rem
+      display: flex
+      flex-wrap: wrap
+    &__item
+      width: 13rem
+      padding: 1rem
+      padding-top: 0
+      transition: .3s all
+      cursor: pointer
+      &:hover
+        box-shadow: 1px 1px 27px -10px $darkColor
+
+  &__img
+    width: 12rem
+    img
+      width: 100%
+  &__name
+    margin-top: 1rem
+    padding: 0
+    font-size: .9rem
+  &__order-info
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &__price-new
+    font-size: 1.5rem
+    font-weight: 900
+  &__price-old
+    font-size: 1.2rem
+    text-decoration: line-through
+    text-decoration-color: $bdsmColor
+  &__cart
+    i
+      font-size: 2rem
+      color: lighten($bdsmColor, 25%)
+      transition: .3s all
+      &:hover
+        color: $bdsmColor
+
+  .price-range
+    width: 95%

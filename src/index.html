@@ -62,8 +62,12 @@
                 <a href="#" class="header__cart-additional">
                     <i class="fas fa-shopping-cart"></i>                   
                 </a>
-                <div class="header__dropdown-additional">
-                    <img src="./images/icons/menu.png" alt="catalog-menu">
+                <div class="dropdown header__dropdown-additional dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div>
+                        <img src="./images/icons/menu.png" alt="catalog-menu">
+                    </div>
+                    <div class="dropdown-menu header__dropdown-menu-additional dropdown-menu-categories " aria-labelledby="dropdownMenuButton">
+                    </div>
                 </div>
             </li>            
         </ul>
@@ -76,11 +80,7 @@
                     <div class="header__catalog-title">
                         Каталог товаров
                     </div>
-                    <div class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item header__dropdown-item" href="#">Экш-камеры GOPRO</a>
-                      <a class="dropdown-item header__dropdown-item" href="#">Акустика JBL</a>
-                      <a class="dropdown-item header__dropdown-item" href="#">Пульсометры POLAR</a>
-                      <a class="dropdown-item header__dropdown-item" href="#">Спорт-часы GARMIN</a>
+                    <div class="dropdown-menu header__dropdown-menu dropdown-menu-categories " aria-labelledby="dropdownMenuButton">
                     </div>
                 </div>
                 <form class="header__form">
@@ -95,8 +95,10 @@
             </div>
         </div>       
     </header>
+    <section class="products">
+    </section>
     <section class="video">
-        <!-- <div class="container"> -->
+        <div class="container">
             <div class="section-top">
                 <h2 class="video_title">Видеообозоры</h2>
             </div>
@@ -122,17 +124,17 @@
                         <p class="video-name">Xfcs casio</p>
                         <p class="video-play">Воспроиздведениё...</p>
                         </div>
-        
-                
+
+
                 <div class="video-item">
-     
+
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/zYkt0IrPoAM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+
                 </div>
 
             </div>
 
-        <!-- </div> -->
+        </div>
     </section>
     <div class="footer">
         <div class="container">
@@ -232,11 +234,11 @@
                     </div>
                 </div>
 
-
-                <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>    
     <script src="js/bootstrap.min.js"></script>
     <script src="js/moment.min.js"></script>
+    <script src="js/functions.js"></script>
     <script src="js/index.min.js"></script>
 </body>
 </html>
