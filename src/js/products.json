@@ -808,5 +808,45 @@
     "category": "Гироскутеры",
     "categoryNumber": 6,
     "id": 75
+  },
+  {
+    "name": "Шлем виртуальной реальности Xiaomi Mi VR-1 Oculus 3D Headset (RGG4090CN)",
+    "oldPrice": 10999,
+    "newPrice": 9999,
+    "src": "../images/products/xiaomi/5.jpg",
+    "brand": "XIAOMI",
+    "category": "Виртуальная реальность",
+    "categoryNumber": 7,
+    "id": 76
+  },
+  {
+    "name": "Шлем виртуальной реальности Oculus Rift (Black) + Touch",
+    "oldPrice": 13999,
+    "newPrice": 11399,
+    "src": "../images/products/oculus rift/1.jpg",
+    "brand": "Oculus Rift",
+    "category": "Виртуальная реальность",
+    "categoryNumber": 7,
+    "id": 77
+  },
+  {
+    "name": "Шлем виртуальной реальности Sony PlayStation VR + Camera + Creed: Rise of Glory Bundle",
+    "oldPrice": 11999,
+    "newPrice": 10499,
+    "src": "../images/products/sony/3.jpg",
+    "brand": "Sony",
+    "category": "Виртуальная реальность",
+    "categoryNumber": 7,
+    "id": 78
+  },
+  {
+    "name": "Интерактивный комплект для VR Xiaomi NOLO CV1 Smart VR",
+    "oldPrice": 7499,
+    "newPrice": 7199,
+    "src": "../images/products/xiaomi/6.jpg",
+    "brand": "XIAOMI",
+    "category": "Виртуальная реальность",
+    "categoryNumber": 7,
+    "id": 79
   }
 ]

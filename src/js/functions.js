@@ -64,24 +64,12 @@ function showProductsSection(productsOfSelectedCategory) {
                                                 </div>
                                             </form>
                                             <div class="products__brand">
-                                                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                                    Бренд
-                                                </a>
-                                                <div class="collapse" id="collapseExample">
-                                                    <div class="card card-body">
-                                                       <div class="form-check">
-                                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                          <label class="form-check-label" for="defaultCheck1">
-                                                            Apple
-                                                          </label>
-                                                        </div>  
-                                                        <div class="form-check">
-                                                          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                          <label class="form-check-label" for="defaultCheck1">
-                                                            Beats
-                                                          </label>
-                                                        </div>                                                      
-                                                    </div>
+                                                <a data-toggle="collapse" href="#collapseExample" class="products__brand-link" aria-expanded="false" aria-controls="collapseExample">
+                                                    <span>Бренд</span>
+                                                    <i class="fas fa-angle-down"></i>
+                                                </a>                                                
+                                                <div class="collapse brands-area" id="collapseExample">
+                                                    <div class="card card-body products__brand-filter"></div>
                                                 </div>
                                                 </div>
                                         </div>
@@ -99,6 +87,7 @@ function showProductsSection(productsOfSelectedCategory) {
                                     </div>
                                 </div>`;
     showProductsOfSelectedCategory(productsOfSelectedCategory);
+    showBrandsOfSelectedCategory(productsOfSelectedCategory);
 }
 
 function showProductsOfSelectedCategory(products) {
@@ -120,4 +109,34 @@ function showProductsOfSelectedCategory(products) {
                                                 </div>                                                
                                             </li>`;
     });
+}
+
+function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
+    const brandsFilterArea = document.querySelector('.products__brand-filter');
+    const arrayOfBrandsFromSelectedCategory = productsOfSelectedCategory.map(product => product.brand);
+    const uniqueBrands = makeUniqueArray(arrayOfBrandsFromSelectedCategory);
+    uniqueBrands.forEach((brand, idx )=> {
+        brandsFilterArea.innerHTML += `<div class="form-check products__brand-form-check">
+                                          <input class="form-check-input products__brand-input" type="checkbox" id="defaultCheck${idx}" name="brand" data-id="${idx+1}">
+                                          <label class="form-check-label products__brand-label" for="defaultCheck${idx}">
+                                                <span class="products__brand-item">${brand}</span>
+                                          </label>
+                                       </div> `
+    });
+
+    const brandInputs = document.querySelectorAll('.products__brand-input');
+    brandInputs.forEach(brand => {
+        brand.addEventListener('click', createArrayOfProductsBySelectedBrands);
+    });
+}
+
+function createArrayOfProductsBySelectedBrands(event) {
+    const brandInputs = document.querySelectorAll('.products__brand-input');
+    const dataId = parseInt(event.target.dataset.id);
+    const arrayOfFilteredBrands = [];
+    brandInputs.forEach(brand => {
+        if (brand.checked) {
+            console.log(dataId)
+        }
+    })
 }
