@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/products.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/_header.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_header.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sass/_products.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/_products.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +65,7 @@
       <workItem from="1577712814768" duration="16445000" />
       <workItem from="1577735006942" duration="8485000" />
       <workItem from="1577748814842" duration="6000" />
-      <workItem from="1577775000257" duration="15136000" />
+      <workItem from="1577775000257" duration="24612000" />
     </task>
     <servers />
   </component>

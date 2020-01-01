@@ -117,26 +117,44 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const uniqueBrands = makeUniqueArray(arrayOfBrandsFromSelectedCategory);
     uniqueBrands.forEach((brand, idx )=> {
         brandsFilterArea.innerHTML += `<div class="form-check products__brand-form-check">
-                                          <input class="form-check-input products__brand-input" type="checkbox" id="defaultCheck${idx}" name="brand" data-id="${idx+1}">
+                                          <input class="form-check-input products__brand-input" type="checkbox" id="defaultCheck${idx}" name="brand" data-id="${idx+1}" data-name="${brand}">
                                           <label class="form-check-label products__brand-label" for="defaultCheck${idx}">
                                                 <span class="products__brand-item">${brand}</span>
                                           </label>
                                        </div> `
     });
 
-    const brandInputs = document.querySelectorAll('.products__brand-input');
-    brandInputs.forEach(brand => {
-        brand.addEventListener('click', createArrayOfProductsBySelectedBrands);
-    });
-}
+    const btnToFilterByBrand = document.createElement('button');
+    btnToFilterByBrand.classList.add('btn-outline-dark');
+    btnToFilterByBrand.classList.add('btn');
+    btnToFilterByBrand.classList.add('products__brand-filter-btn');
+    btnToFilterByBrand.textContent = 'Применить';
+    brandsFilterArea.after(btnToFilterByBrand);
 
-function createArrayOfProductsBySelectedBrands(event) {
     const brandInputs = document.querySelectorAll('.products__brand-input');
-    const dataId = parseInt(event.target.dataset.id);
-    const arrayOfFilteredBrands = [];
+    let arrayOfSelectedBrandsForFilter = [];
     brandInputs.forEach(brand => {
-        if (brand.checked) {
-            console.log(dataId)
+        brand.addEventListener('click', (event) => {
+            if (event.target.checked) {
+                arrayOfSelectedBrandsForFilter.push(event.target.dataset.name);
+                arrayOfSelectedBrandsForFilter = makeUniqueArray(arrayOfSelectedBrandsForFilter);
+                console.log(arrayOfSelectedBrandsForFilter);
+            } else {
+                let idxWhichHasToBeDeleted = arrayOfSelectedBrandsForFilter.indexOf(event.target.dataset.name);
+                arrayOfSelectedBrandsForFilter.splice(idxWhichHasToBeDeleted, 1);
+                console.log(arrayOfSelectedBrandsForFilter);
+            }
+        });
+    });
+
+    btnToFilterByBrand.addEventListener('click', (event) => {
+        let allCheckedBrands = [];
+        for (let i = 0; i < arrayOfSelectedBrandsForFilter.length; i++) {
+            allCheckedBrands.push([...productsOfSelectedCategory.filter(brand => {
+                return brand.brand === arrayOfSelectedBrandsForFilter[i];
+            })]);
         }
-    })
+
+        console.log(...allCheckedBrands);
+    } );
 }
