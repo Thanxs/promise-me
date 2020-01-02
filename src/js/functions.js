@@ -133,6 +133,7 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
 
     const brandInputs = document.querySelectorAll('.products__brand-input');
     let arrayOfSelectedBrandsForFilter = [];
+
     brandInputs.forEach(brand => {
         brand.addEventListener('click', (event) => {
             if (event.target.checked) {
@@ -155,6 +156,15 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
             })]);
         }
 
-        console.log(...allCheckedBrands);
+        let allCheckedBrandsInOneArray = [];
+
+        allCheckedBrands.forEach(arrayOfBrands => {
+            return allCheckedBrandsInOneArray.push(...arrayOfBrands);
+        });
+
+        const productsEntitiesList = document.querySelector('.products__entities__list');
+        productsEntitiesList.innerHTML = '';
+
+        showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
     } );
 }
