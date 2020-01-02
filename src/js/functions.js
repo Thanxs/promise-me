@@ -76,9 +76,9 @@ function showProductsSection(productsOfSelectedCategory) {
                                         <div class="products__main">
                                             <div class="products__sort">
                                                 <span>Сортировать</span>
-                                                <button class="products__sort-btn products__sort-btn-active">по популярности</button>
-                                                <button class="products__sort-btn">сначала дешевле</button>
-                                                <button class="products__sort-btn">сначала дороже</button>    
+                                                <button class="products__sort-btn products__sort-btn-active products__sort-btn-popular">по популярности</button>
+                                                <button class="products__sort-btn products__sort-btn-cheap">сначала дешевле</button>
+                                                <button class="products__sort-btn products__sort-btn-expensive">сначала дороже</button>    
                                             </div>
                                             <div class="products__entities">
                                                 <ul class="products__entities__list"></ul>
@@ -124,17 +124,13 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
                                        </div> `
     });
 
-    const btnToFilterByBrand = document.createElement('button');
-    btnToFilterByBrand.classList.add('btn-outline-dark');
-    btnToFilterByBrand.classList.add('btn');
-    btnToFilterByBrand.classList.add('products__brand-filter-btn');
-    btnToFilterByBrand.textContent = 'Применить';
-    brandsFilterArea.after(btnToFilterByBrand);
+    const btnToFilterByBrand = createBtnToWorkWithBrandFilters(brandsFilterArea, 'products__brand-filter-btn', 'Применить');
+    const btnToResetBrandFilters = createBtnToWorkWithBrandFilters(btnToFilterByBrand, 'products__brand-reset-btn', 'Сбросить фильтры');
 
-    const brandInputs = document.querySelectorAll('.products__brand-input');
+    const brandCheckBoxes = document.querySelectorAll('.products__brand-input');
     let arrayOfSelectedBrandsForFilter = [];
 
-    brandInputs.forEach(brand => {
+    brandCheckBoxes.forEach(brand => {
         brand.addEventListener('click', (event) => {
             if (event.target.checked) {
                 arrayOfSelectedBrandsForFilter.push(event.target.dataset.name);
@@ -143,8 +139,20 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
             } else {
                 let idxWhichHasToBeDeleted = arrayOfSelectedBrandsForFilter.indexOf(event.target.dataset.name);
                 arrayOfSelectedBrandsForFilter.splice(idxWhichHasToBeDeleted, 1);
-                console.log(arrayOfSelectedBrandsForFilter);
             }
+        });
+    });
+
+    const productsEntitiesList = document.querySelector('.products__entities__list');    
+
+    const buttonsOfSort = document.querySelectorAll('.products__sort-btn');
+    buttonsOfSort.forEach(btn => {
+        btn.addEventListener('click', event => {
+            buttonsOfSort.forEach(btn =>  btn.classList.remove('products__sort-btn-active'));
+            event.target.classList.add('products__sort-btn-active');
+            productsEntitiesList.innerHTML = '';
+            checkSortFeature(productsOfSelectedCategory, event.target);
+            showProductsOfSelectedCategory(productsOfSelectedCategory);
         });
     });
 
@@ -162,9 +170,72 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
             return allCheckedBrandsInOneArray.push(...arrayOfBrands);
         });
 
-        const productsEntitiesList = document.querySelector('.products__entities__list');
         productsEntitiesList.innerHTML = '';
 
         showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
+
+        let arrayFromBrandsOfCheckBoxes = Array.from(brandCheckBoxes);
+        const isAllCheckBoxesEmpty = arrayFromBrandsOfCheckBoxes.every(checkBox => checkBox.checked === false);
+
+        if (isAllCheckBoxesEmpty) {
+            showProductsOfSelectedCategory(productsOfSelectedCategory);
+        }
+
+        buttonsOfSort.forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                if (allCheckedBrandsInOneArray.length) {
+                    productsEntitiesList.innerHTML = '';
+
+                    checkSortFeature(allCheckedBrandsInOneArray, event.target);
+                    showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
+                }
+            });
+        })
     } );
+
+    btnToResetBrandFilters.addEventListener('click', () => {
+        brandCheckBoxes.forEach(checkBox => {
+            checkBox.checked = false;
+            arrayOfSelectedBrandsForFilter = [];
+            }
+        );
+        productsEntitiesList.innerHTML = '';
+        showProductsOfSelectedCategory(productsOfSelectedCategory);
+    });
+
+}
+
+function createBtnToWorkWithBrandFilters(element, className, text) {
+    const btnToFilterByBrand = document.createElement('button');
+    btnToFilterByBrand.classList.add('btn-outline-dark');
+    btnToFilterByBrand.classList.add('btn');
+    btnToFilterByBrand.classList.add(className);
+    btnToFilterByBrand.textContent = text;
+    element.after(btnToFilterByBrand);
+    return btnToFilterByBrand;
+}
+
+function sortByPriceExpensiveFirst(arr) {
+    return arr.sort((a, b) => a.newPrice < b.newPrice ? 1 : -1);
+}
+
+function sortByPriceCheapFirst(arr) {
+    return arr.sort((a, b) => a.newPrice > b.newPrice ? 1 : -1);
+}
+
+function sortByPopularity(arr) {
+    return arr.sort((a, b) => a.id > b.id ? 1 : -1);
+}
+
+function checkSortFeature(array, target) {
+    if (target.classList.contains('products__sort-btn-cheap')) {
+        array = sortByPriceCheapFirst(array);
+    }
+    if (target.classList.contains('products__sort-btn-expensive')) {
+        array = sortByPriceExpensiveFirst(array);
+    }
+    if (target.classList.contains('products__sort-btn-popular')) {
+        array = sortByPopularity(array);
+    }
+    return array;
 }
