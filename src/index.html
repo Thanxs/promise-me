@@ -253,61 +253,52 @@
         </div>
 
     </div>
-    <div class="footermobile">
-        <div class="containermob">
-            <span class="sales">Хотите быть в курсе суперскидок и акционных предложений?</span>
-            <form>
-                <div class="footmob linkcolors">
-                    <div class="footmob">
-                        <input type="text" id="fname" name="firstname" placeholder="Ваше Имя">
-                    </div>
-                </div>
-                <div class="footmob linkcolors">
-                    <div class="footmob">
-                        <input type="text" id="lname" name="lastname" placeholder="Ваш e-mail">
-                    </div>
-                </div>
-                <div class="footmob">
-                    <input type="submit" value="Подписаться" class="footlink">
-                    <img src="images/banners/subscribe-left.png" alt="" class="letter">
-                </div>
+    <section class="subscribe">
+        <div class="container" id="subscribe-block">
+            <span class="subscribe-title linkcolors" >Хотите быть в курсе суперскидок и акционных предложений?</span>
+            <form action="#" id="subscribe-add">
+                <input type="text" class="subscribe-text" name="username" onfocus="this.placeholder=''" onblur="this.placeholder='Ваше имя'" placeholder="Ваше имя">
+                <input type="email" class="subscribe-text" name="email" onfocus="this.placeholder=''" onblur="this.placeholder='Ваш e-mail адрес'" placeholder="Ваш e-mail адрес">
+                <input type="submit" value="Подписаться" class="subscribe-submit footlink">
             </form>
-            <div class="classform2">
-                <div class="footercenter inlineblocktest">
-                    <div class="btn-group dropup contacts">
-                        <a href="#" class="dropdown-toggle linkcolor" data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">Клиентам</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Оплата</a>
-                            <a class="dropdown-item" href="#">Доставка</a>
-                            <a class="dropdown-item" href="#">О Компании</a>
-                            <a class="dropdown-item" href="#">Обмен и возврат</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="btn-group dropup contacts">
-                    <a href="#" class="dropdown-toggle linkcolor" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">Контакты</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Адрес</a>
-                        <a class="dropdown-item" href="#">Украина,Одесса</a>
-                        <a class="dropdown-item" href="#">ул.Канатная 22</a>
-                        <p></p>
-                        <a class="dropdown-item" href="#">Телефоны</a>
-                        <a class="dropdown-item" href="#">0487722392</a>
-                        <a class="dropdown-item" href="#">0971565827</a>
-                    </div>
+        </div>
+    </section>
+    <div class="footmob subscribe">
+        <img src="images/banners/subscribe-left.png" alt="" class="letter">
+    </div>
+    <div class="subscribe">
+        <div class="footercenter inlineblocktest">
+            <div class="btn-group dropup contacts">
+                <a href="#" class="dropdown-toggle linkcolor footcontact" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">Клиентам</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Оплата</a>
+                    <a class="dropdown-item" href="#">Доставка</a>
+                    <a class="dropdown-item" href="#">О Компании</a>
+                    <a class="dropdown-item" href="#">Обмен и возврат</a>
                 </div>
             </div>
-
         </div>
-    </div>
+        <div class="btn-group dropup contacts">
+            <a href="#" class="dropdown-toggle linkcolor footcontact" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false">Контакты</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Адрес</a>
+                <a class="dropdown-item" href="#">Украина,Одесса</a>
+                <a class="dropdown-item" href="#">ул.Канатная 22</a>
+                <p></p>
+                <a class="dropdown-item" href="#">Телефоны</a>
+                <a class="dropdown-item" href="#">0487722392</a>
+                <a class="dropdown-item" href="#">0971565827</a>
+            </div>
+        </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/moment.min.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/index.min.js"></script>
+</div>
 </div>
 </body>
 </html>
