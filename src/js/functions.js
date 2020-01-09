@@ -52,8 +52,8 @@ function showProductsSection(productsOfSelectedCategory) {
     const productsSection = document.querySelector('.products');
     const selectedCategory = productsOfSelectedCategory[0].category;
 
-    const minPriceFromSelectedProducts = findMinPriceOfSelectedProducts(productsOfSelectedCategory);
-    const maxPriceFromSelectedProducts = findMaxPriceOfSelectedProducts(productsOfSelectedCategory);
+    let minPriceFromSelectedProducts = findMinPriceOfSelectedProducts(productsOfSelectedCategory);
+    let maxPriceFromSelectedProducts = findMaxPriceOfSelectedProducts(productsOfSelectedCategory);
 
     productsSection.innerHTML = `<div class="container">
                                     <h1 class="products__title">${selectedCategory}</h1>
@@ -68,7 +68,7 @@ function showProductsSection(productsOfSelectedCategory) {
                                                         <span>до</span><input class="price-to" value="${maxPriceFromSelectedProducts}">
                                                     </div>
                                                     <button type="button" class="btn btn-outline-dark price-range-btn">Показать</button>
-                                                    <input type="range" class="form-control-range price-range"                                                          id="formControlRange" value="${minPriceFromSelectedProducts}" min="${minPriceFromSelectedProducts}" max="${maxPriceFromSelectedProducts}">
+                                                    <div id="price-range"></div>
                                                 </div>                                                
                                             </form>
                                             <div class="products__brand">
@@ -94,6 +94,17 @@ function showProductsSection(productsOfSelectedCategory) {
                                         </div>
                                     </div>
                                 </div>`;
+
+    // const priceRange = document.getElementById('price-range');
+    //
+    // noUiSlider.create(priceRange, {
+    //     start: [1, 100],
+    //     range: {
+    //         'min': [10],
+    //         'max': [90]
+    //     }
+    // });
+
     showProductsOfSelectedCategory(productsOfSelectedCategory);
     showBrandsOfSelectedCategory(productsOfSelectedCategory);
     filterProductsByPriceRange(minPriceFromSelectedProducts, maxPriceFromSelectedProducts, productsOfSelectedCategory);
@@ -104,7 +115,7 @@ function showProductsOfSelectedCategory(products) {
     products.forEach(product => {
         productsEntitiesList.innerHTML += `<li class="products__entities__item">
                                                 <div class="products__img">
-                                                    <img src="${product.src}" alt="">
+                                                    <img src="${product.src}" alt="${product.name}">
                                                 </div>
                                                 <p class="products__name">${product.name}</p>
                                                 <div class="products__order-info">
@@ -144,7 +155,6 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
             if (event.target.checked) {
                 arrayOfSelectedBrandsForFilter.push(event.target.dataset.name);
                 arrayOfSelectedBrandsForFilter = makeUniqueArray(arrayOfSelectedBrandsForFilter);
-                console.log(arrayOfSelectedBrandsForFilter);
             } else {
                 let idxWhichHasToBeDeleted = arrayOfSelectedBrandsForFilter.indexOf(event.target.dataset.name);
                 arrayOfSelectedBrandsForFilter.splice(idxWhichHasToBeDeleted, 1);
@@ -277,13 +287,24 @@ function findMinPriceOfSelectedProducts(products) {
 }
 
 function filterProductsByPriceRange(minPrice, maxPrice, products) {
+    const inputPriceFrom = document.querySelector('.price-from');
+    const inputPriceTo = document.querySelector('.price-to');
+
+    inputPriceFrom.addEventListener('change', (event) => {
+        minPrice = parseInt(event.target.value);
+    });
+
+    inputPriceTo.addEventListener('change', (event) => {
+        maxPrice = parseInt(event.target.value);
+    });
+
     const priceRangeBtn = document.querySelector('.price-range-btn');
     priceRangeBtn.addEventListener('click', () => {
-        products = products.filter(product => {
+        let productsFilteredByPrice = products.filter(product => {
             return product.newPrice >= minPrice && product.newPrice <= maxPrice;
         });
         const productsEntitiesList = document.querySelector('.products__entities__list');
         productsEntitiesList.innerHTML = '';
-        showProductsOfSelectedCategory(products);
+        showProductsOfSelectedCategory(productsFilteredByPrice);
     });
 }
