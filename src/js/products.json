@@ -7,6 +7,8 @@
     "brand": "GoPro",
     "category": "Экшн-камеры",
     "categoryNumber": 1,
+    "rate": 0,
+    "review": "",
     "id": 1
   },
   {
@@ -17,6 +19,8 @@
     "brand": "GoPro",
     "category": "Экшн-камеры",
     "categoryNumber": 1,
+    "rate": 0,
+    "review": "",
     "id": 2
   },
   {
@@ -27,6 +31,8 @@
     "brand": "GoPro",
     "category": "Экшн-камеры",
     "categoryNumber": 1,
+    "rate": 0,
+    "review": "",
     "id": 3
   },
   {
@@ -37,6 +43,8 @@
     "brand": "GoPro",
     "category": "Экшн-камеры",
     "categoryNumber": 1,
+    "rate": 0,
+    "review": "",
     "id": 4
   },
   {
@@ -47,6 +55,8 @@
     "brand": "Sony",
     "category": "Экшн-камеры",
     "categoryNumber": 1,
+    "rate": 0,
+    "review": "",
     "id": 5
   },
   {
@@ -57,6 +67,8 @@
     "brand": "Sony",
     "category": "Экшн-камеры",
     "categoryNumber": 1,
+    "rate": 0,
+    "review": "",
     "id": 6
   },
   {
@@ -67,6 +79,8 @@
     "brand": "XIAOMI",
     "category": "Экшн-камеры",
     "categoryNumber": 1,
+    "rate": 0,
+    "review": "",
     "id": 7
   },
   {
@@ -77,6 +91,8 @@
     "brand": "XIAOMI",
     "category": "Экшн-камеры",
     "categoryNumber": 1,
+    "rate": 0,
+    "review": "",
     "id": 8
   },
   {
@@ -87,6 +103,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 9
   },
   {
@@ -97,6 +115,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 10
   },
   {
@@ -107,6 +127,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 11
   },
   {
@@ -117,6 +139,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 12
   },
   {
@@ -127,6 +151,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 13
   },
   {
@@ -137,6 +163,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 14
   },
   {
@@ -147,6 +175,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 15
   },
   {
@@ -157,6 +187,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 16
   },
   {
@@ -167,6 +199,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 17
   },
   {
@@ -177,6 +211,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 18
   },
   {
@@ -187,6 +223,8 @@
     "brand": "JBL",
     "category": "Акустика JBL",
     "categoryNumber": 2,
+    "rate": 0,
+    "review": "",
     "id": 19
   },
   {
@@ -197,6 +235,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 20
   },
   {
@@ -207,6 +247,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 21
   },
   {
@@ -217,6 +259,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 22
   },
   {
@@ -227,6 +271,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 23
   },
   {
@@ -237,6 +283,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 24
   },
   {
@@ -247,6 +295,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 25
   },
   {
@@ -257,6 +307,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 26
   },
   {
@@ -267,6 +319,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 27
   },
   {
@@ -277,6 +331,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 28
   },
   {
@@ -287,6 +343,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 29
   },
   {
@@ -297,6 +355,8 @@
     "brand": "Garmin",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 30
   },
   {
@@ -307,6 +367,8 @@
     "brand": "Polar",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 31
   },
   {
@@ -317,6 +379,8 @@
     "brand": "Polar",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 32
   },
   {
@@ -327,6 +391,8 @@
     "brand": "Polar",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 33
   },
   {
@@ -337,6 +403,8 @@
     "brand": "Polar",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 34
   },
   {
@@ -347,6 +415,8 @@
     "brand": "Polar",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 35
   },
   {
@@ -357,6 +427,8 @@
     "brand": "Polar",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 36
   },
   {
@@ -367,6 +439,8 @@
     "brand": "Polar",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 37
   },
   {
@@ -377,6 +451,8 @@
     "brand": "Polar",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 38
   },
   {
@@ -387,6 +463,8 @@
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 39
   },
   {
@@ -397,6 +475,8 @@
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 40
   },
   {
@@ -407,6 +487,8 @@
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 41
   },
   {
@@ -417,6 +499,8 @@
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 42
   },
   {
@@ -427,6 +511,8 @@
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 43
   },
   {
@@ -437,6 +523,8 @@
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 44
   },
   {
@@ -447,6 +535,8 @@
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 45
   },
   {
@@ -457,6 +547,8 @@
     "brand": "Elari",
     "category": "Смарт часы",
     "categoryNumber": 3,
+    "rate": 0,
+    "review": "",
     "id": 46
   },
   {
@@ -466,7 +558,9 @@
     "src": "../images/products/apple/1.jpg",
     "brand": "Apple",
     "category": "Наушники",
-    "categoryNumber":4,
+    "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 47
   },
   {
@@ -477,6 +571,8 @@
     "brand": "Apple",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 48
   },
   {
@@ -487,6 +583,8 @@
     "brand": "Apple",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 49
   },
   {
@@ -497,6 +595,8 @@
     "brand": "Bang & Olufsen",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 50
   },
   {
@@ -507,6 +607,8 @@
     "brand": "Bang & Olufsen",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 51
   },
   {
@@ -517,6 +619,8 @@
     "brand": "Bang & Olufsen",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 52
   },
   {
@@ -527,6 +631,8 @@
     "brand": "Bang & Olufsen",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 53
   },
   {
@@ -537,6 +643,8 @@
     "brand": "Bang & Olufsen",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 54
   },
   {
@@ -547,6 +655,8 @@
     "brand": "Beats",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 55
   },
   {
@@ -557,6 +667,8 @@
     "brand": "Beats",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 56
   },
   {
@@ -567,6 +679,8 @@
     "brand": "Beats",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 57
   },
   {
@@ -577,6 +691,8 @@
     "brand": "Beats",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 58
   },
   {
@@ -587,6 +703,8 @@
     "brand": "Beats",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 59
   },
   {
@@ -597,6 +715,8 @@
     "brand": "Beats",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 60
   },
   {
@@ -607,6 +727,8 @@
     "brand": "Beats",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 61
   },
   {
@@ -617,6 +739,8 @@
     "brand": "Marshall",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 62
   },
   {
@@ -627,6 +751,8 @@
     "brand": "Marshall",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 63
   },
   {
@@ -637,6 +763,8 @@
     "brand": "Marshall",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 64
   },
   {
@@ -647,6 +775,8 @@
     "brand": "Marshall",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 65
   },
   {
@@ -657,6 +787,8 @@
     "brand": "Marshall",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 66
   },
   {
@@ -667,6 +799,8 @@
     "brand": "Elari",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 67
   },
   {
@@ -677,6 +811,8 @@
     "brand": "Elari",
     "category": "Наушники",
     "categoryNumber": 4,
+    "rate": 0,
+    "review": "",
     "id": 68
   },
   {
@@ -687,6 +823,8 @@
     "brand": "Ecovacs Deebot",
     "category": "Роботы пылесосы",
     "categoryNumber": 5,
+    "rate": 0,
+    "review": "",
     "id": 69
   },
   {
@@ -697,6 +835,8 @@
     "brand": "Ecovacs Deebot",
     "category": "Роботы пылесосы",
     "categoryNumber": 5,
+    "rate": 0,
+    "review": "",
     "id": 70
   },
   {
@@ -707,6 +847,8 @@
     "brand": "Ecovacs Deebot",
     "category": "Роботы пылесосы",
     "categoryNumber": 5,
+    "rate": 0,
+    "review": "",
     "id": 71
   },
   {
@@ -717,6 +859,8 @@
     "brand": "Ecovacs Deebot",
     "category": "Роботы пылесосы",
     "categoryNumber": 5,
+    "rate": 0,
+    "review": "",
     "id": 72
   },
   {
@@ -727,6 +871,8 @@
     "brand": "Ecovacs Deebot",
     "category": "Роботы пылесосы",
     "categoryNumber": 5,
+    "rate": 0,
+    "review": "",
     "id": 73
   },
   {
@@ -737,6 +883,8 @@
     "brand": "Ecovacs Deebot",
     "category": "Роботы пылесосы",
     "categoryNumber": 5,
+    "rate": 0,
+    "review": "",
     "id": 74
   },
   {
@@ -747,6 +895,8 @@
     "brand": "Ecovacs Deebot",
     "category": "Роботы пылесосы",
     "categoryNumber": 5,
+    "rate": 0,
+    "review": "",
     "id": 75
   },
   {
@@ -757,6 +907,8 @@
     "brand": "XIAOMI",
     "category": "Роботы пылесосы",
     "categoryNumber": 5,
+    "rate": 0,
+    "review": "",
     "id": 76
   },
   {
@@ -767,6 +919,8 @@
     "brand": "XIAOMI",
     "category": "Роботы пылесосы",
     "categoryNumber": 5,
+    "rate": 0,
+    "review": "",
     "id": 77
   },
   {
@@ -777,6 +931,8 @@
     "brand": "Ninebot",
     "category": "Гироскутеры",
     "categoryNumber": 6,
+    "rate": 0,
+    "review": "",
     "id": 78
   },
   {
@@ -787,6 +943,8 @@
     "brand": "Ego Electro",
     "category": "Гироскутеры",
     "categoryNumber": 6,
+    "rate": 0,
+    "review": "",
     "id": 79
   },
   {
@@ -797,6 +955,8 @@
     "brand": "Ego Electro",
     "category": "Гироскутеры",
     "categoryNumber": 6,
+    "rate": 0,
+    "review": "",
     "id": 80
   },
   {
@@ -807,6 +967,8 @@
     "brand": "Ego Electro",
     "category": "Гироскутеры",
     "categoryNumber": 6,
+    "rate": 0,
+    "review": "",
     "id": 81
   },
   {
@@ -817,6 +979,8 @@
     "brand": "XIAOMI",
     "category": "Виртуальная реальность",
     "categoryNumber": 7,
+    "rate": 0,
+    "review": "",
     "id": 82
   },
   {
@@ -827,6 +991,8 @@
     "brand": "Oculus Rift",
     "category": "Виртуальная реальность",
     "categoryNumber": 7,
+    "rate": 0,
+    "review": "",
     "id": 83
   },
   {
@@ -837,6 +1003,8 @@
     "brand": "Sony",
     "category": "Виртуальная реальность",
     "categoryNumber": 7,
+    "rate": 0,
+    "review": "",
     "id": 84
   },
   {
@@ -847,6 +1015,8 @@
     "brand": "XIAOMI",
     "category": "Виртуальная реальность",
     "categoryNumber": 7,
+    "rate": 0,
+    "review": "",
     "id": 85
   }
 ]

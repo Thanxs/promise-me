@@ -1,15 +1,39 @@
 @media (max-width: 1150px)
     .header
         &__fixed
-            display: none                     
+            display: none
         &__main
             display: none
         &__fixed-additional
             display: flex
             justify-content: space-between
+        &__logo
+            &-link
+                color: $bdsmColor !important
+                margin-left: 1rem
+
+    .products
+        padding-top: 4rem
+
+    .containers
+        display: none
+    .containerinfo
+        display: none
+    .subscribe
+        display: flex
 
 @media (max-width: 992px)
-    div
+    .products
+        padding-top: 4rem
+        &__sort
+            span
+                font-size: .9rem
+            button
+                font-size: .9rem
+                padding: .25rem
+            &-btn-popular
+                margin-left: 0rem
+
 
 @media (max-width: 768px)
     .header
@@ -18,11 +42,28 @@
                 transform: scale(.9)
         &__cart-additional
             margin-right: 1rem
-            i                
+            i
                 transform: scale(.9)
-        &__dropdown-additional        
+        &__dropdown-additional
             background-color: transparent
             transform: scale(1.05)
+        &__logo
+            &-link
+                color: #ffffff !important
+                margin-left: 1rem
+
+    .products
+        &__wrap
+            flex-direction: column
 
 @media (max-width: 535px)
-    div
+    .products
+        &__sort
+            display: flex
+            flex-direction: column
+            align-items: center
+            span
+                margin-top: 1.5rem
+            button
+                width: 13rem
+                margin-top: .6rem
