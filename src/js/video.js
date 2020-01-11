@@ -1,33 +1,33 @@
 let videoreview = [
     {
     id: "1",
-    name: "Garmin Watch",
+    name: "GoPro HERO7 Black",
     picture: "video1.jpg",
-    src: "https://www.youtube.com/embed/zYkt0IrPoAM"
+    src: "https://www.youtube.com/embed/Vb_9aatr2fw"
     },
     {
     id: "2",
-    name: "Garmin Watch",
+    name: "JBL BoomBox",
     picture: "video2.jpg",
-    src: "https://www.g.com/embed/zYkt0IrPoAM"
+    src: "https://www.youtube.com/embed/B3CZu5j-5JY"
     },
     {
     id: "3",
-    name: "Garmin Watch",
+    name: "Garmin Vivoactive 3",
     picture: "video3.jpg",
-    src: "https://www.youtube.com/embed/zYkt0IrPoAM"
+    src: "https://www.youtube.com/embed/9FcooDZAxDA"
     },
     {
     id: "4",
-    name: "Garmin Watch",
+    name: "ECOVACS ROBOTICS DEEBOT OZMO 950",
     picture: "video4.jpg",
-    src: "https://www.youtube.com/embed/zYkt0IrPoAM"
+    src: "https://www.youtube.com/embed/E83bLZO1y-g"
     },
     {
     id: "5",
-    name: "Garmin Watch",
+    name: "Xiaomi Ninebot",
     picture: "video5.jpg",
-    src: "https://www.youtube.com/embed/zYkt0IrPoAM"
+    src: "https://www.youtube.com/embed/0jnOGPlVAhY"
     }
 ];
 
@@ -48,9 +48,7 @@ function showVideoReviews(){
     videoBox.addEventListener('click', (event)=>{
         let target = event.target.parentElement;
         let videoId = target.getAttribute('data-video-id');
-        // console.log(target, videoId);
         let videoWindow = document.querySelector('.videoWindow');
-        // console.log(videoWindow);
         videoWindow.addEventListener('click', () => {
             videoWindow.innerHTML = "";
             videoWindow.classList.add('none-displayed');
