@@ -34,6 +34,11 @@
             &-btn-popular
                 margin-left: 0rem
 
+    .video-container
+        grid: repeat(2, 1fr) / repeat(3, 1fr)
+    .video-item
+        left: -5000px
+
 
 @media (max-width: 768px)
     .header
@@ -55,6 +60,11 @@
     .products
         &__wrap
             flex-direction: column
+
+    .video-container
+        grid: 1fr / 1fr
+    .video-item, .video-item-second-third
+        left: -5000px
 
 @media (max-width: 535px)
     .products
