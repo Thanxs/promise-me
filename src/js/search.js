@@ -8,15 +8,15 @@ function search(products){
             e.preventDefault();
             searchBegin();
         }
-    })
+    });
 
 function findItems(){
     let inputArr = searchInput.value.trim().split(' ');
     let arraySearchResult = products.filter(function (item){
         return inputArr.every(function (inputItem){
             return searchWordVerification(item.name, inputItem);
-        })
-    })
+        });
+    });
     return arraySearchResult;
 }
 function searchBegin(){
