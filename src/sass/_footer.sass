@@ -199,6 +199,7 @@
       position: absolute
       top: 5rem
       right: 0
+
   &__form
     display: flex
     justify-content: space-between
@@ -210,6 +211,7 @@
         background-color: $darkColor
         border: none
         border-radius: 0
+        color: $bdsmColor
         &:focus, &:active
           background-color: $darkColor
           box-shadow: none
@@ -225,14 +227,38 @@
         color: #ffffff
         box-shadow: none
 
+  &__regex-check
+    height: 3rem
+    width: 100%
+    font-size: 1.1rem
+    color: $bdsmColor
+    text-align: center
+
   &__info
-    margin-top: 5rem
     display: flex
     justify-content: space-between
+    list-style: none
+    margin: 0
+    padding: 0
+    margin-top: 3rem
+  &__logo
+    padding: 1.2rem 0 1.2rem 0
+    color: $bdsmColor
+    &-link
+      font-size: 2rem
+      color: $bdsmColor
+      font-weight: 900
+      text-shadow: $bdsmColor 0px 0px 5px, $bdsmColor 0px 0px 10px, $bdsmColor 0px 0px 15px, $bdsmColor 0px 0px 20px, $bdsmColor 0px 0px 30px, $bdsmColor 0px 0px 40px, $bdsmColor 0px 0px 50px, $bdsmColor 0px 0px 75px
+      &:hover
+        text-decoration: none
+        color: $bdsmColor
+
   &__dropup
     width: 30%
     display: flex
     justify-content: space-between
+    &-item:hover, &-item:active, &-item:focus
+      background: #ffffff
     &-btn
       color: #ffffff
       font-size: 1.2rem
@@ -245,7 +271,10 @@
     &-title
       font-size: 1.2rem
       font-weight: 700
+
   &__socials
+    box-sizing: border-box
+    padding-top: 2rem
     width: 13rem
     display: flex
     justify-content: space-between

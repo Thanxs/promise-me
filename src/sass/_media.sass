@@ -15,12 +15,12 @@
     .products
         padding-top: 4rem
 
-    .containers
-        display: none
-    .containerinfo
-        display: none
-    .subscribe
-        display: flex
+    //.containers
+    //    display: none
+    //.containerinfo
+    //    display: none
+    //.subscribe
+    //    display: flex
 
 @media (max-width: 992px)
     .products
@@ -38,6 +38,10 @@
         grid: repeat(2, 1fr) / repeat(3, 1fr)
     .video-item
         left: -5000px
+
+    .footer
+        &__logo-link
+            font-size: 1.5rem
 
 
 @media (max-width: 768px)
@@ -66,6 +70,21 @@
     .video-item, .video-item-second-third
         left: -5000px
 
+    .footer
+        &__title
+            font-size: 1.2rem
+        &__logo
+            display: none
+        &__form
+            flex-wrap: wrap
+            div
+                width: 45%
+        &__socials
+            padding-top: 1rem
+        &__dropdown-menu
+            transform: translate(-2.5rem, -15.5rem) !important
+
+
 @media (max-width: 535px)
     .products
         &__sort
@@ -77,3 +96,31 @@
             button
                 width: 13rem
                 margin-top: .6rem
+
+    .footer
+        padding-top: 3.5rem
+        &__title
+            font-size: 1rem
+            margin-bottom: 2rem
+        &__letters
+            display: none
+        &__form
+            div
+                width: 90%
+                margin: 1rem auto
+                input
+                    border-radius: 5px
+                    color: #ffffff
+                    &:focus, &:active
+                        border: 1.5px solid $bdsmColor
+            button
+                margin: 1rem auto
+        &__info
+            flex-wrap: wrap
+        &__dropup
+            width: 90%
+            justify-content: center
+            margin: 0 auto
+        &__socials
+            width: 10rem
+            margin: 1rem auto
