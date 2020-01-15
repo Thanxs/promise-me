@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 function sendRequest(method, url) {
     return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest();

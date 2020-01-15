@@ -4,7 +4,26 @@
 
 body
     font-family: 'Gilroy-Regular'
-    
+::-webkit-scrollbar-button
+    width: 5px
+    height: 0px
+::-webkit-scrollbar-track
+    background-color: $darkColor
+::-webkit-scrollbar-thumb
+    -webkit-border-radius: 0px
+    border-radius: 0px
+    background-color: $bdsmColor
+    border: 1px solid $darkColor
+    border-radius: 10px
+::-webkit-scrollbar-thumb:hover
+    background-color: #56999f
+::-webkit-resizer
+    width: 4px
+    height: 0px
+::-webkit-scrollbar
+    width: 8px
+
+
 @import "header"
 @import "products"
 @import "footer"
