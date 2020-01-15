@@ -17,34 +17,16 @@
             <ul class="header__fixed">
                 <div class="container">
                     <li class="header__logo">
-                        <a href="#" class="header__logo-link">Promise Me</a>
+                        <a href="#" class="header__logo-link">Promise ME</a>
                     </li>
-                    <li class="header__to-clients dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <a href="#">Клиентам</a>
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                             y="0px" width="11px" height="6px" viewBox="0 0 16.121 10.182">
-                            <g>
-                                <polygon fill="#fff"
-                                         points="8.061,10.182 0,2.121 2.121,0 8.061,5.939 14,0 16.121,2.121"></polygon>
-                            </g>
-                        </svg>
-                        <div class="dropdown-menu header__dropdown-menu header__dropdown-menu-clients"
-                             aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item header__dropdown-item" href="#">Оплата</a>
-                            <a class="dropdown-item header__dropdown-item" href="#">Доставка</a>
-                            <a class="dropdown-item header__dropdown-item" href="#">О компании</a>
-                            <a class="dropdown-item header__dropdown-item" href="#">Обмен и возврат</a>
-                        </div>
+                    <li class="header__payment">
+                        <span data-toggle="modal" data-target="#paymentModal">Оплата</span>
+                    </li>
+                    <li class="header__delivery">
+                        <span data-toggle="modal" data-target="#deliveryModal">Доставка</span>
                     </li>
                     <li class="header__service">
-                        <a href="#">Сервис</a>
-                    </li>
-                    <li class="header__callback">
-                        <div class="header__callback-wrap">
-                            <a href="tel">Обратный звонок</a>
-                            <i class="fas fa-phone-slash"></i>
-                        </div>
+                        <span data-toggle="modal" data-target="#serviceModal">Сервис</span>
                     </li>
                     <li class="header__call">
                         <a href="tel:380999999999">+38 (099) 999 99 99</a>
@@ -145,20 +127,9 @@
                 <div class="footer__regex-check"></div>
                 <ul class="footer__info">
                     <li class="footer__logo">
-                        <a href="#" class="footer__logo-link">Promise Me</a>
+                        <a href="#" class="footer__logo-link">Promise ME</a>
                     </li>
                     <li class="footer__dropup">
-                        <div class="btn-group dropup">
-                            <button type="button" class="dropdown-toggle footer__dropup-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               Клиентам
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Оплата</a>
-                                <a class="dropdown-item" href="#">Доставка</a>
-                                <a class="dropdown-item" href="#">О Компании</a>
-                                <a class="dropdown-item" href="#">Обмен и возврат</a>
-                            </div>
-                        </div>
                         <div class="btn-group dropup">
                             <button type="button" class="dropdown-toggle footer__dropup-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Контакты
@@ -169,16 +140,16 @@
                                 <li class="dropdown-item footer__dropup-item" href="#">ул.Канатная 22</li>
                                 <br>
                                 <li class="dropdown-item footer__dropup-item footer__dropup-title" href="#">Телефоны:</li>
-                                <li class="dropdown-item footer__dropup-item">0487722392</li>
-                                <li class="dropdown-item footer__dropup-item">0971565827</li>
+                                <li class="dropdown-item footer__dropup-item">+38 (0482) 999 99 99</li>
+                                <li class="dropdown-item footer__dropup-item">+38 (099) 999 99 99</li>
                             </ul>
                         </div>
                     </li>
                     <li class="footer__socials">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/groups/442906712957242/"><i class="fab fa-facebook-f" target="_blank"></i></a>
+                        <a href="https://www.instagram.com/explore/tags/promiseme/"><i class="fab fa-instagram" target="_blank"></i></a>
+                        <a href="https://www.youtube.com/watch?v=1idOY3C1gYU"><i class="fab fa-youtube" target="_blank"></i></a>
+                        <a href="https://t.me/joinchat/BWDXYxP2YsrJ5pqfzqQZXQ" target="_blank"><i class="fab fa-telegram-plane"></i></a>
                     </li>
                 </ul>
             </div>
@@ -193,6 +164,9 @@
     <script src="js/functions.js"></script>
     <script src="js/video.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/payment-info.js"></script>
+    <script src="js/delivery-info.js"></script>
+    <script src="js/service.js"></script>
     <script src="js/index.min.js"></script>
 </body>
 </html>
