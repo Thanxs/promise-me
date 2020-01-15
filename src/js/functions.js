@@ -42,7 +42,8 @@ function setEventListenersOnCategories(products) {
         .addEventListener('click', (event) => {
             const categoryNumber = parseInt(event.target.getAttribute('data-category-number'));
             const arrayOfProductsFromSelectedCategory = products.filter(item => {
-                return item.categoryNumber === categoryNumber}
+                    return item.categoryNumber === categoryNumber
+                }
             );
             showProductsSection(arrayOfProductsFromSelectedCategory);
         }));
@@ -113,7 +114,8 @@ function showProductsSection(productsOfSelectedCategory) {
 function showProductsOfSelectedCategory(products) {
     const productsEntitiesList = document.querySelector('.products__entities__list');
     products.forEach(product => {
-        productsEntitiesList.innerHTML += `<li class="products__entities__item">
+        productsEntitiesList.innerHTML += `<li class="products__entities__item" data-product-id="${product.id}">
+
                                                 <div class="products__img">
                                                     <img src="${product.src}" alt="${product.name}">
                                                 </div>
@@ -129,15 +131,25 @@ function showProductsOfSelectedCategory(products) {
                                                 </div>                                                
                                             </li>`;
     });
+    const productsEntities = document.querySelectorAll('.products__entities__item');
+    productsEntities.forEach(productEntity => productEntity.addEventListener('click', (event) =>
+    {
+            const entityId = parseInt(productEntity.getAttribute('data-product-id'));
+            const productFromBD = products.filter(item => {
+                    return item.id === entityId
+                }
+            );
+            showSelectedProduct(productFromBD);
+        }));
 }
 
 function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const brandsFilterArea = document.querySelector('.products__brand-filter');
     const arrayOfBrandsFromSelectedCategory = productsOfSelectedCategory.map(product => product.brand);
     const uniqueBrands = makeUniqueArray(arrayOfBrandsFromSelectedCategory);
-    uniqueBrands.forEach((brand, idx )=> {
+    uniqueBrands.forEach((brand, idx) => {
         brandsFilterArea.innerHTML += `<div class="form-check products__brand-form-check">
-                                          <input class="form-check-input products__brand-input" type="checkbox" id="defaultCheck${idx}" name="brand" data-id="${idx+1}" data-name="${brand}">
+                                          <input class="form-check-input products__brand-input" type="checkbox" id="defaultCheck${idx}" name="brand" data-id="${idx + 1}" data-name="${brand}">
                                           <label class="form-check-label products__brand-label" for="defaultCheck${idx}">
                                                 <span class="products__brand-item">${brand}</span>
                                           </label>
@@ -167,7 +179,7 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const buttonsOfSort = document.querySelectorAll('.products__sort-btn');
     buttonsOfSort.forEach(btn => {
         btn.addEventListener('click', event => {
-            buttonsOfSort.forEach(btn =>  btn.classList.remove('products__sort-btn-active'));
+            buttonsOfSort.forEach(btn => btn.classList.remove('products__sort-btn-active'));
             event.target.classList.add('products__sort-btn-active');
             productsEntitiesList.innerHTML = '';
             checkSortFeature(productsOfSelectedCategory, event.target);
@@ -210,7 +222,7 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
                 }
             });
         })
-    } );
+    });
 
     btnToResetBrandFilters.addEventListener('click', () => {
         brandCheckBoxes.forEach(checkBox => {
@@ -223,6 +235,78 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     });
 
 }
+
+function showSelectedProduct(product) {
+    const selectedProduct = document.querySelector('.products');
+       selectedProduct.innerHTML = `
+<div class="product-card">
+    <div class="product-card_information">
+        <img src="${product[0].src}">
+    </div>
+    <div class="product-card_information_product-code">
+        <span class="product-code_title">Код товара:</span>
+        <span class="product-code_figures">23853</span>
+        <h1 class="product-card_information-header">${product[0].name}</h1>
+        <div class="product-card_information-avaible">
+            <span class="product-card_information-avaible-stock">Есть в наличии</span>
+        </div>
+        <div class="product-card_price">
+            <div class="product-card_price-block">
+                <p class="product-card_price-current">${product[0].newPrice}<span>грн</span>
+                </p>
+            </div>
+            <div class="product-buy">
+                <button type="button" class="product-buy_button">Купить</button>
+            </div>
+            <div class="product-reviews">
+                <button type="button" class="product-reviews_button">Оставить отзыв</button>
+            </div>
+            <div class="product-description">
+                <div class="product-delivery">
+                    <span class="product-town">Доставка в Киев</span>
+                </div>
+
+                <div class="product-card_delivery">
+                    <table class="table1">
+                        <tr class="tr1">
+                            <td class="td1">Самовывоз из магазина Promise Me</td>
+                            <td class="td1">Бесплатно</td>
+                            <td class="td1">Забрать в шоуруме через 5 мин</td>
+                        </tr>
+                        <tr class="tr1">
+                            <td class="td1">Курьер по вашему адресу</td>
+                            <td class="td1">Бесплатно</td>
+                            <td class="td1">Доставим сегодня</td>
+                        </tr>
+                        <tr class="tr1">
+                            <td class="td1">Самовывоз из Новой Почты</td>
+                            <td class="td1">Бесплатно</td>
+                            <td class="td1">Отправим сегодня</td>
+                        </tr>
+                        <tr class="tr1">
+                            <td class="td1">Самовывоз из Justin</td>
+                            <td class="td1">Бесплатно</td>
+                            <td class="td1">Отправим сегодня</td>
+                        </tr>
+                        <tr class="tr1">
+                            <td class="td1">Самовывоз из «Укрпошта»</td>
+                            <td class="td1">Бесплатно</td>
+                            <td class="td1">Отправим сегодня</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="product-card_information-block">
+                    <p class="information_block">Оплата</p>
+                    <span>Наличными курьеру, Наложенный платеж, Наличными / картой в магазине,
+                            Оплата картой на сайте, <br>Мгновенная рассрочка онлайн</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`
+}
+
 
 function createBtnToWorkWithBrandFilters(element, className, text) {
     const btnToFilterByBrand = document.createElement('button');
