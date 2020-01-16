@@ -245,7 +245,7 @@ function showSelectedProduct(product) {
     </div>
     <div class="product-card_information_product-code">
         <span class="product-code_title">Код товара:</span>
-        <span class="product-code_figures">23853</span>
+        <span class="product-code_figures">${product[0].id + 23800}</span>
         <h1 class="product-card_information-header">${product[0].name}</h1>
         <div class="product-card_information-avaible">
             <span class="product-card_information-avaible-stock">Есть в наличии</span>
@@ -263,7 +263,7 @@ function showSelectedProduct(product) {
             </div>
             <div class="product-description">
                 <div class="product-delivery">
-                    <span class="product-town">Доставка в Киев</span>
+                    <span class="product-town">Доставка в Одессу</span>
                 </div>
 
                 <div class="product-card_delivery">
@@ -282,24 +282,14 @@ function showSelectedProduct(product) {
                             <td class="td1">Самовывоз из Новой Почты</td>
                             <td class="td1">Бесплатно</td>
                             <td class="td1">Отправим сегодня</td>
-                        </tr>
-                        <tr class="tr1">
-                            <td class="td1">Самовывоз из Justin</td>
-                            <td class="td1">Бесплатно</td>
-                            <td class="td1">Отправим сегодня</td>
-                        </tr>
-                        <tr class="tr1">
-                            <td class="td1">Самовывоз из «Укрпошта»</td>
-                            <td class="td1">Бесплатно</td>
-                            <td class="td1">Отправим сегодня</td>
-                        </tr>
+                        </tr>                        
                     </table>
                 </div>
 
                 <div class="product-card_information-block">
                     <p class="information_block">Оплата</p>
                     <span>Наличными курьеру, Наложенный платеж, Наличными / картой в магазине,
-                            Оплата картой на сайте, <br>Мгновенная рассрочка онлайн</span>
+                            Оплата картой на сайте
                 </div>
             </div>
         </div>
