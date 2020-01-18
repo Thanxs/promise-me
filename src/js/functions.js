@@ -45,7 +45,10 @@ function setEventListenersOnCategories(products) {
                     return item.categoryNumber === categoryNumber
                 }
             );
-            showProductsSection(arrayOfProductsFromSelectedCategory);
+            showPreloader(400);
+            setTimeout(() => {
+                showProductsSection(arrayOfProductsFromSelectedCategory);
+            }, 400);
         }));
 }
 
@@ -112,10 +115,16 @@ function showProductsSection(productsOfSelectedCategory) {
 }
 
 function showProductsOfSelectedCategory(products) {
-    const productsEntitiesList = document.querySelector('.products__entities__list');
-    products.forEach(product => {
-        productsEntitiesList.innerHTML += `<li class="products__entities__item" data-product-id="${product.id}">
+    const amountOfProductsOnOnePage = 12;
+    const numberOfPages = (products.lenght % amountOfProductsOnOnePage === 0)
+        ? Math.floor(products.length / amountOfProductsOnOnePage)
+        : Math.floor(products.length / amountOfProductsOnOnePage) + 1;
 
+    createPagination(numberOfPages);
+
+    const productsEntitiesList = document.querySelector('.products__entities__list');
+    products.forEach((product, idx) => {
+        productsEntitiesList.innerHTML += `<li class="products__entities__item" data-number="${idx + 1}" data-product-id="${product.id}">
                                                 <div class="products__img">
                                                     <img src="${product.src}" alt="${product.name}">
                                                 </div>
@@ -131,8 +140,47 @@ function showProductsOfSelectedCategory(products) {
                                                 </div>                                                
                                             </li>`;
     });
-    const productsEntities = document.querySelectorAll('.products__entities__item');
-    productsEntities.forEach(productEntity => productEntity.addEventListener('click', (event) =>
+
+    const productsPaginationItems = document.querySelectorAll('.products__pagination-item');
+    const productsEntitiesItems = document.querySelectorAll('.products__entities__item');
+
+    for (let i = 1; i <= amountOfProductsOnOnePage; i++) {
+        productsEntitiesItems[i - 1].classList.add('products__entities__item_active');
+        if (!productsEntitiesItems[i]) {
+            break;
+        }
+    }
+
+    productsPaginationItems.forEach((page, idx) => {
+        page.addEventListener('click', (event) => {
+            showPreloader(300);
+            setTimeout(() => {
+                const pageNumber = parseInt(event.target.dataset.page);
+
+                const arrayOfRangeBreakPoints = [];
+                for (let i = 1; i <= products.length; i+=amountOfProductsOnOnePage) {
+                    arrayOfRangeBreakPoints.push(i);
+                }
+
+                if (pageNumber === (idx +1)) {
+                    for (let i = 0; i < products.length; i++) {
+                        productsEntitiesItems[i].classList.remove('products__entities__item_active');
+                        if(!productsEntitiesItems[i]) {
+                            break;
+                        }
+                    }
+                    for (let i = arrayOfRangeBreakPoints[idx]; i <= amountOfProductsOnOnePage*(idx+1); i++) {
+                        productsEntitiesItems[i-1].classList.add('products__entities__item_active');
+                        if(!productsEntitiesItems[i]) {
+                            break;
+                        }
+                    }
+                }
+            }, 300);
+        })
+    });
+
+    productsEntitiesItems.forEach(productEntity => productEntity.addEventListener('click', (event) =>
     {
             const entityId = parseInt(productEntity.getAttribute('data-product-id'));
             const productFromBD = products.filter(item => {
@@ -233,7 +281,6 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
         productsEntitiesList.innerHTML = '';
         showProductsOfSelectedCategory(productsOfSelectedCategory);
     });
-
 }
 
 function showSelectedProduct(product) {
@@ -381,4 +428,17 @@ function filterProductsByPriceRange(minPrice, maxPrice, products) {
         productsEntitiesList.innerHTML = '';
         showProductsOfSelectedCategory(productsFilteredByPrice);
     });
+}
+
+function createPagination(pagesAmount) {
+    const pagination = document.createElement('ul');
+    pagination.classList.add('pagination');
+    pagination.classList.add('products__pagination');
+
+    for (let pageNumber = 1; pageNumber <= pagesAmount; pageNumber++) {
+        pagination.innerHTML += `<li class="products__pagination-item" data-page="${pageNumber}">${pageNumber}</li>`
+    }
+
+    const productsSort = document.querySelector('.products__sort');
+    productsSort.after(pagination);
 }

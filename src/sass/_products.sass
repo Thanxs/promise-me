@@ -113,8 +113,11 @@
       transition: .3s all
       cursor: pointer
       border-radius: 5px
+      display: none
       &:hover
         box-shadow: 1px 1px 27px -10px $darkColor
+      &_active
+        display: block
 
   &__img
     width: 12rem
@@ -174,6 +177,31 @@
     &:active
       background-color: darken($bdsmColor, 10%) !important
       box-shadow: 2px -2px 55px -gu71px $darkColor !important
+
+  &__pagination
+    justify-content: center
+    margin-top: 4rem
+    &-item
+      background-color: $darkColor
+      cursor: pointer
+      margin: .3rem
+      width: 2.4rem
+      height: 2.4rem
+      display: flex
+      justify-content: center
+      align-items: center
+      font-weight: 900
+      font-size: 1.1rem
+      color: $bdsmColor
+      border: 3px solid $bdsmColor
+      border-radius: 50%
+      transition: .3s all
+      &:hover
+        transform: scale(1.35)
+
+
+
+
 
   #price-range
     width: 95%
