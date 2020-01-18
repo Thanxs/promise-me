@@ -59,6 +59,7 @@ function searchWordVerification(string, word){
 }
 
 let searchHintsWindow = document.createElement('div');
+searchHintsWindow.setAttribute('class', 'search-modal');
 
 function addHintsWindow(itemsArray){
     const productsContainer = document.querySelector('.products');
