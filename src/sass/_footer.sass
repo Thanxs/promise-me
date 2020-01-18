@@ -1,185 +1,3 @@
-//.footer
-//  background: #22242c
-//
-//.title
-//  display: block
-//  font-size: large
-//  padding-top: 5rem
-//  color: #ffffff
-//  font-family: 'Gilroy-Regular'
-//  font-weight: 700
-//  font-stretch: normal
-//  font-style: normal
-//  text-align: center
-//  top: 50%
-//
-//.submitreg
-//  font-family: 'Gilroy-Medium'
-//  display: inline-block
-//  border-radius: 0.4rem
-//  padding: 2rem 2rem
-//  background: #ff0054
-//  border: 0
-//  font-size: 1rem
-//  line-height: 3rem
-//  align-items: center
-//  text-align: center
-//  font-weight: 700
-//  color: #ffffff
-//  cursor: pointer
-//  padding: 0 4rem
-//  max-height: 3rem
-//
-//.logos
-//  display: inline-block
-//  margin-left: 15rem
-//  padding-top: 5rem
-//  padding-bottom: 2rem
-//  color: #fff
-//
-//.clients
-//  display: inline-block
-//  margin-top: 2rem
-//  color: #fff
-//  font-weight: 500
-//  font-size: 18px
-//  pointer-events: none
-//  padding-top: 3rem
-//  padding-bottom: 3rem
-//  pointer-events: auto
-//
-//.inlineblocktest
-//  display: inline-block
-//
-//.contacts
-//  display: inline-block
-//  margin-top: 3rem
-//  color: #fff
-//  font-weight: 500
-//  font-size: 18px
-//  pointer-events: none
-//  padding-top: 3rem
-//  padding-bottom: 3rem
-//  pointer-events: auto
-//
-//.classform, .classform2
-//  display: grid
-//  gap: 30px
-//  grid-template-columns: 1fr 1fr auto
-//  padding: 0 75px
-//
-//.testinputclass
-//  font-family: 'Gilroy-Medium'
-//  font-size: 1.2rem
-//  font-weight: 800
-//  font-stretch: normal
-//  font-style: normal
-//  line-height: 1.19
-//  letter-spacing: normal
-//  text-align: left
-//  color: #ffffff
-//  padding: 0 1rem
-//  border-width: 0 0 0.1rem 0
-//  border-style: solid
-//  border-color: #ffffff
-//  background-color: transparent
-//
-//  &:hover, &:active, &:focus
-//    background: rgba(0, 0, 0, 0.25)
-//    border-radius: 0.1rem
-//    color: #FFF
-//    outline: none
-//    background-color: #ffffff
-//    color: #2a2b31
-//
-//.linkcolor
-//  color: white
-//  text-decoration: none
-//  background-color: transparent
-//
-//  &:hover, &:active, &:focus
-//    color: grey
-//    text-decoration: none
-//    background-color: transparent
-//    font-family: Gilroy-Medium
-//
-//.footer__socials-item
-//  margin-left: 2rem
-//
-//.letter
-//  margin-left: 5rem
-//
-//.letter2
-//  margin-left: 65rem
-//
-//.footermobile
-//  display: none
-//
-//.footmob
-//  margin-top: 2rem
-//  background: #22242c
-//  border-radius: 1rem
-//  font-size: 2rem
-//  line-height: 2rem
-//  border: none
-//  margin-left: auto
-//  margin-bottom: 0.3rem
-//
-//.containermob
-//  margin-top: 3rem
-//  background: #22242c
-//  border-radius: 1rem
-//  font-size: 2rem
-//  line-height: 2rem
-//  border: none
-//  margin-left: auto
-//  margin-bottom: 0.3rem
-//  margin-left: 4rem
-//
-//.sales
-//  font-family: 'Gilroy-Regular'
-//  font-size: 2rem
-//  font-weight: 300
-//  color: white
-//  text-decoration: none
-//
-//.linkcolors
-//  color: white
-//  text-decoration: none
-//  background-color: transparent
-//
-//
-//
-//  &:hover, &:active, &:focus
-//    color: grey
-//    text-decoration: none
-//    background-color: transparent
-//    font-family: Gilroy-Medium
-//
-//.footlink
-//  background-color: #ff0054
-//  border-radius: 0.2rem
-//  border: none
-//
-//.subscribe-text
-//  margin-top: 2rem
-//
-//.subscribe-submit
-//  margin-top: 1rem
-//
-//.subscribe-title
-//  margin-top: 2rem
-//
-//.footcontact
-//  padding: 0 1.5rem
-//
-//.subscribe
-//  display: none
-//  padding-top: 2rem
-//
-//
-
-
 .footer
   background-color: $darkColor
   width: 100%
@@ -199,6 +17,7 @@
       position: absolute
       top: 5rem
       right: 0
+
   &__form
     display: flex
     justify-content: space-between
@@ -210,6 +29,7 @@
         background-color: $darkColor
         border: none
         border-radius: 0
+        color: $bdsmColor
         &:focus, &:active
           background-color: $darkColor
           box-shadow: none
@@ -225,14 +45,38 @@
         color: #ffffff
         box-shadow: none
 
+  &__regex-check
+    height: 3rem
+    width: 100%
+    font-size: 1.1rem
+    color: $bdsmColor
+    text-align: center
+
   &__info
-    margin-top: 5rem
     display: flex
     justify-content: space-between
+    list-style: none
+    margin: 0
+    padding: 0
+    margin-top: 3rem
+  &__logo
+    padding: 1.2rem 0 1.2rem 0
+    color: $bdsmColor
+    &-link
+      font-size: 2rem
+      color: $bdsmColor
+      font-weight: 900
+      text-shadow: $bdsmColor 0px 0px 5px, $bdsmColor 0px 0px 10px, $bdsmColor 0px 0px 15px, $bdsmColor 0px 0px 20px, $bdsmColor 0px 0px 30px, $bdsmColor 0px 0px 40px, $bdsmColor 0px 0px 50px, $bdsmColor 0px 0px 75px
+      &:hover
+        text-decoration: none
+        color: $bdsmColor
+
   &__dropup
     width: 30%
     display: flex
-    justify-content: space-between
+    justify-content: center
+    &-item:hover, &-item:active, &-item:focus
+      background: #ffffff
     &-btn
       color: #ffffff
       font-size: 1.2rem
@@ -245,7 +89,10 @@
     &-title
       font-size: 1.2rem
       font-weight: 700
+
   &__socials
+    box-sizing: border-box
+    padding-top: 2rem
     width: 13rem
     display: flex
     justify-content: space-between

@@ -42,9 +42,15 @@ function setEventListenersOnCategories(products) {
         .addEventListener('click', (event) => {
             const categoryNumber = parseInt(event.target.getAttribute('data-category-number'));
             const arrayOfProductsFromSelectedCategory = products.filter(item => {
-                return item.categoryNumber === categoryNumber}
+                    return item.categoryNumber === categoryNumber
+                }
             );
-            showProductsSection(arrayOfProductsFromSelectedCategory);
+            showPreloader(400);
+            setTimeout(() => {
+                showProductsSection(arrayOfProductsFromSelectedCategory);
+                const productsSection = document.querySelector(".products");
+                productsSection.scrollIntoView(300);
+            }, 400);
         }));
 }
 
@@ -111,9 +117,20 @@ function showProductsSection(productsOfSelectedCategory) {
 }
 
 function showProductsOfSelectedCategory(products) {
+    const amountOfProductsOnOnePage = 12;
+    const numberOfPages = (products.lenght % amountOfProductsOnOnePage === 0)
+        ? Math.floor(products.length / amountOfProductsOnOnePage)
+        : Math.floor(products.length / amountOfProductsOnOnePage) + 1;
+
+    refreshInfo('.products__pagination');
+
+    if (products.length > 12) {
+        createPagination(numberOfPages);
+    }
+
     const productsEntitiesList = document.querySelector('.products__entities__list');
-    products.forEach(product => {
-        productsEntitiesList.innerHTML += `<li class="products__entities__item">
+    products.forEach((product, idx) => {
+        productsEntitiesList.innerHTML += `<li class="products__entities__item" data-number="${idx + 1}" data-product-id="${product.id}">
                                                 <div class="products__img">
                                                     <img src="${product.src}" alt="${product.name}">
                                                 </div>
@@ -129,15 +146,64 @@ function showProductsOfSelectedCategory(products) {
                                                 </div>                                                
                                             </li>`;
     });
+
+    const productsPaginationItems = document.querySelectorAll('.products__pagination-item');
+    const productsEntitiesItems = document.querySelectorAll('.products__entities__item');
+
+    for (let i = 1; i <= amountOfProductsOnOnePage; i++) {
+        productsEntitiesItems[i - 1].classList.add('products__entities__item_active');
+        if (!productsEntitiesItems[i]) {
+            break;
+        }
+    }
+
+    productsPaginationItems.forEach((page, idx) => {
+        page.addEventListener('click', (event) => {
+            showPreloader(300);
+            setTimeout(() => {
+                const pageNumber = parseInt(event.target.dataset.page);
+
+                const arrayOfRangeBreakPoints = [];
+                for (let i = 1; i <= products.length; i+=amountOfProductsOnOnePage) {
+                    arrayOfRangeBreakPoints.push(i);
+                }
+
+                if (pageNumber === (idx +1)) {
+                    for (let i = 0; i < products.length; i++) {
+                        productsEntitiesItems[i].classList.remove('products__entities__item_active');
+                        if(!productsEntitiesItems[i]) {
+                            break;
+                        }
+                    }
+                    for (let i = arrayOfRangeBreakPoints[idx]; i <= amountOfProductsOnOnePage*(idx+1); i++) {
+                        productsEntitiesItems[i-1].classList.add('products__entities__item_active');
+                        if(!productsEntitiesItems[i]) {
+                            break;
+                        }
+                    }
+                }
+            }, 300);
+        })
+    });
+
+    productsEntitiesItems.forEach(productEntity => productEntity.addEventListener('click', (event) =>
+    {
+            const entityId = parseInt(productEntity.getAttribute('data-product-id'));
+            const productFromBD = products.filter(item => {
+                    return item.id === entityId
+                }
+            );
+            showSelectedProduct(productFromBD);
+        }));
 }
 
 function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const brandsFilterArea = document.querySelector('.products__brand-filter');
     const arrayOfBrandsFromSelectedCategory = productsOfSelectedCategory.map(product => product.brand);
     const uniqueBrands = makeUniqueArray(arrayOfBrandsFromSelectedCategory);
-    uniqueBrands.forEach((brand, idx )=> {
+    uniqueBrands.forEach((brand, idx) => {
         brandsFilterArea.innerHTML += `<div class="form-check products__brand-form-check">
-                                          <input class="form-check-input products__brand-input" type="checkbox" id="defaultCheck${idx}" name="brand" data-id="${idx+1}" data-name="${brand}">
+                                          <input class="form-check-input products__brand-input" type="checkbox" id="defaultCheck${idx}" name="brand" data-id="${idx + 1}" data-name="${brand}">
                                           <label class="form-check-label products__brand-label" for="defaultCheck${idx}">
                                                 <span class="products__brand-item">${brand}</span>
                                           </label>
@@ -150,8 +216,16 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const brandCheckBoxes = document.querySelectorAll('.products__brand-input');
     let arrayOfSelectedBrandsForFilter = [];
 
+    const brandCheckBoxesArray = Array.from(brandCheckBoxes);
+
     brandCheckBoxes.forEach(brand => {
         brand.addEventListener('click', (event) => {
+            if (brandCheckBoxesArray.some((checkBox) => checkBox.checked)) {
+                btnToFilterByBrand.classList.add('products__brand-filter-btn_active');
+            } else  {
+                btnToFilterByBrand.classList.remove('products__brand-filter-btn_active');
+            }
+
             if (event.target.checked) {
                 arrayOfSelectedBrandsForFilter.push(event.target.dataset.name);
                 arrayOfSelectedBrandsForFilter = makeUniqueArray(arrayOfSelectedBrandsForFilter);
@@ -167,50 +241,56 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const buttonsOfSort = document.querySelectorAll('.products__sort-btn');
     buttonsOfSort.forEach(btn => {
         btn.addEventListener('click', event => {
-            buttonsOfSort.forEach(btn =>  btn.classList.remove('products__sort-btn-active'));
-            event.target.classList.add('products__sort-btn-active');
-            productsEntitiesList.innerHTML = '';
-            checkSortFeature(productsOfSelectedCategory, event.target);
-            showProductsOfSelectedCategory(productsOfSelectedCategory);
+                showPreloader(300);
+                setTimeout(() => {
+                    buttonsOfSort.forEach(btn => btn.classList.remove('products__sort-btn-active'));
+                    event.target.classList.add('products__sort-btn-active');
+                    productsEntitiesList.innerHTML = '';
+                    checkSortFeature(productsOfSelectedCategory, event.target);
+                    showProductsOfSelectedCategory(productsOfSelectedCategory);
+                }, 300);
         });
     });
 
     btnToFilterByBrand.addEventListener('click', (event) => {
-        let allCheckedBrands = [];
-        for (let i = 0; i < arrayOfSelectedBrandsForFilter.length; i++) {
-            allCheckedBrands.push([...productsOfSelectedCategory.filter(brand => {
-                return brand.brand === arrayOfSelectedBrandsForFilter[i];
-            })]);
-        }
+        showPreloader(300);
+        setTimeout(() => {
+            let allCheckedBrands = [];
+            for (let i = 0; i < arrayOfSelectedBrandsForFilter.length; i++) {
+                allCheckedBrands.push([...productsOfSelectedCategory.filter(brand => {
+                    return brand.brand === arrayOfSelectedBrandsForFilter[i];
+                })]);
+            }
 
-        let allCheckedBrandsInOneArray = [];
+            let allCheckedBrandsInOneArray = [];
 
-        allCheckedBrands.forEach(arrayOfBrands => {
-            return allCheckedBrandsInOneArray.push(...arrayOfBrands);
-        });
-
-        productsEntitiesList.innerHTML = '';
-
-        showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
-
-        let arrayFromBrandsOfCheckBoxes = Array.from(brandCheckBoxes);
-        const isAllCheckBoxesEmpty = arrayFromBrandsOfCheckBoxes.every(checkBox => checkBox.checked === false);
-
-        if (isAllCheckBoxesEmpty) {
-            showProductsOfSelectedCategory(productsOfSelectedCategory);
-        }
-
-        buttonsOfSort.forEach(btn => {
-            btn.addEventListener('click', (event) => {
-                if (allCheckedBrandsInOneArray.length) {
-                    productsEntitiesList.innerHTML = '';
-
-                    checkSortFeature(allCheckedBrandsInOneArray, event.target);
-                    showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
-                }
+            allCheckedBrands.forEach(arrayOfBrands => {
+                return allCheckedBrandsInOneArray.push(...arrayOfBrands);
             });
-        })
-    } );
+
+            productsEntitiesList.innerHTML = '';
+
+            showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
+
+            let arrayFromBrandsOfCheckBoxes = Array.from(brandCheckBoxes);
+            const isAllCheckBoxesEmpty = arrayFromBrandsOfCheckBoxes.every(checkBox => checkBox.checked === false);
+
+            if (isAllCheckBoxesEmpty) {
+                showProductsOfSelectedCategory(productsOfSelectedCategory);
+            }
+
+            buttonsOfSort.forEach(btn => {
+                btn.addEventListener('click', (event) => {
+                    if (allCheckedBrandsInOneArray.length) {
+                        productsEntitiesList.innerHTML = '';
+
+                        checkSortFeature(allCheckedBrandsInOneArray, event.target);
+                        showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
+                    }
+                });
+            });
+        },300)
+    });
 
     btnToResetBrandFilters.addEventListener('click', () => {
         brandCheckBoxes.forEach(checkBox => {
@@ -221,8 +301,69 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
         productsEntitiesList.innerHTML = '';
         showProductsOfSelectedCategory(productsOfSelectedCategory);
     });
-
 }
+
+function showSelectedProduct(product) {
+    const selectedProduct = document.querySelector('.products');
+       selectedProduct.innerHTML = `
+<div class="product-card">
+    <div class="product-card_information">
+        <img src="${product[0].src}">
+    </div>
+    <div class="product-card_information_product-code">
+        <span class="product-code_title">Код товара:</span>
+        <span class="product-code_figures">${product[0].id + 23800}</span>
+        <h1 class="product-card_information-header">${product[0].name}</h1>
+        <div class="product-card_information-avaible">
+            <span class="product-card_information-avaible-stock">Есть в наличии</span>
+        </div>
+        <div class="product-card_price">
+            <div class="product-card_price-block">
+                <p class="product-card_price-current">${product[0].newPrice}<span>грн</span>
+                </p>
+            </div>
+            <div class="product-buy">
+                <button type="button" class="product-buy_button">Купить</button>
+            </div>
+            <div class="product-reviews">
+                <button type="button" class="product-reviews_button">Оставить отзыв</button>
+            </div>
+            <div class="product-description">
+                <div class="product-delivery">
+                    <span class="product-town">Доставка в Одессу</span>
+                </div>
+
+                <div class="product-card_delivery">
+                    <table class="table1">
+                        <tr class="tr1">
+                            <td class="td1">Самовывоз из магазина Promise Me</td>
+                            <td class="td1">Бесплатно</td>
+                            <td class="td1">Забрать в шоуруме через 5 мин</td>
+                        </tr>
+                        <tr class="tr1">
+                            <td class="td1">Курьер по вашему адресу</td>
+                            <td class="td1">Бесплатно</td>
+                            <td class="td1">Доставим сегодня</td>
+                        </tr>
+                        <tr class="tr1">
+                            <td class="td1">Самовывоз из Новой Почты</td>
+                            <td class="td1">Бесплатно</td>
+                            <td class="td1">Отправим сегодня</td>
+                        </tr>                        
+                    </table>
+                </div>
+
+                <div class="product-card_information-block">
+                    <p class="information_block">Оплата</p>
+                    <span>Наличными курьеру, Наложенный платеж, Наличными / картой в магазине,
+                            Оплата картой на сайте
+                </div>
+            </div>
+        </div>
+    </div>
+</div>`
+}
+
 
 function createBtnToWorkWithBrandFilters(element, className, text) {
     const btnToFilterByBrand = document.createElement('button');
@@ -300,11 +441,35 @@ function filterProductsByPriceRange(minPrice, maxPrice, products) {
 
     const priceRangeBtn = document.querySelector('.price-range-btn');
     priceRangeBtn.addEventListener('click', () => {
-        let productsFilteredByPrice = products.filter(product => {
-            return product.newPrice >= minPrice && product.newPrice <= maxPrice;
-        });
-        const productsEntitiesList = document.querySelector('.products__entities__list');
-        productsEntitiesList.innerHTML = '';
-        showProductsOfSelectedCategory(productsFilteredByPrice);
+        showPreloader(300);
+        setTimeout(() => {
+            let productsFilteredByPrice = products.filter(product => {
+                return product.newPrice >= minPrice && product.newPrice <= maxPrice;
+            });
+            const productsEntitiesList = document.querySelector('.products__entities__list');
+            productsEntitiesList.innerHTML = '';
+            showProductsOfSelectedCategory(productsFilteredByPrice);
+        },300);
+    });
+}
+
+function createPagination(pagesAmount) {
+    const pagination = document.createElement('ul');
+    pagination.classList.add('pagination');
+    pagination.classList.add('products__pagination');
+
+    for (let pageNumber = 1; pageNumber <= pagesAmount; pageNumber++) {
+        pagination.innerHTML += `<li class="products__pagination-item" data-page="${pageNumber}">${pageNumber}</li>`
+    }
+
+    const productsSort = document.querySelector('.products__sort');
+    productsSort.after(pagination);
+}
+
+function refreshInfo(...selectors) {
+    $(selectors).each((i, selector) => {
+        if ($(selector)) {
+            $(selector).remove();
+        }
     });
 }
