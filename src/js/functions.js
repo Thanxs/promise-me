@@ -120,7 +120,11 @@ function showProductsOfSelectedCategory(products) {
         ? Math.floor(products.length / amountOfProductsOnOnePage)
         : Math.floor(products.length / amountOfProductsOnOnePage) + 1;
 
-    createPagination(numberOfPages);
+    refreshInfo('.products__pagination');
+
+    if (products.length > 12) {
+        createPagination(numberOfPages);
+    }
 
     const productsEntitiesList = document.querySelector('.products__entities__list');
     products.forEach((product, idx) => {
@@ -210,8 +214,16 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const brandCheckBoxes = document.querySelectorAll('.products__brand-input');
     let arrayOfSelectedBrandsForFilter = [];
 
+    const brandCheckBoxesArray = Array.from(brandCheckBoxes);
+
     brandCheckBoxes.forEach(brand => {
         brand.addEventListener('click', (event) => {
+            if (brandCheckBoxesArray.some((checkBox) => checkBox.checked)) {
+                btnToFilterByBrand.classList.add('products__brand-filter-btn_active');
+            } else  {
+                btnToFilterByBrand.classList.remove('products__brand-filter-btn_active');
+            }
+
             if (event.target.checked) {
                 arrayOfSelectedBrandsForFilter.push(event.target.dataset.name);
                 arrayOfSelectedBrandsForFilter = makeUniqueArray(arrayOfSelectedBrandsForFilter);
@@ -227,11 +239,14 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const buttonsOfSort = document.querySelectorAll('.products__sort-btn');
     buttonsOfSort.forEach(btn => {
         btn.addEventListener('click', event => {
-            buttonsOfSort.forEach(btn => btn.classList.remove('products__sort-btn-active'));
-            event.target.classList.add('products__sort-btn-active');
-            productsEntitiesList.innerHTML = '';
-            checkSortFeature(productsOfSelectedCategory, event.target);
-            showProductsOfSelectedCategory(productsOfSelectedCategory);
+            showPreloader(300);
+            setTimeout(() => {
+                buttonsOfSort.forEach(btn => btn.classList.remove('products__sort-btn-active'));
+                event.target.classList.add('products__sort-btn-active');
+                productsEntitiesList.innerHTML = '';
+                checkSortFeature(productsOfSelectedCategory, event.target);
+                showProductsOfSelectedCategory(productsOfSelectedCategory);
+            }, 300);
         });
     });
 
@@ -441,4 +456,12 @@ function createPagination(pagesAmount) {
 
     const productsSort = document.querySelector('.products__sort');
     productsSort.after(pagination);
+}
+
+function refreshInfo(...selectors) {
+    $(selectors).each((i, selector) => {
+        if ($(selector)) {
+            $(selector).remove();
+        }
+    });
 }
