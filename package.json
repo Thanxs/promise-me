@@ -21,7 +21,8 @@
         "gulp-rename": "^1.4.0",
         "gulp-sass": "^4.0.2",
         "gulp-uglify": "^3.0.2",
-        "jquery.nicescroll": "^3.7.6"
+        "jquery.nicescroll": "^3.7.6",
+        "slick-carousel": "^1.8.1"
     },
     "dependencies": {
         "font-awesome": "^4.7.0",

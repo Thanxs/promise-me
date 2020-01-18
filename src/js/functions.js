@@ -48,6 +48,8 @@ function setEventListenersOnCategories(products) {
             showPreloader(400);
             setTimeout(() => {
                 showProductsSection(arrayOfProductsFromSelectedCategory);
+                const productsSection = document.querySelector(".products");
+                productsSection.scrollIntoView(300);
             }, 400);
         }));
 }
@@ -239,52 +241,55 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const buttonsOfSort = document.querySelectorAll('.products__sort-btn');
     buttonsOfSort.forEach(btn => {
         btn.addEventListener('click', event => {
-            showPreloader(300);
-            setTimeout(() => {
-                buttonsOfSort.forEach(btn => btn.classList.remove('products__sort-btn-active'));
-                event.target.classList.add('products__sort-btn-active');
-                productsEntitiesList.innerHTML = '';
-                checkSortFeature(productsOfSelectedCategory, event.target);
-                showProductsOfSelectedCategory(productsOfSelectedCategory);
-            }, 300);
+                showPreloader(300);
+                setTimeout(() => {
+                    buttonsOfSort.forEach(btn => btn.classList.remove('products__sort-btn-active'));
+                    event.target.classList.add('products__sort-btn-active');
+                    productsEntitiesList.innerHTML = '';
+                    checkSortFeature(productsOfSelectedCategory, event.target);
+                    showProductsOfSelectedCategory(productsOfSelectedCategory);
+                }, 300);
         });
     });
 
     btnToFilterByBrand.addEventListener('click', (event) => {
-        let allCheckedBrands = [];
-        for (let i = 0; i < arrayOfSelectedBrandsForFilter.length; i++) {
-            allCheckedBrands.push([...productsOfSelectedCategory.filter(brand => {
-                return brand.brand === arrayOfSelectedBrandsForFilter[i];
-            })]);
-        }
+        showPreloader(300);
+        setTimeout(() => {
+            let allCheckedBrands = [];
+            for (let i = 0; i < arrayOfSelectedBrandsForFilter.length; i++) {
+                allCheckedBrands.push([...productsOfSelectedCategory.filter(brand => {
+                    return brand.brand === arrayOfSelectedBrandsForFilter[i];
+                })]);
+            }
 
-        let allCheckedBrandsInOneArray = [];
+            let allCheckedBrandsInOneArray = [];
 
-        allCheckedBrands.forEach(arrayOfBrands => {
-            return allCheckedBrandsInOneArray.push(...arrayOfBrands);
-        });
-
-        productsEntitiesList.innerHTML = '';
-
-        showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
-
-        let arrayFromBrandsOfCheckBoxes = Array.from(brandCheckBoxes);
-        const isAllCheckBoxesEmpty = arrayFromBrandsOfCheckBoxes.every(checkBox => checkBox.checked === false);
-
-        if (isAllCheckBoxesEmpty) {
-            showProductsOfSelectedCategory(productsOfSelectedCategory);
-        }
-
-        buttonsOfSort.forEach(btn => {
-            btn.addEventListener('click', (event) => {
-                if (allCheckedBrandsInOneArray.length) {
-                    productsEntitiesList.innerHTML = '';
-
-                    checkSortFeature(allCheckedBrandsInOneArray, event.target);
-                    showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
-                }
+            allCheckedBrands.forEach(arrayOfBrands => {
+                return allCheckedBrandsInOneArray.push(...arrayOfBrands);
             });
-        })
+
+            productsEntitiesList.innerHTML = '';
+
+            showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
+
+            let arrayFromBrandsOfCheckBoxes = Array.from(brandCheckBoxes);
+            const isAllCheckBoxesEmpty = arrayFromBrandsOfCheckBoxes.every(checkBox => checkBox.checked === false);
+
+            if (isAllCheckBoxesEmpty) {
+                showProductsOfSelectedCategory(productsOfSelectedCategory);
+            }
+
+            buttonsOfSort.forEach(btn => {
+                btn.addEventListener('click', (event) => {
+                    if (allCheckedBrandsInOneArray.length) {
+                        productsEntitiesList.innerHTML = '';
+
+                        checkSortFeature(allCheckedBrandsInOneArray, event.target);
+                        showProductsOfSelectedCategory(allCheckedBrandsInOneArray);
+                    }
+                });
+            });
+        },300)
     });
 
     btnToResetBrandFilters.addEventListener('click', () => {
@@ -436,12 +441,15 @@ function filterProductsByPriceRange(minPrice, maxPrice, products) {
 
     const priceRangeBtn = document.querySelector('.price-range-btn');
     priceRangeBtn.addEventListener('click', () => {
-        let productsFilteredByPrice = products.filter(product => {
-            return product.newPrice >= minPrice && product.newPrice <= maxPrice;
-        });
-        const productsEntitiesList = document.querySelector('.products__entities__list');
-        productsEntitiesList.innerHTML = '';
-        showProductsOfSelectedCategory(productsFilteredByPrice);
+        showPreloader(300);
+        setTimeout(() => {
+            let productsFilteredByPrice = products.filter(product => {
+                return product.newPrice >= minPrice && product.newPrice <= maxPrice;
+            });
+            const productsEntitiesList = document.querySelector('.products__entities__list');
+            productsEntitiesList.innerHTML = '';
+            showProductsOfSelectedCategory(productsFilteredByPrice);
+        },300);
     });
 }
 

@@ -4,6 +4,6 @@ sendRequest('GET', 'js/products.json')
         const arrayOfCategories = createArrayOfCategories(products);
         showListOfCategoriesInDropDownMenu(arrayOfCategories);
         setEventListenersOnCategories(products);
-
         search(products);
+        createSlider();
     });
