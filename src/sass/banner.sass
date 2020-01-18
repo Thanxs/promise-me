@@ -1,0 +1,50 @@
+.banner
+  margin-top: 3rem
+  .container
+    display: flex
+    justify-content: flex-end
+  &__list
+    list-style: none
+    display: flex
+    margin: 0
+    padding: 0
+  &__item
+    width: 16rem
+    height: 10rem
+    border-radius: 5px
+    margin-left: .8rem
+    display: flex
+    justify-content: flex-end
+    position: relative
+    &:nth-child(1)
+      background-image: linear-gradient(to left top, #bce5ff, #a6d9fa, #90cdf5, #79c1f0, #5fb5eb)
+      &:before
+        content: 'Пылесосы Deebot'
+        z-index: 1
+        font-weight: 900
+        position: absolute
+        left: 5px
+        top: 75%
+    &:nth-child(2)
+      background-image: linear-gradient(to left top, #ffa200, #f69c00, #ec9600, #e39000, #da8a00)
+      &:before
+        content: 'Детские часы Elari'
+        z-index: 1
+        font-weight: 900
+        position: absolute
+        left: 5px
+        top: 75%
+    &:nth-child(3)
+      background-image: linear-gradient(to left top, #d600ff, #ad4fe7, #8f64c7, #7c6e9f, #727272)
+      &:before
+        content: 'Акустика JBL'
+        z-index: 1
+        font-weight: 900
+        position: absolute
+        left: 5px
+        top: 75%
+    img
+      position: absolute
+      top: 1rem
+      width: 75%
+      height: 90%

@@ -6,4 +6,5 @@ sendRequest('GET', 'js/products.json')
         setEventListenersOnCategories(products);
         search(products);
         createSlider();
+        addBanners();
     });
