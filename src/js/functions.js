@@ -18,6 +18,7 @@ function sendRequest(method, url) {
     });
 }
 
+
 function createArrayOfCategories(data) {
     const arrayOfCategories = data.map(item => item.category);
 
@@ -437,7 +438,7 @@ function showModalToBuy(product) {
                             <span class="title_price" id="totaloldsumm">${product[0].oldPrice}  грн</span></a>
                     </div>
                     <div>
-                        <a class="btn pic_red " id="makeOrder">Оформить заказ</a>
+                        <a class="btn pic_red " id="makeOrder" class="close" data-dismiss="modal" aria-label="Close">Оформить заказ</a>
                     </div>
                 </div>
             </div>
