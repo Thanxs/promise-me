@@ -28,10 +28,13 @@ function authFormHandler(event) {
 
     authWithEmailAndPassword(email, password).then(email => {
         if(email) {
-            document.querySelector('.header__user-field').innerHTML = `
-                                                                        <div>${email}</div>
-                                                                        <div class="header__exit"><a href="#">Выйти</a></div>
-                                                                        `;
+            const userFields = document.querySelectorAll('.header__user-field');
+            userFields.forEach(field => {
+                field.innerHTML = `
+                                    <div class="header__login-mail">${email}</div>
+                                    <div class="header__exit"><a href="#">Выйти</a></div>`;
+            });
+
             const registrationForm = document.querySelector('.modal__registration-form');
             mui.overlay('off', registrationForm);
             exitFromWebSite();
@@ -46,17 +49,19 @@ function authFormHandler(event) {
 }
 
 function exitFromWebSite() {
-    document.querySelector('.header__exit')
-        .addEventListener('click', (event) => {
+    const btnExit = document.querySelectorAll('.header__exit');
+    btnExit.forEach(btn => {
+        btn.addEventListener('click', (event) => {
             showPreloader(300);
             setTimeout(() => {
-                document.querySelector('.header__user-field')
-                    .innerHTML = `
+                document.querySelectorAll('.header__user-field').forEach(field => {
+                    field.innerHTML = `
                     <a href="#" class="header__user-login" id="user-login" onclick="activateModal()">
                         <i class="far fa-user"></i>
                     </a>
                 `;
+                })
             },300);
+        });
     });
 }
-

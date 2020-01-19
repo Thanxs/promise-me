@@ -2,8 +2,15 @@
     .header
         &__fixed
             display: none
-        &__main
+        &__catalog-dropdown, &__cart
             display: none
+        &__form
+            width: 100%
+        &__search-wrap
+            a
+                position: absolute
+                right: 0
+
         &__fixed-additional
             display: flex
             justify-content: space-between
@@ -14,7 +21,6 @@
     .slider
         &__inner
             margin-top: 5rem
-
 
     .products
         padding-top: 4rem
@@ -68,9 +74,15 @@
                 color: #ffffff !important
                 margin-left: 1rem
 
+    .modal
+        &__registration
+            width: 26rem
+
     .products
         &__wrap
             flex-direction: column
+    .search-modal
+        width: 82%
 
     .video-container
         grid: 1fr / 1fr
@@ -93,6 +105,13 @@
 
 
 @media (max-width: 535px)
+    .header
+        &__login-mail
+            display: none
+    .modal
+        &__registration
+            width: 18rem
+
     .products
         &__sort
             display: flex

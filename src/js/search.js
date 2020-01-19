@@ -1,6 +1,6 @@
 function search(products){
     let searchInput = document.querySelector('.header__search');
-    let searchButton = document.querySelector('.header__seacrh-wrap a');
+    let searchButton = document.querySelector('.header__search-wrap a');
     
     searchButton.addEventListener('click', searchBegin);
     searchInput.addEventListener('keypress', (e)=>{
