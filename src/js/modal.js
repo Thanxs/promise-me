@@ -49,16 +49,19 @@ function authFormHandler(event) {
 }
 
 function exitFromWebSite() {
-    document.querySelector('.header__exit')
-        .addEventListener('click', (event) => {
+    const btnExit = document.querySelectorAll('.header__exit');
+    btnExit.forEach(btn => {
+        btn.addEventListener('click', (event) => {
             showPreloader(300);
             setTimeout(() => {
-                document.querySelector('.header__user-field')
-                    .innerHTML = `
+                document.querySelectorAll('.header__user-field').forEach(field => {
+                    field.innerHTML = `
                     <a href="#" class="header__user-login" id="user-login" onclick="activateModal()">
                         <i class="far fa-user"></i>
                     </a>
                 `;
+                })
             },300);
+        });
     });
 }
