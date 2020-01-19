@@ -416,10 +416,10 @@ function showModalToBuy(product) {
                                     <div class="product__row">
                                         <div class="product__counter">
                                             <div class="counter">
-                                                <div class="counter__sign counter_inline counter_border" id="counterminus">-
+                                                <div class="counter__sign counter_inline counter_border counter_cursor" id="counterminus">-
                                                 </div>
                                                 <div class="counter__number counter_inline" id="counternumber">1</div>
-                                                <div class="counter__sign counter_inline counter_border" id="counterplus">+
+                                                <div class="counter__sign counter_inline counter_border counter_cursor" id="counterplus">+
                                                 </div>
                                                 <div class="product__price counter_inline" id="priceinmainwindow">${product[0].newPrice}<span> грн.</span>
                                                 </div>
