@@ -415,14 +415,12 @@ function showModalToBuy(product) {
                                     <div class="product__row">
                                         <div class="product__counter">
                                             <div class="counter">
-                                                <div class="counter__sign counter_inline counter_border"
-                                                     onclick="small_basket_all.changeItemQuantity(107921, 0)">-
+                                                <div class="counter__sign counter_inline counter_border" id="counterminus">-
                                                 </div>
-                                                <div class="counter__number counter_inline">1</div>
-                                                <div class="counter__sign counter_inline counter_border"
-                                                     onclick="small_basket_all.changeItemQuantity(107921, 2)">+
+                                                <div class="counter__number counter_inline" id="counternumber">1</div>
+                                                <div class="counter__sign counter_inline counter_border" id="counterplus">+
                                                 </div>
-                                                <div class="product__price counter_inline ">${product[0].newPrice}<span> грн.</span>
+                                                <div class="product__price counter_inline" id="priceinmainwindow">${product[0].newPrice}<span> грн.</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -435,16 +433,54 @@ function showModalToBuy(product) {
                 <div class="price-footer">
                     <div class="foot_grey">
                         <a class="btn pic_grey">
-                            <span class="modal-title_price">К оплате: ${product[0].newPrice} </span>
-                            <span class="title_price">${product[0].oldPrice}  грн</span></a>
+                            <span class="modal-title_price" id="totalsumm">К оплате: ${product[0].newPrice} </span>
+                            <span class="title_price" id="totaloldsumm">${product[0].oldPrice}  грн</span></a>
                     </div>
                     <div>
-                        <a class="btn pic_red ">Оформить заказ</a>
+                        <a class="btn pic_red " id="makeOrder">Оформить заказ</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>`;
+    const price = product[0].newPrice;
+    const buttonMinus = document.getElementById('counterminus');
+    const buttonNumber = document.getElementById('counternumber');
+    const buttonPlus = document.getElementById('counterplus');
+    const makeOrder = document.getElementById('makeOrder');
+
+    const priceinmainwindow = document.getElementById('priceinmainwindow');
+    const totalsumm = document.getElementById('totalsumm');
+    const totaloldsumm = document.getElementById('totaloldsumm');
+
+    buttonMinus.addEventListener('click', (event) =>
+    {
+        let numberOfItem = parseInt(buttonNumber.innerHTML);
+        if (numberOfItem>1){
+            buttonNumber.innerHTML = numberOfItem-1;
+            priceinmainwindow.innerHTML = (numberOfItem-1)*price + ' грн.';
+            totalsumm.innerHTML = (numberOfItem-1)*price;
+            totaloldsumm.innerHTML = (numberOfItem-1)*price+ ' грн.';
+        }
+    });
+
+    buttonPlus.addEventListener('click', (event) =>
+    {
+        let numberOfItem = parseInt(buttonNumber.innerHTML);
+        buttonNumber.innerHTML = numberOfItem+1;
+        priceinmainwindow.innerHTML = (numberOfItem+1)*price+ ' грн.';
+        totalsumm.innerHTML = (numberOfItem+1)*price;
+        totaloldsumm.innerHTML = (numberOfItem+1)*price+ ' грн.';
+    });
+
+    makeOrder.addEventListener('click', (event) =>
+    {
+
+        const numberOfItem = parseInt(buttonNumber.innerHTML);
+        console.log('Product Id: ' + product[0].id);
+        console.log('numberOfItem: ' + numberOfItem);
+        addItemToTrash(product[0].id,numberOfItem );
+    });
 
 }
 
