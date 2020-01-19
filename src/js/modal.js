@@ -28,10 +28,13 @@ function authFormHandler(event) {
 
     authWithEmailAndPassword(email, password).then(email => {
         if(email) {
-            document.querySelector('.header__user-field').innerHTML = `
-                                                                        <div>${email}</div>
-                                                                        <div class="header__exit"><a href="#">Выйти</a></div>
-                                                                        `;
+            const userFields = document.querySelectorAll('.header__user-field');
+            userFields.forEach(field => {
+                field.innerHTML = `
+                                    <div>${email}</div>
+                                    <div class="header__exit"><a href="#">Выйти</a></div>`;
+            });
+
             const registrationForm = document.querySelector('.modal__registration-form');
             mui.overlay('off', registrationForm);
             exitFromWebSite();
@@ -59,4 +62,3 @@ function exitFromWebSite() {
             },300);
     });
 }
-
