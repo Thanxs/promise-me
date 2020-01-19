@@ -474,22 +474,3 @@ function refreshInfo(...selectors) {
     });
 }
 
-function activateModal() {
-    const registrationForm = document.createElement('div');
-    registrationForm.classList.add('modal__registration');
-
-    registrationForm.innerHTML = `<form class="mui-form modal__registration-form">
-                          <legend class="modal__registration-title">Вход</legend>
-                          <div class="mui-textfield mui-textfield--float-label">
-                            <input type="email">
-                            <label>Email</label>
-                          </div>
-                          <div class="mui-textfield mui-textfield--float-label">
-                            <input type="password">
-                            <label>Пароль</label>
-                          </div>                          
-                          <button type="submit" class="mui-btn mui--bg-accent modal__registration-btn">Войти</button>
-                        </form>`;
-
-    mui.overlay('on', registrationForm);
-}
