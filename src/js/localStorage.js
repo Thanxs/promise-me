@@ -72,3 +72,65 @@ function ItemInTrashDecrease(id){
         }
     })
 }
+
+
+
+
+
+
+function otziv(product){
+    let otz = document.createElement('div');
+    otz.innerHTML =`
+<div class="reviews none-displayed" tabindex="-1" role="dialog">
+	<div class="modal-dialog " role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">${product[0].name}</h5>
+			</div>
+			<div class="modal-body">
+				<div class=""><img src="${product[0].src}"></div>
+				<p></p>
+			</div>
+
+			<div class="input-group input-group-sm mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-sm">Выше имя</span>
+				</div>
+				<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+			</div>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Оставить отзыв</span>
+				</div>
+				<textarea class="form-control" aria-label="With textarea"></textarea>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+`
+    document.querySelector('#wrapper').append(otz);
+    document.querySelector('.reviews').classList.remove('none-displayed');
+    let btnSave = document.querySelector('.reviews .btn-primary');
+    let btnClose = document.querySelector('.reviews .btn-secondary');
+
+    let reviewsText = document.querySelector('.reviews textarea');
+    let reviewsName = document.querySelector('.reviews input');
+    btnClose.addEventListener('click',()=>{
+        otz.remove();
+    })
+    btnSave.addEventListener('click', (e)=>{
+        if((reviewsName.value)&&(reviewsText.value)){
+            addItemComments(product[0].id, reviewsName.value, reviewsText.value)
+            console.log(reviewsText.value)
+            otz.remove();
+
+        }
+
+    })
+
+}
+

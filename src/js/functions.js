@@ -362,6 +362,11 @@ function showSelectedProduct(product) {
         </div>
     </div>
 </div>`
+
+document.querySelector('.products .product-reviews_button').addEventListener('click', (e)=>{
+    otziv(product);
+ })
+
 }
 
 
