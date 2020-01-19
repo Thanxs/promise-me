@@ -3,6 +3,7 @@ document.body.onload = function () {
 };
 
 function showPreloader(ms) {
+    refreshInfo('.preloader');
     const wrapper = document.getElementById('wrapper');
     const preloader = document.createElement('div');
     preloader.classList.add('preloader');
