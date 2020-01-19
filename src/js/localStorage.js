@@ -127,10 +127,31 @@ function otziv(product){
             addItemComments(product[0].id, reviewsName.value, reviewsText.value)
             console.log(reviewsText.value)
             otz.remove();
-
         }
-
     })
+}
 
+function showProductReviews(product){
+    let productReviewsWindow =  document.querySelector('.product-card_information_product-reviews');
+    let arrayComments = CommentsByItemId(product[0].id);
+    console.log(product[0].id)
+    if(arrayComments){
+        arrayComments.forEach(item=>{
+            console.log('items')
+    
+            let div = document.createElement('div');
+            div.innerHTML=`
+            <div class="product-review-window">
+                <div>
+                <p class="review-name">${item.user}</p>
+                <p class="review-date">${moment(Date.parse(item.data)).format('MMMM Do YYYY , h:mm:ss a')} </p>
+                </div>
+                    <p class="comment">${item.comment}</p>
+                    
+                </div>
+                  `;
+            productReviewsWindow.appendChild(div);    
+        })
+    }
 }
 

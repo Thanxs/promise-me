@@ -323,7 +323,7 @@ function showSelectedProduct(product) {
                 </p>
             </div>
             <div class="product-buy">
-                <button type="button" class="product-buy_button">Купить</button>
+                <button type="button" class="product-buy_button" data-product-id="${product[0].id}" data-toggle="modal" data-target=".bd-example-modal-lg">Купить</button>
             </div>
             <div class="product-reviews">
                 <button type="button" class="product-reviews_button">Оставить отзыв</button>
@@ -360,12 +360,95 @@ function showSelectedProduct(product) {
                 </div>
             </div>
         </div>
+        <div class="product-card_information_product-reviews">
+        <h5>Отзывы</h5>  
+        </div>       
     </div>
-</div>`
+</div>
+<div class="modalWindowToBuy"></div>`;
 
-document.querySelector('.products .product-reviews_button').addEventListener('click', (e)=>{
+
+    const buttonBuy = document.querySelector('.product-buy_button');
+    buttonBuy.addEventListener('click', (event) =>
+    {
+        showModalToBuy(product);
+    });
+
+    document.querySelector('.products .product-reviews_button').addEventListener('click', (e)=>{
     otziv(product);
  })
+    showProductReviews(product);
+}
+
+function showModalToBuy(product) {
+    const selectedProduct = document.querySelector('.modalWindowToBuy');
+    selectedProduct.innerHTML = `<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div>
+                        <div class="modal-footer">
+                            <div class="content_text">
+                                <div class="title_text1">Товар добавлен в корзину</div>
+                                <div class="pic_img_content">
+                                    <img class="pic_content" src="${product[0].src}">
+                                </div>
+                                <div class="pic_content_text">
+                                    <div class="product_pic_content_text">
+                                        <a class="product_title">${product[0].name}
+                                        </a>
+                                        
+                                    </div>
+                                     <div class="product_delete">
+                                            <a class="product__delete" href="javascript:void(0);"
+                                               onclick="small_basket_all.removeItemFromCart(107923)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20px"
+                                                     height="25px" viewBox="0 0 20 25">
+                                                    <g>
+                                                        <path fill="#d9d9d9"
+                                                              d="M18,8H2C1.7,8,1.417,8.135,1.227,8.366S0.96,8.902,1.02,9.196l3,15C4.113,24.663,4.523,25,5,25h10c0.477,0,0.887-0.337,0.98-0.804l3-15c0.059-0.294-0.017-0.599-0.207-0.83S18.3,8,18,8z M14.18,23h-2l1.806-10.836c0.091-0.544-0.277-1.06-0.822-1.15c-0.548-0.097-1.06,0.278-1.151,0.822L10.153,23H9.847L7.986,11.836c-0.091-0.545-0.603-0.919-1.151-0.822c-0.544,0.091-0.913,0.606-0.822,1.15L7.82,23h-2l-2.6-13H16.78L14.18,23z"></path>
+                                                        <path fill="#d9d9d9"
+                                                              d="M19,4h-4.101C14.434,1.721,12.414,0,10,0S5.566,1.721,5.101,4H1C0.448,4,0,4.447,0,5s0.448,1,1,1h18c0.552,0,1-0.447,1-1S19.552,4,19,4z M10,2c1.302,0,2.402,0.839,2.816,2H7.184C7.598,2.839,8.698,2,10,2z"></path>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                            <path fill="#d9d9d9"
+                                                  d="M18,8H2C1.7,8,1.417,8.135,1.227,8.366S0.96,8.902,1.02,9.196l3,15C4.113,24.663,4.523,25,5,25h10c0.477,0,0.887-0.337,0.98-0.804l3-15c0.059-0.294-0.017-0.599-0.207-0.83S18.3,8,18,8z M14.18,23h-2l1.806-10.836c0.091-0.544-0.277-1.06-0.822-1.15c-0.548-0.097-1.06,0.278-1.151,0.822L10.153,23H9.847L7.986,11.836c-0.091-0.545-0.603-0.919-1.151-0.822c-0.544,0.091-0.913,0.606-0.822,1.15L7.82,23h-2l-2.6-13H16.78L14.18,23z"></path>
+                                        </div>
+                                    <div class="product__row">
+                                        <div class="product__counter">
+                                            <div class="counter">
+                                                <div class="counter__sign counter_inline counter_border"
+                                                     onclick="small_basket_all.changeItemQuantity(107921, 0)">-
+                                                </div>
+                                                <div class="counter__number counter_inline">1</div>
+                                                <div class="counter__sign counter_inline counter_border"
+                                                     onclick="small_basket_all.changeItemQuantity(107921, 2)">+
+                                                </div>
+                                                <div class="product__price counter_inline ">${product[0].newPrice}<span> грн.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-footer">
+                    <div class="foot_grey">
+                        <a class="btn pic_grey">
+                            <span class="modal-title_price">К оплате: ${product[0].newPrice} </span>
+                            <span class="title_price">${product[0].oldPrice}  грн</span></a>
+                    </div>
+                    <div>
+                        <a class="btn pic_red ">Оформить заказ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
 
 }
 
