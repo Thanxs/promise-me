@@ -1,5 +1,5 @@
 document.body.onload = function () {
-    showPreloader(00); //1500
+    showPreloader(0); //1500
 };
 
 function showPreloader(ms) {

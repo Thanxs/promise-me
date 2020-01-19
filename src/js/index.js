@@ -7,4 +7,6 @@ sendRequest('GET', 'js/products.json')
         search(products);
         createSlider();
         addBanners();
+
+        localStorageGet();
     });

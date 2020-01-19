@@ -24,7 +24,7 @@ function searchBegin(){
         let arraySearchResult = findItems();
         if (arraySearchResult.length > 0){
             showProductsSection(arraySearchResult);
-            
+
             searchHintsWindow.innerHTML="";
             document.querySelector(".products").scrollIntoView(300); //scroll
 
