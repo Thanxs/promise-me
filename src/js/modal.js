@@ -31,7 +31,7 @@ function authFormHandler(event) {
             const userFields = document.querySelectorAll('.header__user-field');
             userFields.forEach(field => {
                 field.innerHTML = `
-                                    <div>${email}</div>
+                                    <div class="header__login-mail">${email}</div>
                                     <div class="header__exit"><a href="#">Выйти</a></div>`;
             });
 
