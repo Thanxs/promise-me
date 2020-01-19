@@ -241,14 +241,11 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     const buttonsOfSort = document.querySelectorAll('.products__sort-btn');
     buttonsOfSort.forEach(btn => {
         btn.addEventListener('click', event => {
-                showPreloader(300);
-                setTimeout(() => {
-                    buttonsOfSort.forEach(btn => btn.classList.remove('products__sort-btn-active'));
-                    event.target.classList.add('products__sort-btn-active');
-                    productsEntitiesList.innerHTML = '';
-                    checkSortFeature(productsOfSelectedCategory, event.target);
-                    showProductsOfSelectedCategory(productsOfSelectedCategory);
-                }, 300);
+            buttonsOfSort.forEach(btn => btn.classList.remove('products__sort-btn-active'));
+            event.target.classList.add('products__sort-btn-active');
+            productsEntitiesList.innerHTML = '';
+            checkSortFeature(productsOfSelectedCategory, event.target);
+            showProductsOfSelectedCategory(productsOfSelectedCategory);
         });
     });
 
@@ -293,13 +290,16 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     });
 
     btnToResetBrandFilters.addEventListener('click', () => {
-        brandCheckBoxes.forEach(checkBox => {
-                checkBox.checked = false;
-                arrayOfSelectedBrandsForFilter = [];
-            }
-        );
-        productsEntitiesList.innerHTML = '';
-        showProductsOfSelectedCategory(productsOfSelectedCategory);
+        showPreloader(300);
+        setTimeout(() => {
+            brandCheckBoxes.forEach(checkBox => {
+                    checkBox.checked = false;
+                    arrayOfSelectedBrandsForFilter = [];
+                }
+            );
+            productsEntitiesList.innerHTML = '';
+            showProductsOfSelectedCategory(productsOfSelectedCategory);
+        }, 300);
     });
 }
 
@@ -472,4 +472,24 @@ function refreshInfo(...selectors) {
             $(selector).remove();
         }
     });
+}
+
+function activateModal() {
+    const registrationForm = document.createElement('div');
+    registrationForm.classList.add('modal__registration');
+
+    registrationForm.innerHTML = `<form class="mui-form modal__registration-form">
+                          <legend class="modal__registration-title">Вход</legend>
+                          <div class="mui-textfield mui-textfield--float-label">
+                            <input type="email">
+                            <label>Email</label>
+                          </div>
+                          <div class="mui-textfield mui-textfield--float-label">
+                            <input type="password">
+                            <label>Пароль</label>
+                          </div>                          
+                          <button type="submit" class="mui-btn mui--bg-accent modal__registration-btn">Войти</button>
+                        </form>`;
+
+    mui.overlay('on', registrationForm);
 }

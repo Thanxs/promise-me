@@ -854,7 +854,7 @@
   {
     "name": "Робот - пылесос ECOVACS DEEBOT OZMO Slim 10 Black (DK3G)",
     "oldPrice": 11999,
-    "newPrice": 6999,
+    "newPrice": 6997,
     "src": "../images/products/ecovacs/4.jpg",
     "brand": "Ecovacs Deebot",
     "category": "Роботы пылесосы",
@@ -1018,5 +1018,101 @@
     "rate": 0,
     "review": [],
     "id": 85
+  },
+  {
+    "name": "Смарт-часы Amazfit Bip A1608 Black (UYG4021RT/UYG4017) (Международная версия)",
+    "oldPrice": 1779,
+    "newPrice": 1449 ,
+    "src": "../images/products/amazfit/1.jpg",
+    "brand": "Amazfit",
+    "category": "Смарт часы",
+    "categoryNumber": 3,
+    "rate": 0,
+    "review": [],
+    "id": 86
+  },
+  {
+    "name": "Смарт-часы Amazfit GTR 47mm Stainless steel (Международная версия) (A1902SS)",
+    "oldPrice": 3399,
+    "newPrice": 4299 ,
+    "src": "../images/products/amazfit/2.jpg",
+    "brand": "Amazfit",
+    "category": "Смарт часы",
+    "categoryNumber": 3,
+    "rate": 0,
+    "review": [],
+    "id": 87
+  },
+  {
+    "name": "Смарт-часы Amazfit GTR 47mm Aluminum alloy (Международная версия) (A1902AA)",
+    "oldPrice": 3299,
+    "newPrice": 4299 ,
+    "src": "../images/products/amazfit/3.jpg",
+    "brand": "Amazfit",
+    "category": "Смарт часы",
+    "categoryNumber": 3,
+    "rate": 0,
+    "review": [],
+    "id": 88
+  },
+  {
+    "name": "Смарт-часы Amazfit GTS Desert Gold (Международная версия) (A1914DG)",
+    "oldPrice": 3799,
+    "newPrice": 3499 ,
+    "src": "../images/products/amazfit/4.jpg",
+    "brand": "Amazfit",
+    "category": "Смарт часы",
+    "categoryNumber": 3,
+    "rate": 0,
+    "review": [],
+    "id": 89
+  },
+  {
+    "name": "Смарт-часы с GPS Amazfit Bip A1608 Kokoda Green (UG4023RT) (Международная версия)",
+    "oldPrice": 1799,
+    "newPrice": 1499 ,
+    "src": "../images/products/amazfit/5.jpg",
+    "brand": "Amazfit",
+    "category": "Смарт часы",
+    "categoryNumber": 3,
+    "rate": 0,
+    "review": [],
+    "id": 90
+  },
+  {
+    "name": "Смарт-часы с GPS Amazfit Bip A1608 Kokoda Green (UG4023RT) (Международная версия)",
+    "oldPrice": 1799,
+    "newPrice": 1499 ,
+    "src": "../images/products/amazfit/6.jpg",
+    "brand": "Amazfit",
+    "category": "Смарт часы",
+    "categoryNumber": 3,
+    "rate": 0,
+    "review": [],
+    "id": 91
+  },
+  {
+    "name": "Смарт-часы Amazfit Verge Lite Grey Международная версия (А1818)",
+    "oldPrice": 2799,
+    "newPrice": 3299 ,
+    "src": "../images/products/amazfit/7.jpg",
+    "brand": "Amazfit",
+    "category": "Смарт часы",
+    "categoryNumber": 3,
+    "rate": 0,
+    "review": [],
+    "id": 92
+  },
+  {
+    "name": "Смарт-часы Amazfit Verge Shadow Grey (Международная версия) (A1811SG)",
+    "oldPrice": 3999,
+    "newPrice": 2599,
+    "src": "../images/products/amazfit/8.jpg",
+    "brand": "Amazfit",
+    "category": "Смарт часы",
+    "categoryNumber": 3,
+    "rate": 0,
+    "review": [],
+    "id": 93
   }
 ]
