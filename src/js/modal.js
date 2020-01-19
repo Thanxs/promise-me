@@ -28,16 +28,35 @@ function authFormHandler(event) {
 
     authWithEmailAndPassword(email, password).then(email => {
         if(email) {
-            document.getElementById('user-login').innerHTML = `
+            document.querySelector('.header__user-field').innerHTML = `
                                                                         <div>${email}</div>
-                                                                        <div class="header__exit">Выйти</div>
+                                                                        <div class="header__exit"><a href="#">Выйти</a></div>
                                                                         `;
+            const registrationForm = document.querySelector('.modal__registration-form');
+            mui.overlay('off', registrationForm);
+            exitFromWebSite();
         } else {
             const btnToLogin = document.querySelector('.modal__registration-btn');
             const errorText = document.createElement('div');
             errorText.innerHTML = `<div>Вы ввели неверную почту или пароль</div>`;
             errorText.classList.add('header__login-error');
-            btnToLogin.before(errorText)
+            btnToLogin.before(errorText);
         }
     });
 }
+
+function exitFromWebSite() {
+    document.querySelector('.header__exit')
+        .addEventListener('click', (event) => {
+            showPreloader(300);
+            setTimeout(() => {
+                document.querySelector('.header__user-field')
+                    .innerHTML = `
+                    <a href="#" class="header__user-login" id="user-login" onclick="activateModal()">
+                        <i class="far fa-user"></i>
+                    </a>
+                `;
+            },300);
+    });
+}
+
