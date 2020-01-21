@@ -105,8 +105,8 @@ function otziv(product){
 				<textarea class="form-control" aria-label="With textarea"></textarea>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+				<button type="button" class="btn btn-primary">Сохранить отзыв</button>
 			</div>
 		</div>
 	</div>
@@ -132,7 +132,7 @@ function otziv(product){
 }
 
 function showProductReviews(product){
-    let productReviewsWindow =  document.querySelector('.product-card_information_product-reviews');
+    let productReviewsWindow =  document.querySelector('.product-reviews-content');
     let arrayComments = CommentsByItemId(product[0].id);
     console.log(product[0].id)
     if(arrayComments){

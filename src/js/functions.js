@@ -361,7 +361,8 @@ function showSelectedProduct(product) {
             </div>
         </div>
         <div class="product-card_information_product-reviews">
-        <h5>Отзывы</h5>  
+        <h5>Отзывы</h5>
+        <div class="product-reviews-content"></div>
         </div>       
     </div>
 </div>
