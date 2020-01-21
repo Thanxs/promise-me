@@ -165,20 +165,20 @@ function showProductsOfSelectedCategory(products) {
                 const pageNumber = parseInt(event.target.dataset.page);
 
                 const arrayOfRangeBreakPoints = [];
-                for (let i = 1; i <= products.length; i+=amountOfProductsOnOnePage) {
+                for (let i = 1; i <= products.length; i += amountOfProductsOnOnePage) {
                     arrayOfRangeBreakPoints.push(i);
                 }
 
-                if (pageNumber === (idx +1)) {
+                if (pageNumber === (idx + 1)) {
                     for (let i = 0; i < products.length; i++) {
                         productsEntitiesItems[i].classList.remove('products__entities__item_active');
-                        if(!productsEntitiesItems[i]) {
+                        if (!productsEntitiesItems[i]) {
                             break;
                         }
                     }
-                    for (let i = arrayOfRangeBreakPoints[idx]; i <= amountOfProductsOnOnePage*(idx+1); i++) {
-                        productsEntitiesItems[i-1].classList.add('products__entities__item_active');
-                        if(!productsEntitiesItems[i]) {
+                    for (let i = arrayOfRangeBreakPoints[idx]; i <= amountOfProductsOnOnePage * (idx + 1); i++) {
+                        productsEntitiesItems[i - 1].classList.add('products__entities__item_active');
+                        if (!productsEntitiesItems[i]) {
                             break;
                         }
                     }
@@ -187,15 +187,14 @@ function showProductsOfSelectedCategory(products) {
         })
     });
 
-    productsEntitiesItems.forEach(productEntity => productEntity.addEventListener('click', (event) =>
-    {
-            const entityId = parseInt(productEntity.getAttribute('data-product-id'));
-            const productFromBD = products.filter(item => {
-                    return item.id === entityId
-                }
-            );
-            showSelectedProduct(productFromBD);
-        }));
+    productsEntitiesItems.forEach(productEntity => productEntity.addEventListener('click', (event) => {
+        const entityId = parseInt(productEntity.getAttribute('data-product-id'));
+        const productFromBD = products.filter(item => {
+                return item.id === entityId
+            }
+        );
+        showSelectedProduct(productFromBD);
+    }));
 }
 
 function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
@@ -223,7 +222,7 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
         brand.addEventListener('click', (event) => {
             if (brandCheckBoxesArray.some((checkBox) => checkBox.checked)) {
                 btnToFilterByBrand.classList.add('products__brand-filter-btn_active');
-            } else  {
+            } else {
                 btnToFilterByBrand.classList.remove('products__brand-filter-btn_active');
             }
 
@@ -287,7 +286,7 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
                     }
                 });
             });
-        },300)
+        }, 300)
     });
 
     btnToResetBrandFilters.addEventListener('click', () => {
@@ -306,7 +305,7 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
 
 function showSelectedProduct(product) {
     const selectedProduct = document.querySelector('.products');
-       selectedProduct.innerHTML = `
+    selectedProduct.innerHTML = `
 <div class="product-card">
     <div class="product-card_information">
         <img src="${product[0].src}">
@@ -322,39 +321,39 @@ function showSelectedProduct(product) {
             <div class="product-card_price-block">
                 <p class="product-card_price-current">${product[0].newPrice}<span>грн</span>
                 </p>
-            </div>
+            
+            <div class="product_button-click">
             <div class="product-buy">
                 <button type="button" class="product-buy_button" data-product-id="${product[0].id}" data-toggle="modal" data-target=".bd-example-modal-lg">Купить</button>
             </div>
             <div class="product-reviews">
                 <button type="button" class="product-reviews_button">Оставить отзыв</button>
             </div>
+            </div>
             <div class="product-description">
                 <div class="product-delivery">
                     <span class="product-town">Доставка в Одессу</span>
                 </div>
-
                 <div class="product-card_delivery">
-                    <table class="table1">
-                        <tr class="tr1">
-                            <td class="td1">Самовывоз из магазина Promise Me</td>
-                            <td class="td1">Бесплатно</td>
-                            <td class="td1">Забрать в шоуруме через 5 мин</td>
-                        </tr>
-                        <tr class="tr1">
-                            <td class="td1">Курьер по вашему адресу</td>
-                            <td class="td1">Бесплатно</td>
-                            <td class="td1">Доставим сегодня</td>
-                        </tr>
-                        <tr class="tr1">
-                            <td class="td1">Самовывоз из Новой Почты</td>
-                            <td class="td1">Бесплатно</td>
-                            <td class="td1">Отправим сегодня</td>
-                        </tr>                        
-                    </table>
-                </div>
-
-                <div class="product-card_information-block">
+                <div class="product-card_delivery-next1">
+                         <span class="product-card_delivery-text1">Самовывоз из магазина Promise M</span>
+                           <span class="product-card_delivery-text2">Бесплатно</span>
+                             <span class="product-card_delivery-text3">Забрать в шоуруме через 5 мин</span>
+                             </div>
+                             <br>
+                           <div class="product-card_delivery-next2">
+                             <span class="product-card_delivery-text4">Курьер по вашему адресу</span>
+                           <span class="product-card_delivery-text5">Бесплатно</span>
+                             <span class="product-card_delivery-text6">Доставим сегодня</span>
+                            </div>
+                             <br>
+                           <div class="product-card_delivery-next3">
+                             <span class="product-card_delivery-text4">Самовывоз из Новой Почты</span>
+                           <span class="product-card_delivery-text5">Бесплатно</span>
+                             <span class="product-card_delivery-text6">Отправим сегодня</span>
+                            </div>
+                             </div>
+                             <div class="product-card_information-block">
                     <p class="information_block">Оплата</p>
                     <span>Наличными курьеру, Наложенный платеж, Наличными / картой в магазине,
                             Оплата картой на сайте
@@ -367,14 +366,13 @@ function showSelectedProduct(product) {
 
 
     const buttonBuy = document.querySelector('.product-buy_button');
-    buttonBuy.addEventListener('click', (event) =>
-    {
+    buttonBuy.addEventListener('click', (event) => {
         showModalToBuy(product);
     });
 
-document.querySelector('.products .product-reviews_button').addEventListener('click', (e)=>{
-    otziv(product);
- })
+    document.querySelector('.products .product-reviews_button').addEventListener('click', (e) => {
+        otziv(product);
+    })
 }
 
 function showModalToBuy(product) {
@@ -395,24 +393,7 @@ function showModalToBuy(product) {
                                     <div class="product_pic_content_text">
                                         <a class="product_title">${product[0].name}
                                         </a>
-                                        
                                     </div>
-                                     <div class="product_delete">
-                                            <a class="product__delete" href="javascript:void(0);"
-                                               onclick="small_basket_all.removeItemFromCart(107923)">
-                                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20px"
-                                                     height="25px" viewBox="0 0 20 25">
-                                                    <g>
-                                                        <path fill="#d9d9d9"
-                                                              d="M18,8H2C1.7,8,1.417,8.135,1.227,8.366S0.96,8.902,1.02,9.196l3,15C4.113,24.663,4.523,25,5,25h10c0.477,0,0.887-0.337,0.98-0.804l3-15c0.059-0.294-0.017-0.599-0.207-0.83S18.3,8,18,8z M14.18,23h-2l1.806-10.836c0.091-0.544-0.277-1.06-0.822-1.15c-0.548-0.097-1.06,0.278-1.151,0.822L10.153,23H9.847L7.986,11.836c-0.091-0.545-0.603-0.919-1.151-0.822c-0.544,0.091-0.913,0.606-0.822,1.15L7.82,23h-2l-2.6-13H16.78L14.18,23z"></path>
-                                                        <path fill="#d9d9d9"
-                                                              d="M19,4h-4.101C14.434,1.721,12.414,0,10,0S5.566,1.721,5.101,4H1C0.448,4,0,4.447,0,5s0.448,1,1,1h18c0.552,0,1-0.447,1-1S19.552,4,19,4z M10,2c1.302,0,2.402,0.839,2.816,2H7.184C7.598,2.839,8.698,2,10,2z"></path>
-                                                    </g>
-                                                </svg>
-                                            </a>
-                                            <path fill="#d9d9d9"
-                                                  d="M18,8H2C1.7,8,1.417,8.135,1.227,8.366S0.96,8.902,1.02,9.196l3,15C4.113,24.663,4.523,25,5,25h10c0.477,0,0.887-0.337,0.98-0.804l3-15c0.059-0.294-0.017-0.599-0.207-0.83S18.3,8,18,8z M14.18,23h-2l1.806-10.836c0.091-0.544-0.277-1.06-0.822-1.15c-0.548-0.097-1.06,0.278-1.151,0.822L10.153,23H9.847L7.986,11.836c-0.091-0.545-0.603-0.919-1.151-0.822c-0.544,0.091-0.913,0.606-0.822,1.15L7.82,23h-2l-2.6-13H16.78L14.18,23z"></path>
-                                        </div>
                                     <div class="product__row">
                                         <div class="product__counter">
                                             <div class="counter">
@@ -454,33 +435,30 @@ function showModalToBuy(product) {
     const totalsumm = document.getElementById('totalsumm');
     const totaloldsumm = document.getElementById('totaloldsumm');
 
-    buttonMinus.addEventListener('click', (event) =>
-    {
+    buttonMinus.addEventListener('click', (event) => {
         let numberOfItem = parseInt(buttonNumber.innerHTML);
-        if (numberOfItem>1){
-            buttonNumber.innerHTML = numberOfItem-1;
-            priceinmainwindow.innerHTML = (numberOfItem-1)*price + ' грн.';
-            totalsumm.innerHTML = (numberOfItem-1)*price;
-            totaloldsumm.innerHTML = (numberOfItem-1)*price+ ' грн.';
+        if (numberOfItem > 1) {
+            buttonNumber.innerHTML = numberOfItem - 1;
+            priceinmainwindow.innerHTML = (numberOfItem - 1) * price + ' грн.';
+            totalsumm.innerHTML = (numberOfItem - 1) * price;
+            totaloldsumm.innerHTML = (numberOfItem - 1) * price + ' грн.';
         }
     });
 
-    buttonPlus.addEventListener('click', (event) =>
-    {
+    buttonPlus.addEventListener('click', (event) => {
         let numberOfItem = parseInt(buttonNumber.innerHTML);
-        buttonNumber.innerHTML = numberOfItem+1;
-        priceinmainwindow.innerHTML = (numberOfItem+1)*price+ ' грн.';
-        totalsumm.innerHTML = (numberOfItem+1)*price;
-        totaloldsumm.innerHTML = (numberOfItem+1)*price+ ' грн.';
+        buttonNumber.innerHTML = numberOfItem + 1;
+        priceinmainwindow.innerHTML = (numberOfItem + 1) * price + ' грн.';
+        totalsumm.innerHTML = (numberOfItem + 1) * price;
+        totaloldsumm.innerHTML = (numberOfItem + 1) * price + ' грн.';
     });
 
-    makeOrder.addEventListener('click', (event) =>
-    {
+    makeOrder.addEventListener('click', (event) => {
 
         const numberOfItem = parseInt(buttonNumber.innerHTML);
         console.log('Product Id: ' + product[0].id);
         console.log('numberOfItem: ' + numberOfItem);
-        addItemToTrash(product[0].id,numberOfItem );
+        addItemToTrash(product[0].id, numberOfItem);
     });
 
 }
@@ -570,7 +548,7 @@ function filterProductsByPriceRange(minPrice, maxPrice, products) {
             const productsEntitiesList = document.querySelector('.products__entities__list');
             productsEntitiesList.innerHTML = '';
             showProductsOfSelectedCategory(productsFilteredByPrice);
-        },300);
+        }, 300);
     });
 }
 
