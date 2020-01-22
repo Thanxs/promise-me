@@ -306,6 +306,16 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
 function showSelectedProduct(product) {
     const selectedProduct = document.querySelector('.products');
     selectedProduct.innerHTML = `
+<div class="breadscrum">
+    <div class="breadscrum-scroll">
+    <div class="scrols">
+    <span>Интернет-магазин Promise Me &gt;</span>
+    <span>Наушники &gt;</span>
+    <span>APPLE &gt;</span>
+    <span>Наушники APPLE AirPods 2 with Charging Case (MV7N2)</span>
+    </div>
+</div>
+</div>
 <div class="product-card">
     <div class="product-card_information">
         <img src="${product[0].src}">
@@ -336,7 +346,7 @@ function showSelectedProduct(product) {
                 </div>
                 <div class="product-card_delivery">
                 <div class="product-card_delivery-next1">
-                         <span class="product-card_delivery-text1">Самовывоз из магазина Promise M</span>
+                         <span class="product-card_delivery-text1">Самовывоз из магазина Promise Me</span>
                            <span class="product-card_delivery-text2">Бесплатно</span>
                              <span class="product-card_delivery-text3">Забрать в шоуруме через 5 мин</span>
                              </div>
@@ -374,9 +384,9 @@ function showSelectedProduct(product) {
         showModalToBuy(product);
     });
 
-    document.querySelector('.products .product-reviews_button').addEventListener('click', (e)=>{
-    otziv(product);
- })
+    document.querySelector('.products .product-reviews_button').addEventListener('click', (e) => {
+        otziv(product);
+    })
     showProductReviews(product);
 }
 
