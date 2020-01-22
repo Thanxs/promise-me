@@ -3,7 +3,7 @@ function showSelectedProduct(product, products) {
     selectedProduct.innerHTML = `
 <div class="breadscrumbs">
     <div class="breadscrumbs-scroll">
-    <span class="counter_cursor breadscrumbs_scrolls " id="spanmarket"> Интернет-магазин Promise Me &gt;</span>
+    <span class="counter_cursor breadscrumbs_scrolls " id="spanmarket" onclick="window.location.reload();"> Интернет-магазин Promise Me &gt;</span>
     <span class="counter_cursor breadscrumbs_scrolls" id="spancategory">${product[0].category} &gt;</span>
     <span class="counter_cursor breadscrumbs_scrolls" id="spanbrand">${product[0].brand} &gt;</span>
     <span id="spanproduct">${product[0].name}</span>
