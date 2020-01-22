@@ -193,7 +193,7 @@ function showProductsOfSelectedCategory(products) {
                 return item.id === entityId
             }
         );
-        showSelectedProduct(productFromBD);
+        showSelectedProduct(productFromBD, products);
     }));
 }
 
@@ -303,18 +303,16 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     });
 }
 
-function showSelectedProduct(product) {
+function showSelectedProduct(product, products) {
     const selectedProduct = document.querySelector('.products');
     selectedProduct.innerHTML = `
-<div class="breadscrum">
-    <div class="breadscrum-scroll">
-    <div class="scrols">
-    <span>Интернет-магазин Promise Me &gt;</span>
-    <span>Наушники &gt;</span>
-    <span>APPLE &gt;</span>
-    <span>Наушники APPLE AirPods 2 with Charging Case (MV7N2)</span>
+<div class="breadscrumbs">
+    <div class="breadscrumbs-scroll">
+    <span class="counter_cursor breadscrumbs_scrolls " id="spanmarket"> Интернет-магазин Promise Me &gt;</span>
+    <span class="counter_cursor breadscrumbs_scrolls" id="spancategory">${product[0].category} &gt;</span>
+    <span class="counter_cursor breadscrumbs_scrolls" id="spanbrand">${product[0].brand} &gt;</span>
+    <span id="spanproduct">${product[0].name}</span>
     </div>
-</div>
 </div>
 <div class="product-card">
     <div class="product-card_information">
@@ -329,7 +327,7 @@ function showSelectedProduct(product) {
         </div>
         <div class="product-card_price">
             <div class="product-card_price-block">
-                <p class="product-card_price-current">${product[0].newPrice}<span>грн</span>
+                <p class="product-card_price-current">${product[0].newPrice}<span> грн.</span>
                 </p>
             
             <div class="product_button-click">
@@ -384,9 +382,38 @@ function showSelectedProduct(product) {
         showModalToBuy(product);
     });
 
+/*    let products=0;
+    sendRequest('GET', 'products.json')
+        .then(data => {
+            const test = data;
+            products=test;
+        });*/
+
+
+
+    const spancategory = document.getElementById('spancategory');
+    spancategory.addEventListener('click', (event) => {
+        const arrayOfProductsFromSelectedCategory = products.filter(item => {
+                return item.categoryNumber === product[0].categoryNumber;
+            }
+        );
+        showProductsSection(arrayOfProductsFromSelectedCategory);
+    });
+
+    const spanbrand = document.getElementById('spanbrand');
+    spanbrand.addEventListener('click', (event) => {
+        const arrayOfProductsFromSelectedBrand = products.filter(item => {
+                return item.brand === product[0].brand;
+            }
+        );
+        showProductsSection(arrayOfProductsFromSelectedBrand);
+    });
+
+
+
     document.querySelector('.products .product-reviews_button').addEventListener('click', (e) => {
         otziv(product);
-    })
+    });
     showProductReviews(product);
 }
 
