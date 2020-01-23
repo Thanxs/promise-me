@@ -29,19 +29,19 @@ function showSelectedProduct(product, products) {
         <div class="product__delivery">
         <h2 class="product__delivery-title">Доставка в Одессу</h2>
         <div class="row">
-            <div class="col-4">Самовывоз из магазина Promise ME</div>
-            <div class="col-4">Бесплатно</div>
-            <div class="col-4">Забрать в шоуруме через 5 минут</div>
+            <div class="col-4 product__delivery-item">Самовывоз из магазина Promise ME</div>
+            <div class="col-4 product__delivery-item">Бесплатно</div>
+            <div class="col-4 product__delivery-item">Забрать в шоуруме через 5 минут</div>
         </div>
         <div class="row">
-            <div class="col-4">Курьер по вашему адресу</div>
-            <div class="col-4">Бесплатно</div>
-            <div class="col-4">Доставим сегодня</div>
+            <div class="col-4 product__delivery-item">Курьер по вашему адресу</div>
+            <div class="col-4 product__delivery-item">Бесплатно</div>
+            <div class="col-4 product__delivery-item">Доставим сегодня</div>
         </div>
         <div class="row">
-            <div class="col-4">Самовывоз из Новой Почты</div>
-            <div class="col-4">Бесплатно</div>
-            <div class="col-4">Отправим сегодня</div>
+            <div class="col-4 product__delivery-item">Самовывоз из Новой Почты</div>
+            <div class="col-4 product__delivery-item">Бесплатно</div>
+            <div class="col-4 product__delivery-item">Отправим сегодня</div>
         </div>   
         </div>
         <div class="product__payment">

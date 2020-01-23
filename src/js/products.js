@@ -46,12 +46,11 @@ function setEventListenersOnCategories(products) {
                     return item.categoryNumber === categoryNumber
                 }
             );
-            showPreloader(400);
-            setTimeout(() => {
+            showPreloader(400).then(() => {
                 showProductsSection(arrayOfProductsFromSelectedCategory, products);
                 const productsSection = document.querySelector(".products");
                 productsSection.scrollIntoView(300);
-            }, 400);
+            });
         }));
 }
 
