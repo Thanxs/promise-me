@@ -9,176 +9,245 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
           integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="//cdn.muicss.com/mui-0.10.0/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.muicss.com/mui-0.10.0/css/mui.min.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-    <div id="wrapper">
-        <header class="header">
-            <ul class="header__fixed">
-                <div class="container">
-                    <li class="header__logo">
-                        <a href="#" class="header__logo-link">Promise ME</a>
-                    </li>
-                    <li class="header__payment">
-                        <span data-toggle="modal" data-target="#paymentModal">Оплата</span>
-                    </li>
-                    <li class="header__delivery">
-                        <span data-toggle="modal" data-target="#deliveryModal">Доставка</span>
-                    </li>
-                    <li class="header__service">
-                        <span data-toggle="modal" data-target="#serviceModal">Сервис</span>
-                    </li>
-                    <li class="header__call">
-                        <a href="tel:380999999999">+38 (099) 999 99 99</a>
-                        <i class="fas fa-phone"></i>
-                    </li>
-                    <li class="header__user-field">
-                        <a href="#" class="header__user-login" onclick="activateModal()">
-                            <i class="far fa-user"></i>
-                        </a>
-                    </li>
-                </div>
-            </ul>
-            <ul class="header__fixed-additional">
-                <li class="header__logo-additional">
-                    <a href="#" class="header__logo-link">
-                        Promise Me
+<div id="wrapper">
+    <header class="header">
+        <ul class="header__fixed">
+            <div class="container">
+                <li class="header__logo">
+                    <a href="#" class="header__logo-link">Promise ME</a>
+                </li>
+                <li class="header__payment">
+                    <span data-toggle="modal" data-target="#paymentModal">Оплата</span>
+                </li>
+                <li class="header__delivery">
+                    <span data-toggle="modal" data-target="#deliveryModal">Доставка</span>
+                </li>
+                <li class="header__service">
+                    <span data-toggle="modal" data-target="#serviceModal">Сервис</span>
+                </li>
+                <li class="header__call">
+                    <a href="tel:380999999999">+38 (099) 999 99 99</a>
+                    <i class="fas fa-phone"></i>
+                </li>
+                <li class="header__user-field">
+                    <a href="#" class="header__user-login" onclick="activateModal()">
+                        <i class="far fa-user"></i>
                     </a>
                 </li>
-                <li class="header__additional-tools">
-                    <div class="header__user-field">
-                        <a href="#" class="header__user-login" onclick="activateModal()">
-                            <i class="far fa-user"></i>
-                        </a>
-                    </div>
-                    <a href="#" class="header__cart-additional">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                    <div class="dropdown header__dropdown-additional dropdown-toggle" data-toggle="dropdown"
-                         aria-haspopup="true" aria-expanded="false">
-                        <div>
-                            <img src="./images/icons/menu.png" alt="catalog-menu">
-                        </div>
-                        <div class="dropdown-menu header__dropdown-menu-additional dropdown-menu-categories "
-                             aria-labelledby="dropdownMenuButton">
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="header__main">
-                <div class="container">
-                    <div class="dropdown header__catalog-dropdown dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                         aria-expanded="false">
-                        <div>
-                            <img src="./images/icons/menu.png" alt="catalog-menu">
-                        </div>
-                        <div class="header__catalog-title">
-                            Каталог товаров
-                        </div>
-                        <div class="dropdown-menu header__dropdown-menu dropdown-menu-categories "
-                             aria-labelledby="dropdownMenuButton">
-                        </div>
-                    </div>
-                    <form class="header__form">
-                        <div class="form-group header__search-wrap">
-                            <input type="text" class="header__search" placeholder="Поиск" autocomplete="off">
-                            <a href="#"><i class="fas fa-search"></i></a>
-                        </div>
-                    </form>
-                    <a href="#" class="header__cart">
-                        <i class="fas fa-shopping-cart"></i>
+            </div>
+        </ul>
+        <ul class="header__fixed-additional">
+            <li class="header__logo-additional">
+                <a href="#" class="header__logo-link">
+                    Promise Me
+                </a>
+            </li>
+            <li class="header__additional-tools">
+                <div class="header__user-field">
+                    <a href="#" class="header__user-login" onclick="activateModal()">
+                        <i class="far fa-user"></i>
                     </a>
                 </div>
-            </div>
-        </header>
-        <section class="products">
-        </section>
-        <section class="video">
-            <div class="videoWindow none-displayed"></div>
-            <div class="container">
-                <div class="section-top">
-                    <h2 class="video_title">Видеообзоры</h2>
-                </div>
-                <div class="video-container"></div>
-            </div>
-        </section>
-        <footer class="footer">
-            <div class="container">
-                <h2 class="footer__title">
-                    Хотите быть в курсе суперскидок и акционных предложений?
-                </h2>
-                <div class="footer__letters">
-                    <div class="footer__letters-left">
-                        <img src="images/banners/subscribe-left.png" alt="letter">
+                <a href="#" class="header__cart-additional">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <div class="dropdown header__dropdown-additional dropdown-toggle" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
+                    <div>
+                        <img src="./images/icons/menu.png" alt="catalog-menu">
                     </div>
-                    <div class="footer__letters-right">
-                        <img src="images/banners/subscribe-right.png" alt="letter">
+                    <div class="dropdown-menu header__dropdown-menu-additional dropdown-menu-categories "
+                         aria-labelledby="dropdownMenuButton">
                     </div>
                 </div>
-                <form class="footer__form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Ваше имя">
+            </li>
+        </ul>
+        <div class="header__main">
+            <div class="container">
+                <div class="dropdown header__catalog-dropdown dropdown-toggle" data-toggle="dropdown"
+                     aria-haspopup="true"
+                     aria-expanded="false">
+                    <div>
+                        <img src="./images/icons/menu.png" alt="catalog-menu">
                     </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Ваш email адрес">
+                    <div class="header__catalog-title">
+                        Каталог товаров
                     </div>
-                    <button type="button" class="btn footer__form-btn">Подписаться</button>
+                    <div class="dropdown-menu header__dropdown-menu dropdown-menu-categories "
+                         aria-labelledby="dropdownMenuButton">
+                    </div>
+                </div>
+                <form class="header__form">
+                    <div class="form-group header__search-wrap">
+                        <input type="text" class="header__search" placeholder="Поиск" autocomplete="off">
+                        <a href="#"><i class="fas fa-search"></i></a>
+                    </div>
                 </form>
-                <div class="footer__regex-check"></div>
-                <ul class="footer__info">
-                    <li class="footer__logo">
-                        <a href="#" class="footer__logo-link">Promise ME</a>
-                    </li>
-                    <li class="footer__dropup">
-                        <div class="btn-group dropup">
-                            <button type="button" class="dropdown-toggle footer__dropup-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Контакты
-                            </button>
-                            <ul class="dropdown-menu footer__dropdown-menu">
-                                <li class="dropdown-item  footer__dropup-item footer__dropup-title">Адрес:</li>
-                                <li class="dropdown-item footer__dropup-item">Украина,Одесса,</li>
-                                <li class="dropdown-item footer__dropup-item" href="#">ул.Канатная 22</li>
-                                <br>
-                                <li class="dropdown-item footer__dropup-item footer__dropup-title" href="#">Телефоны:</li>
-                                <li class="dropdown-item footer__dropup-item">+38 (0482) 999 99 99</li>
-                                <li class="dropdown-item footer__dropup-item">+38 (099) 999 99 99</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="footer__socials">
-                        <a href="https://www.facebook.com/groups/442906712957242/"><i class="fab fa-facebook-f" target="_blank"></i></a>
-                        <a href="https://www.instagram.com/explore/tags/promiseme/"><i class="fab fa-instagram" target="_blank"></i></a>
-                        <a href="https://www.youtube.com/watch?v=1idOY3C1gYU"><i class="fab fa-youtube" target="_blank"></i></a>
-                        <a href="https://t.me/joinchat/BWDXYxP2YsrJ5pqfzqQZXQ" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-                    </li>
-                </ul>
+                <a href="#" class="header__cart">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
             </div>
-        </footer>
+        </div>
+    </header>
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+        Запустить модальное окно
+    </button>
+
+    <!-- Modal -->
+    <span class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Товар в корзине</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="content_basket_title">
+                        <div class="content_basket_titleTov">
+                        <div class="pic_img_basket_titleTov">
+                            <img class="pic_content_basket_titleTov" src="images/products/amazfit/1.jpg">
+                        </div></div>
+                        <div class="pic_basket_titleTov">
+                            <div class="product_pic_content_basket_titleTov">
+                                <a class="product_title_basket_titleTov">Смарт-часы Amazfit Bip A1608 Black (UYG4021RT/UYG4017) (Международная версия)
+                                </a>
+                            </div>
+                            <div class="product__row">
+                                <div class="product__counter_basket_titleTov">
+                                    <div class="counter">
+                                        <div class="counter__sign counter_inline counter_border counter_cursor" id="counterminus">-
+                                        </div>
+                                        <div class="counter__number counter_inline" id="counternumber">1</div>
+                                        <div class="counter__sign counter_inline counter_border counter_cursor" id="counterplus">+
+                                        </div>
+                                        <div class="product__price counter_inline" id="priceinmainwindow">1499 грн.<span> грн.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border_basket">
+                    <div class="foot_grey">
+                        <a class="btn pic_grey">
+                            <span class="modal-title_price" id="totalsumm">К оплате:  </span>
+                            <span class="title_price" id="totaloldsumm">  грн</span></a>
+                    </div>
+                    <div>
+                        <a class="btn pic_red " id="makeOrder" class="close" data-dismiss="modal" aria-label="Close">Оформить заказ</a>
+                    </div>
+                </div></div>
+            </div>
+        </div>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/moment.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="//cdn.muicss.com/mui-0.10.0/js/mui.min.js"></script>
-    <script src="js/preloader.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/additional-functions.js"></script>
-    <script src="js/categories.js"></script>
-    <script src="js/products.js"></script>
-    <script src="js/selected-product.js"></script>
-    <script src="js/slider.js"></script>
-    <script src="js/banners.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/payment-info.js"></script>
-    <script src="js/delivery-info.js"></script>
-    <script src="js/service.js"></script>
-    <script src="js/index.min.js"></script>
-    <script src="js/localStorage.js"></script>
+
+
+                <section class="products">
+                </section>
+                <section class="video">
+                    <div class="videoWindow none-displayed"></div>
+                    <div class="container">
+                        <div class="section-top">
+                            <h2 class="video_title">Видеообзоры</h2>
+                        </div>
+                        <div class="video-container"></div>
+                    </div>
+                </section>
+                <footer class="footer">
+                    <div class="container">
+                        <h2 class="footer__title">
+                            Хотите быть в курсе суперскидок и акционных предложений?
+                        </h2>
+                        <div class="footer__letters">
+                            <div class="footer__letters-left">
+                                <img src="images/banners/subscribe-left.png" alt="letter">
+                            </div>
+                            <div class="footer__letters-right">
+                                <img src="images/banners/subscribe-right.png" alt="letter">
+                            </div>
+                        </div>
+                        <form class="footer__form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Ваше имя">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Ваш email адрес">
+                            </div>
+                            <button type="button" class="btn footer__form-btn">Подписаться</button>
+                        </form>
+                        <div class="footer__regex-check"></div>
+                        <ul class="footer__info">
+                            <li class="footer__logo">
+                                <a href="#" class="footer__logo-link">Promise ME</a>
+                            </li>
+                            <li class="footer__dropup">
+                                <div class="btn-group dropup">
+                                    <button type="button" class="dropdown-toggle footer__dropup-btn"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                        Контакты
+                                    </button>
+                                    <ul class="dropdown-menu footer__dropdown-menu">
+                                        <li class="dropdown-item  footer__dropup-item footer__dropup-title">Адрес:</li>
+                                        <li class="dropdown-item footer__dropup-item">Украина,Одесса,</li>
+                                        <li class="dropdown-item footer__dropup-item" href="#">ул.Канатная 22</li>
+                                        <br>
+                                        <li class="dropdown-item footer__dropup-item footer__dropup-title" href="#">
+                                            Телефоны:
+                                        </li>
+                                        <li class="dropdown-item footer__dropup-item">+38 (0482) 999 99 99</li>
+                                        <li class="dropdown-item footer__dropup-item">+38 (099) 999 99 99</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="footer__socials">
+                                <a href="https://www.facebook.com/groups/442906712957242/"><i class="fab fa-facebook-f"
+                                                                                              target="_blank"></i></a>
+                                <a href="https://www.instagram.com/explore/tags/promiseme/"><i class="fab fa-instagram"
+                                                                                               target="_blank"></i></a>
+                                <a href="https://www.youtube.com/watch?v=1idOY3C1gYU"><i class="fab fa-youtube"
+                                                                                         target="_blank"></i></a>
+                                <a href="https://t.me/joinchat/BWDXYxP2YsrJ5pqfzqQZXQ" target="_blank"><i
+                                        class="fab fa-telegram-plane"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+            </div>
+            <script src="js/jquery.min.js"></script>
+            <script src="js/popper.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/moment.min.js"></script>
+            <script src="js/slick.min.js"></script>
+            <script src="js/jquery.nicescroll.min.js"></script>
+            <script src="//cdn.muicss.com/mui-0.10.0/js/mui.min.js"></script>
+            <script src="js/preloader.js"></script>
+            <script src="js/modal.js"></script>
+            <script src="js/auth.js"></script>
+            <script src="js/additional-functions.js"></script>
+            <script src="js/categories.js"></script>
+            <script src="js/products.js"></script>
+            <script src="js/selected-product.js"></script>
+            <script src="js/slider.js"></script>
+            <script src="js/banners.js"></script>
+            <script src="js/video.js"></script>
+            <script src="js/search.js"></script>
+            <script src="js/payment-info.js"></script>
+            <script src="js/delivery-info.js"></script>
+            <script src="js/service.js"></script>
+            <script src="js/index.min.js"></script>
+            <script src="js/localStorage.js"></script>
 </body>
 </html>

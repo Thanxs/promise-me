@@ -194,5 +194,85 @@ function showModalToBuy(product) {
         console.log('Product Id: ' + product[0].id);
         console.log('numberOfItem: ' + numberOfItem);
         addItemToTrash(product[0].id, numberOfItem);
+        showOrderInformation(product);
+
     });
+
+}
+
+function showOrderInformation(product) {
+    const selectedProduct = document.querySelector('.products');
+    let basket = localStorageGet();
+    let testorder = basket.trash[0].id;
+    let testorderNumber = basket.trash[0].number;
+    selectedProduct.innerHTML =`
+<div class="checkout-title_basket">
+<div class="checkout-title">
+        <span class="checkout-content__shadow_basketOne">Контактные данные</span>
+    
+    <div class="checkoutContent">
+    <div class="checkoutContent_main">
+        <div class="form__label">Имя *</div>
+            <input type="text" class="checkoutContent_inform" placeholder=""></Имя>
+            <div class="form__label">Фамилия</div>
+            <input type="text" class="checkoutContent_inform" placeholder="">
+            <div class="form__label">Телефон *</div>
+            <input type="text" class="checkoutContent_inform" placeholder="+38 (___) ___-__-__">
+            <div class="form__label">E-Mail *</div>
+            <input type="text" class="checkoutContent_inform" placeholder="">
+            <div>
+            <button class="button_basket_price"><span>Оформить заказ</span></button>       
+            </div></div>
+            </div>
+           </div>
+            
+            <div class="checkoutContent_main_tov_basket">
+             <div class="checkout-content__shadow">
+            <span class="checkout-content__shadow_basketTwo">В вашей корзине</span>
+            <div class="checkoutContent_main_tov">
+               
+                    <div class="pic_img_content_basket">
+                        <img class="pic_content" src="${product[0].src}">
+          
+                    <div class="product_title-basket">
+                    <div class="product-code_title_baskets">
+                    <span class="product-code_title_basket">Код товара:</span>
+                    <span class="product-code_figures_basket">${product[0].id + 23800}</span>
+                    <span class="basketTov_clean">Удалить</span>
+                    </div>
+                    <div class="pic_content_text_basket">
+                        <div class="product_pic_content_text_basket">
+                            <a class="product_title_basket">${product[0].name}
+                            </a>
+                        </div>
+                        <div class="product__row_basket">
+                            <div class="product__counter_basket">
+                                <div class="counter_basket">
+                                    <div class="counter__sign counter_inline counter_border counter_cursor"
+                                         id="counterminus">-
+                                    </div>
+                                    <div class="counter__number counter_inline" id="counternumber">1</div>
+                                    <div class="counter__sign counter_inline counter_border counter_cursor"
+                                         id="counterplus">+
+                                    </div>
+                                    <div class="product__price counter_inline price_basket" id="priceinmainwindow">
+                                        ${product[0].newPrice}<span> грн.</span>
+                                    </div></div>
+                                    <div class="product__counter_basket_prices">
+                                    <div class="product__counter_basket_price">Общая стоимость :</div>
+                                
+                                    <div class="product__counter_basket_priceSumm">5 199 грн.</div>
+                                    </div></div>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                 </div>
+          </div>
+                </div>`;
+
 }
