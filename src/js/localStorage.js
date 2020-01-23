@@ -15,6 +15,7 @@ function localStorageGet(){
                         //шотоеще
         }
     }
+    showItemsCounter();
     return localInfo;
 }
 
@@ -38,6 +39,16 @@ function CommentsByItemId(id){
 function ItemInTrash(...arr){
     [this.id, this.number] = [...arr];
 } 
+function numberOfItemsInTrash(){
+    return localInfo.trash.length;
+}
+function showItemsCounter(){
+    const counters = document.querySelectorAll('.fa-shopping-cart');
+    counters.forEach(item =>{
+        item.innerHTML = numberOfItemsInTrash();
+    })
+}
+
 
 function addItemToTrash(id, number){
     if(localStorageGet().trash.every((item) =>{
@@ -45,6 +56,7 @@ function addItemToTrash(id, number){
             })
         ){
         localInfo.trash.push(new ItemInTrash(id, number));
+        showItemsCounter();
         localStorageSave(localInfo);
     }
 }
@@ -52,6 +64,7 @@ function removeItemFromTrash(id){
     localInfo.trash.forEach((item, i)=>{
         if(item.id === id){
             localInfo.trash.splice(i,1);
+            showItemsCounter();
             localStorageSave(localInfo);
         }
     })
@@ -200,15 +213,13 @@ function orderForm(){ // при появлеии формы
             if (!verifyInputValue (item, i)){
                 showFalseInputs(i);
                 checkTrigger++; 
-                console.log(checkTrigger, 'in cikl') 
             }
         })
-        console.log(checkTrigger, 'after' ) 
             if (checkTrigger === 0 ){
                 formInputAccess();
             }
         function formInputAccess(){
-            console.log('data recieves saccessfuly');
+            console.log('data recieved saccessfuly');
         }
        function verifyInputValue(item , i){
            return patternsArray[i].test(item);
