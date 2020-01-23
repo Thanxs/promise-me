@@ -12,11 +12,12 @@ function showPreloader(ms) {
     }
     wrapper.prepend(preloader);
 
-    return new Promise(() => {
+    return new Promise((resolve) => {
         setTimeout(() => {
             if (!preloader.classList.contains('preloader-done')) {
                 preloader.classList.add('preloader-done');
             }
         }, ms);
+        resolve();
     });
 }

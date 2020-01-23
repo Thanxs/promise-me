@@ -25,6 +25,15 @@
     .products
         padding-top: 4rem
 
+    .product
+        &__img
+            width: 40rem
+            height: 25rem
+
+    .product__delivery-item
+        font-size: .8rem
+
+
 @media (max-width: 992px)
     .slider
         &__inner
@@ -44,6 +53,16 @@
                 margin-top: .6rem
             &-btn-popular
                 margin-left: 0
+
+    .product
+        .container
+            flex-direction: column
+        &__title
+            font-size: 1.1rem
+        &__img
+            width: 25rem
+        &__delivery-item
+            font-size: 1rem
 
     .video
         .video-container
@@ -84,6 +103,12 @@
     .search-modal
         width: 82%
 
+    .product
+        &__img
+            width: 25rem
+        &__delivery
+            display: none
+
     .video-container
         grid: 1fr / 1fr
     .video-item, .video-item-second-third
@@ -122,6 +147,11 @@
             button
                 width: 13rem
                 margin-top: .6rem
+
+    .product
+        &__img
+            width: 18rem
+            height: 17rem
 
     .footer
         padding-top: 3.5rem
