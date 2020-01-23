@@ -2,72 +2,60 @@ function showSelectedProduct(product, products) {
     const selectedProduct = document.querySelector('.products');
     selectedProduct.innerHTML = `
 <div class="breadscrumbs">
+    <div class="container">
     <div class="breadscrumbs-scroll">
-    <span class="counter_cursor breadscrumbs_scrolls " id="spanmarket" onclick="window.location.reload();"> Интернет-магазин Promise Me &gt;</span>
-    <span class="counter_cursor breadscrumbs_scrolls" id="spancategory">${product[0].category} &gt;</span>
-    <span class="counter_cursor breadscrumbs_scrolls" id="spanbrand">${product[0].brand} &gt;</span>
-    <span id="spanproduct">${product[0].name}</span>
-    </div>
+        <span class="counter_cursor breadscrumbs_scrolls " id="spanmarket" onclick="window.location.reload();"> Интернет-магазин Promise Me &gt;</span>
+        <span class="counter_cursor breadscrumbs_scrolls" id="spancategory">${product[0].category} &gt;</span>
+        <span class="counter_cursor breadscrumbs_scrolls" id="spanbrand">${product[0].brand} &gt;</span>
+        <span id="spanproduct">${product[0].name}</span>
+        </div>
+    </div>    
 </div>
-<div class="product-card">
-    <div class="product-card_information">
+
+<div class="product">
+    <div class="container">
+    <div class="product__img">
         <img src="${product[0].src}">
     </div>
-    <div class="product-card_information_product-code">
-        <span class="product-code_title">Код товара:</span>
-        <span class="product-code_figures">${product[0].id + 23800}</span>
-        <h1 class="product-card_information-header">${product[0].name}</h1>
-        <div class="product-card_information-avaible">
-            <span class="product-card_information-avaible-stock">Есть в наличии</span>
+    <div class="product__info">
+        <div class="product__code">Код товара: <b>${product[0].id + 23800}</b></div>
+        <h2 class="product__title">${product[0].name}</h2>
+        <div class="product__available">Есть в наличии</div>
+        <div class="product__price">${product[0].newPrice} грн.</div>
+        <div class="product__btn-block">
+            <button type="button" class="product-buy_button" data-product-id="${product[0].id}" data-toggle="modal" data-target=".bd-example-modal-lg">Купить</button>
+            <button type="button" class="product-reviews_button">Оставить отзыв</button>
         </div>
-        <div class="product-card_price">
-            <div class="product-card_price-block">
-                <p class="product-card_price-current">${product[0].newPrice}<span> грн.</span>
-                </p>
-            
-            <div class="product_button-click">
-            <div class="product-buy">
-                <button type="button" class="product-buy_button" data-product-id="${product[0].id}" data-toggle="modal" data-target=".bd-example-modal-lg">Купить</button>
-            </div>
-            <div class="product-reviews">
-                <button type="button" class="product-reviews_button">Оставить отзыв</button>
-            </div>
-            </div>
-            <div class="product-description">
-                <div class="product-delivery">
-                    <span class="product-town">Доставка в Одессу</span>
-                </div>
-                <div class="product-card_delivery">
-                <div class="product-card_delivery-next1">
-                         <span class="product-card_delivery-text1">Самовывоз из магазина Promise Me</span>
-                           <span class="product-card_delivery-text2">Бесплатно</span>
-                             <span class="product-card_delivery-text3">Забрать в шоуруме через 5 мин</span>
-                             </div>
-                             <br>
-                           <div class="product-card_delivery-next2">
-                             <span class="product-card_delivery-text4">Курьер по вашему адресу</span>
-                           <span class="product-card_delivery-text5">Бесплатно</span>
-                             <span class="product-card_delivery-text6">Доставим сегодня</span>
-                            </div>
-                             <br>
-                           <div class="product-card_delivery-next3">
-                             <span class="product-card_delivery-text4">Самовывоз из Новой Почты</span>
-                           <span class="product-card_delivery-text5">Бесплатно</span>
-                             <span class="product-card_delivery-text6">Отправим сегодня</span>
-                            </div>
-                             </div>
-                             <div class="product-card_information-block">
-                    <p class="information_block">Оплата</p>
-                    <span>Наличными курьеру, Наложенный платеж, Наличными / картой в магазине,
-                            Оплата картой на сайте
-                </div>
-            </div>
+        <div class="product__delivery">
+        <h2 class="product__delivery-title">Доставка в Одессу</h2>
+        <div class="row">
+            <div class="col-4">Самовывоз из магазина Promise ME</div>
+            <div class="col-4">Бесплатно</div>
+            <div class="col-4">Забрать в шоуруме через 5 минут</div>
         </div>
-        <div class="product-card_information_product-reviews">
-        <h5>Отзывы</h5>
-        <div class="product-reviews-content"></div>
-        </div>       
+        <div class="row">
+            <div class="col-4">Курьер по вашему адресу</div>
+            <div class="col-4">Бесплатно</div>
+            <div class="col-4">Доставим сегодня</div>
+        </div>
+        <div class="row">
+            <div class="col-4">Самовывоз из Новой Почты</div>
+            <div class="col-4">Бесплатно</div>
+            <div class="col-4">Отправим сегодня</div>
+        </div>   
+        </div>
+        <div class="product__payment">
+            <h2 class="product__payment-title">Оплата</h2>
+            <ul class="product__payment-list">
+                <li class="product__payment-item">Наличными курьеру,&nbsp;</li>
+                <li class="product__payment-item">Наложенный платеж,&nbsp;</li>
+                <li class="product__payment-item">Наличными/ картой в магазине,&nbsp;</li>
+                <li class="product__payment-item">Оплата картой на сайте</li>
+            </ul>
+        </div>
     </div>
+</div>
+   
 </div>
 <div class="modalWindowToBuy"></div>`;
 
@@ -276,3 +264,65 @@ function showOrderInformation(product) {
                 </div>`;
 
 }
+
+
+
+
+// <div class="product-card_information">
+//     <img src="${product[0].src}">
+//     </div>
+//     <div class="product-card_information_product-code">
+//     <span class="product-code_title">Код товара:</span>
+// <span class="product-code_figures">${product[0].id + 23800}</span>
+//     <h1 class="product-card_information-header">${product[0].name}</h1>
+//     <div class="product-card_information-avaible">
+//     <span class="product-card_information-avaible-stock">Есть в наличии</span>
+// </div>
+// <div class="product-card_price">
+//     <div class="product-card_price-block">
+//     <p class="product-card_price-current">${product[0].newPrice}<span> грн.</span>
+//     </p>
+//
+//     <div class="product_button-click">
+//     <div class="product-buy">
+//     <button type="button" class="product-buy_button" data-product-id="${product[0].id}" data-toggle="modal" data-target=".bd-example-modal-lg">Купить</button>
+//     </div>
+//     <div class="product-reviews">
+//     <button type="button" class="product-reviews_button">Оставить отзыв</button>
+// </div>
+// </div>
+// <div class="product-description">
+//     <div class="product-delivery">
+//     <span class="product-town">Доставка в Одессу</span>
+// </div>
+// <div class="product-card_delivery">
+//     <div class="product-card_delivery-next1">
+//     <span class="product-card_delivery-text1">Самовывоз из магазина Promise Me</span>
+// <span class="product-card_delivery-text2">Бесплатно</span>
+//     <span class="product-card_delivery-text3">Забрать в шоуруме через 5 мин</span>
+// </div>
+// <br>
+// <div class="product-card_delivery-next2">
+//     <span class="product-card_delivery-text4">Курьер по вашему адресу</span>
+// <span class="product-card_delivery-text5">Бесплатно</span>
+//     <span class="product-card_delivery-text6">Доставим сегодня</span>
+// </div>
+// <br>
+// <div class="product-card_delivery-next3">
+//     <span class="product-card_delivery-text4">Самовывоз из Новой Почты</span>
+// <span class="product-card_delivery-text5">Бесплатно</span>
+//     <span class="product-card_delivery-text6">Отправим сегодня</span>
+// </div>
+// </div>
+// <div class="product-card_information-block">
+//     <p class="information_block">Оплата</p>
+//     <span>Наличными курьеру, Наложенный платеж, Наличными / картой в магазине,
+//     Оплата картой на сайте
+// </div>
+// </div>
+// </div>
+// <div class="product-card_information_product-reviews">
+//     <h5>Отзывы</h5>
+//     <div class="product-reviews-content"></div>
+//     </div>
+//     </div>
