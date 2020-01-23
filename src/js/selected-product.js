@@ -59,10 +59,9 @@ function showSelectedProduct(product, products) {
 </div>
 <div class="modalWindowToBuy"></div>`;
 
-
     const buttonBuy = document.querySelector('.product-buy_button');
     buttonBuy.addEventListener('click', (event) => {
-        showModalToBuy(product);
+        showModalToBuy(product, products);
     });
 
     /*    let products=0;
@@ -71,7 +70,6 @@ function showSelectedProduct(product, products) {
                 const test = data;
                 products=test;
             });*/
-
 
 
     const spancategory = document.getElementById('spancategory');
@@ -98,7 +96,7 @@ function showSelectedProduct(product, products) {
     showProductReviews(product);
 }
 
-function showModalToBuy(product) {
+function showModalToBuy(product, products) {
     const selectedProduct = document.querySelector('.modalWindowToBuy');
     selectedProduct.innerHTML = `<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
@@ -182,10 +180,189 @@ function showModalToBuy(product) {
         console.log('Product Id: ' + product[0].id);
         console.log('numberOfItem: ' + numberOfItem);
         addItemToTrash(product[0].id, numberOfItem);
+        showOrderInformation(product, products);
+
     });
+
 }
 
+function showOrderInformation(product, products) {
+    const selectedProduct = document.querySelector('.products');
+    let basket = localStorageGet();
+    let basketArray = basket.trash;
+    let testorderNumber = basket.trash[0].number;
+    selectedProduct.innerHTML = `
+<div class="checkout-title_basket">
+<div class="checkout-title">
+        <span class="checkout-content__shadow_basketOne">Контактные данные</span>
+    
+    <div class="checkoutContent">
+    <form class="checkoutContent_main">
+        <div class="form__label">Имя *</div>
+        <input type="text" name="name" class="checkoutContent_inform" placeholder=""></Имя>
+        <div class="form__label">Фамилия</div>
+        <input type="text" name="last-name" class="checkoutContent_inform" placeholder="">
+        <div class="form__label">Телефон *</div>
+        <input type="text" name="tel" class="checkoutContent_inform" placeholder="+38 (___) ___-__-__">
+        <div class="form__label">E-Mail *</div>
+        <input type="text" name="e-mail" class="checkoutContent_inform" placeholder="">
+        <div>
+        <button type="button" class="button_basket_price"><span>Оформить заказ</span></button>       
+        </div></div>
+        </div>
+    </form>
+            
+            <div class="checkoutContent_main_tov_basket">
+            </div>`;
+    orderForm();
+    const selectedForItems = document.querySelector('.checkoutContent_main_tov_basket');
+    let oldSumm = 0;
+    let newSumm = 0;
+    selectedForItems.innerHTML += `<span class="checkout-content__shadow_basketTwo">В вашей корзине</span>`;
+    basketArray.forEach((element) => {
+        const product = products.filter(item => {
+                return item.id === element.id;
+            }
+        );
+        oldSumm = oldSumm + product[0].oldPrice;
+        newSumm = newSumm + product[0].newPrice;
+        selectedForItems.innerHTML += `<div class="checkout-content__shadow">
+           
+            <div class="checkoutContent_main_tov">
+               
+                    <div class="pic_img_content_basket">
+                        <img class="pic_content" src="${product[0].src}">
+          
+                    <div class="product_title-basket">
+                    <div class="product-code_title_baskets">
+                    <span class="product-code_title_basket">Код товара:</span>
+                    <span class="product-code_figures_basket">${product[0].id + 23800}</span>
+                    <span class="basketTov_clean">Удалить</span>
+                    </div>
+                    <div class="pic_content_text_basket">
+                        <div class="product_pic_content_text_basket">
+                            <a class="product_title_basket">${product[0].name}
+                            </a>
+                        </div>
+                        <div class="product__row_basket">
+                            <div class="product__counter_basket">
+                                <div class="counter_basket">
+                                    <div class="counter__sign counter_inline counter_border counter_cursor"
+                                         id="counterminus${product[0].id}">-
+                                    </div>
+                                    <div class="counter__number counter_inline" id="counternumber${product[0].id}">${element.number}</div>
+                                    <div class="counter__sign counter_inline counter_border counter_cursor"
+                                         id="counterplus${product[0].id}">+
+                                    </div>
+                                    <div class="product__price counter_inline price_basket" id="priceinmainwindow${product[0].id}">
+                                        ${product[0].newPrice}<span> грн.</span>
+                                    </div></div>
+                                    
+                                    
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                 </div>
+          </div>`;
+        const price = product[0].newPrice;
+        const buttonMinus = document.getElementById('counterminus' + product[0].id);
+        const buttonNumber = document.getElementById('counternumber' + product[0].id);
+        const buttonPlus = document.getElementById('counterplus' + product[0].id);
+        console.log('products[0].id: ' + product[0].id);
+        const priceinmainwindow = document.getElementById('priceinmainwindow' + product[0].id);
 
+
+        buttonMinus.addEventListener('click', (event) => {
+            let numberOfItem = parseInt(buttonNumber.innerHTML);
+            console.log('button-: ' + numberOfItem);
+            if (numberOfItem > 1) {
+                buttonNumber.innerHTML = numberOfItem - 1;
+                priceinmainwindow.innerHTML = (numberOfItem - 1) * price + ' грн.';
+
+            }
+        });
+
+        buttonPlus.addEventListener('click', (event) => {
+            let numberOfItem = parseInt(buttonNumber.innerHTML);
+            console.log('button+: ' + numberOfItem);
+            buttonNumber.innerHTML = numberOfItem + 1;
+            priceinmainwindow.innerHTML = (numberOfItem + 1) * price + ' грн.';
+
+        });
+
+    });
+
+    selectedForItems.innerHTML += `<div class="product__counter_basket_prices">
+<div class="product__counter_basket_price">Общая стоимость :</div>
+    <div class="product__counter_basket_priceSumm">${newSumm} грн.</div>
+</div>`;
+}
+
+function modalForBasket() {
+
+    let basketHtml = `
+    <span class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Товар в корзине</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="content_basket_title">
+                        <div class="content_basket_titleTov">
+                        <div class="pic_img_basket_titleTov">
+                            <img class="pic_content_basket_titleTov" src="images/products/amazfit/1.jpg">
+                        </div></div>
+                        <div class="pic_basket_titleTov">
+                            <div class="product_pic_content_basket_titleTov">
+                                <a class="product_title_basket_titleTov">Смарт-часы Amazfit Bip A1608 Black (UYG4021RT/UYG4017) (Международная версия)
+                                </a>
+                            </div>
+                            <div class="product__row">
+                                <div class="product__counter_basket_titleTov">
+                                    <div class="counter">
+                                        <div class="counter__sign counter_inline counter_border counter_cursor" id="counterminus">-
+                                        </div>
+                                        <div class="counter__number counter_inline" id="counternumber">1</div>
+                                        <div class="counter__sign counter_inline counter_border counter_cursor" id="counterplus">+
+                                        </div>
+                                        <div class="product__price counter_inline" id="priceinmainwindow"> 1499 грн.<span> грн.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border_basket">
+                    <div class="foot_grey">
+                        <a class="btn pic_grey">
+                            <span class="modal-title_price" id="totalsumm">К оплате:  </span>
+                            <span class="title_price" id="totaloldsumm">  грн</span></a>
+                    </div>
+                    <div>
+                        <a class="btn pic_red " id="makeOrder" class="close" data-dismiss="modal" aria-label="Close">Оформить заказ</a>
+                    </div>
+                </div></div>
+            </div>
+        </div>
+    </div>`;
+
+/*    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+        Запустить модальное окно
+    </button>*/
+}
 
 
 // <div class="product-card_information">
