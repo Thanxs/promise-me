@@ -1,0 +1,203 @@
+.modal-box
+    display: none
+    background-color: rgb(0,0,0)
+    background-color: rgba(0,0,0,0.4)
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+    text-align: center
+    z-index: 9998
+
+.sign
+    max-width: 630px
+    width: 100%
+    background: #fff !important
+    position: relative
+    left: 50%
+    top: 50%
+    opacity: 1
+    transform: translate(-50%, -50%)
+    z-index: 2
+    
+.sign-top
+    border-bottom: 0.5px solid rgba(72,72,82,.3)
+    height: 89px
+    padding-top: 25px
+    padding-right: 40px
+    padding-left: 50px
+
+.sign-tabs
+    width: 20rem
+    height: 63px
+    display: flex
+    justify-content: space-between
+    position: relative
+
+.sign__tab:hover,
+.active_border
+    border-bottom: 2px solid #ff0054 !important
+
+.active_font
+    color: #000 !important
+
+.sign-tabs a 
+    color: rgba(0,0,0,.5)
+    text-decoration: none
+    font-size: 1.8rem
+    line-height: 2.4rem
+    transition: all .3s linear
+    outline: 0
+
+.sign__form 
+    width: 410px
+    margin: 0 auto
+    display: flex
+    flex-direction: column
+    padding-top: 75px
+
+.sign__input:not(.last)
+    margin-bottom: 34px
+
+.sign__input span 
+    color: rgba(0,0,0,.6)
+    font-size: 1.3rem
+
+.sign__input input 
+    width: 290px
+    height: 100%
+    border: none
+    border-bottom: 1px solid rgba(0,0,0,.15)
+    background-color: #fff
+    color: #000
+    font-size: 1.3rem
+    line-height: 1.7rem
+    font-weight: 900
+    align-items: center
+    outline: 0
+    transition: all .3s linear
+    &::placeholder
+        color: rgba(0,0,0,.3)
+    &:focus
+        border-bottom: 1px solid rgba(0,0,0, 1) !important
+    
+.sign__input 
+    height: 36px
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.sign__forgot 
+    align-self: flex-end
+    color: #ff0054
+    font-size: 1rem
+    line-height: 1.1rem
+    margin-top: 10px
+    &:hover
+        color: #ff0054
+        text-decoration: none
+
+.sign__remember 
+    width: 190px
+    margin: 20px auto 25px
+
+.checkbox
+    opacity: 0
+	
+.sign__remember label:before 
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 24px
+    height: 24px
+    border-radius: 4px
+    background-color: #ff0054
+
+.sign__remember input:checked+label:after 
+    visibility: visible
+    opacity: 1
+
+.sign__remember label:after
+    content: url(../images/icons/Ресурс1.png) 
+    top: 2px
+    left: 2px
+    visibility: hidden
+
+.sign__agree input, .sign__remember label:after 
+    opacity: 0
+    position: absolute
+
+
+.sign__remember label 
+    position: relative
+    padding-left: 44px
+    line-height: 1.8rem
+    font-size: 1.2rem
+    font-weight: 700
+
+.sign__submit 
+    width: 100%
+    height: 48px
+    border-radius: 24px
+    background-color: #ff0054
+    border: 2px solid transparent
+    color: #feffff
+    line-height: 2.2rem
+    transition: all .3s linear
+    margin-bottom: 80px
+
+// -------USER REGISTRATION-------
+
+.sign__agree
+    position: relative
+    margin-top: 1.8rem
+    margin-bottom: 1.5rem
+    font-weight: 600
+    a
+        color: #ff0054
+
+.sign__agree label:before 
+    content: ''
+    position: absolute
+    top: 0
+    left: 2rem
+    width: 24px
+    height: 24px
+    border-radius: 4px
+    background-color: #ff0054
+
+.sign__agree label:after 
+    content: url(../images/icons/Ресурс1.png)
+    position: absolute
+    top: 1px
+    left: 2rem
+    opacity: 0
+    visibility: hidden
+    transition: all .3s linear
+
+.sign__agree input:checked+label:after 
+    visibility: visible
+    opacity: 1
+
+.active
+    display: block !important
+
+.passive
+    display: none !important
+
+.overlay
+    margin-top: -32.5rem
+    width: 100%
+    height: 100%
+
+
+
+
+        
+
+
+
+
