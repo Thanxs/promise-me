@@ -190,9 +190,8 @@ function showOrderInformation(product, products) {
     let basket = localStorageGet();
 
 
-
     let basketArray = basket.trash;
-    if (basketArray.length>0) {
+    if (basketArray.length > 0) {
         let testorderNumber = basket.trash[0].number;
         selectedProduct.innerHTML = `
 <div class="checkout-title_basket">
@@ -316,13 +315,30 @@ function showOrderInformation(product, products) {
 
         });
     } else {
-        selectedProduct.innerHTML="Корзинна пуста";
+        selectedProduct.innerHTML = "Корзинна пуста";
     }
 }
 
-function modalForBasket() {
+function eventListenerForBasket(products) {
+    let iconForBasket = document.getElementById('iconForBasket');
+    iconForBasket.addEventListener('click', (event) => {
+        modalForBasket(products);
+    });
+    let iconForBasketAdaptive = document.getElementById('iconForBasketAdaptive');
+    iconForBasketAdaptive.addEventListener('click', (event) => {
+        modalForBasket(products);
+    });
+}
 
-    let basketHtml = `
+
+function modalForBasket(products) {
+
+    const selectedProduct = document.querySelector('.modalWindowForBasket');
+    let basket = localStorageGet();
+    let basketArray = basket.trash;
+    if (basketArray.length > 0) {
+
+        selectedProduct.innerHTML = `
     <span class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -332,55 +348,107 @@ function modalForBasket() {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="content_basket_title">
-                        <div class="content_basket_titleTov">
-                        <div class="pic_img_basket_titleTov">
-                            <img class="pic_content_basket_titleTov" src="images/products/amazfit/1.jpg">
-                        </div></div>
-                        <div class="pic_basket_titleTov">
-                            <div class="product_pic_content_basket_titleTov">
-                                <a class="product_title_basket_titleTov">Смарт-часы Amazfit Bip A1608 Black (UYG4021RT/UYG4017) (Международная версия)
-                                </a>
-                            </div>
-                            <div class="product__row">
-                                <div class="product__counter_basket_titleTov">
-                                    <div class="counter">
-                                        <div class="counter__sign counter_inline counter_border counter_cursor" id="counterminus">-
-                                        </div>
-                                        <div class="counter__number counter_inline" id="counternumber">1</div>
-                                        <div class="counter__sign counter_inline counter_border counter_cursor" id="counterplus">+
-                                        </div>
-                                        <div class="product__price counter_inline" id="priceinmainwindow"> 1499 грн.<span> грн.</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="modal-body-basket">
                 </div>
-
                 <div class="border_basket">
                     <div class="foot_grey">
                         <a class="btn pic_grey">
                             <span class="modal-title_price" id="totalsumm">К оплате:  </span>
-                            <span class="title_price" id="totaloldsumm">  грн</span></a>
+                            <span id="totaloldsumm"></span>
+                            <span>грн.</span>
+                            </a>
+                            
                     </div>
                     <div>
-                        <a class="btn pic_red " id="makeOrder" class="close" data-dismiss="modal" aria-label="Close">Оформить заказ</a>
+                        <a class="btn pic_red " id="makeOrderFromBasket" class="close" data-dismiss="modal" aria-label="Close">Оформить заказ</a>
                     </div>
                 </div></div>
             </div>
         </div>
     </div>`;
+        const modalBodyBasket = document.querySelector('.modal-body-basket');
+        let newSumm = 0;
 
+        basketArray.forEach((element) => {
+            const product = products.filter(item => {
+                    return item.id === element.id;
+                }
+            );
 
-/*    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
-        Запустить модальное окно
-    </button>*/
+            modalBodyBasket.innerHTML += `<div class="content_basket_title">
+                        <div class="content_basket_titleTov">
+                        <div class="pic_img_basket_titleTov">
+                            <img class="pic_content_basket_titleTov" src="${product[0].src}">
+                        </div></div>
+                        <div class="pic_basket_titleTov">
+                            <div class="product_pic_content_basket_titleTov">
+                                <a class="product_title_basket_titleTov">${product[0].name}
+                                </a>
+                            </div>
+                            <div class="product__row">
+                                <div class="product__counter_basket_titleTov">
+                                    <div class="counter">
+                                        <div class="counter__sign counter_inline counter_border counter_cursor" id="counterminus${product[0].id}">-
+                                        </div>
+                                        <div class="counter__number counter_inline counter_border_sign" id="counternumber${product[0].id}">${element.number}</div>
+                                        <div class="counter__sign counter_inline counter_border counter_cursor counter_border_sign" id="counterplus${product[0].id}">+
+                                        </div>
+                                        <div class="product__price counter_inline price_basket_counters" id="priceinmainwindow${product[0].id}"> ${product[0].newPrice} <span> грн.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+        });
+        const totalSummBasket = document.getElementById('totaloldsumm');
+        basketArray.forEach((element) => {
+            const product = products.filter(item => {
+                    return item.id === element.id;
+                }
+            );
+
+            const price = product[0].newPrice;
+            const buttonMinus = document.getElementById('counterminus' + product[0].id);
+            const buttonNumber = document.getElementById('counternumber' + product[0].id);
+            const buttonPlus = document.getElementById('counterplus' + product[0].id);
+            const priceinmainwindow = document.getElementById('priceinmainwindow' + product[0].id);
+
+            let summOfItem = price * (parseInt(buttonNumber.innerHTML));
+            newSumm += summOfItem;
+
+            buttonMinus.addEventListener('click', (event) => {
+                let numberOfItem = parseInt(buttonNumber.innerHTML);
+                let summInBasket = parseInt(totalSummBasket.innerHTML);
+                if (numberOfItem > 1) {
+                    buttonNumber.innerHTML = numberOfItem - 1;
+                    priceinmainwindow.innerHTML = (numberOfItem - 1) * price + ' грн.';
+                    totalSummBasket.innerHTML = (summInBasket - price);
+                }
+            });
+
+            buttonPlus.addEventListener('click', (event) => {
+                let numberOfItem = parseInt(buttonNumber.innerHTML);
+                let summInBasket = parseInt(totalSummBasket.innerHTML);
+                buttonNumber.innerHTML = numberOfItem + 1;
+                priceinmainwindow.innerHTML = (numberOfItem + 1) * price + ' грн.';
+                totalSummBasket.innerHTML = (summInBasket + price);
+            });
+        });
+
+        const makeOrder = document.getElementById('makeOrderFromBasket');
+        makeOrderFromBasket.addEventListener('click', (event) => {
+            showOrderInformation(products, products);
+
+        });
+        totalSummBasket.innerHTML = newSumm;
+    }
 }
 
+/*    <!-- Button trigger modal -->
+       <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+               Запустить модальное окно
+           </button>*/
 
 // <div class="product-card_information">
 //     <img src="${product[0].src}">
