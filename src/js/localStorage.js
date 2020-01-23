@@ -131,14 +131,26 @@ function otziv(product){
     })
 }
 
+
+
 function showProductReviews(product){
-    let productReviewsWindow =  document.querySelector('.product-reviews-content');
+    let productReviewsWindow = document.querySelector('.product__info');
+
     let arrayComments = CommentsByItemId(product[0].id);
-    console.log(product[0].id)
-    if(arrayComments){
-        arrayComments.forEach(item=>{
-            console.log('items')
-    
+    console.log(product[0].id, arrayComments)
+    if(arrayComments.length > 0){
+
+        let productRevwies = document.createElement('div');
+        productRevwies.innerHTML = `<div class="product-card_information_product-reviews">
+        <h2>Отзывы</h2>
+        <div class="product-reviews-content"></div>
+        </div>`;
+
+        productReviewsWindow.appendChild(productRevwies);
+        let productReviwsContent = document.querySelector('.product-reviews-content')
+
+        arrayComments.forEach(item => {
+            // console.log('items')
             let div = document.createElement('div');
             div.innerHTML=`
             <div class="product-review-window">
@@ -150,7 +162,7 @@ function showProductReviews(product){
                     
                 </div>
                   `;
-            productReviewsWindow.appendChild(div);    
+            productReviwsContent.appendChild(div);    
         })
     }
 }
