@@ -8,4 +8,5 @@ sendRequest('GET', 'js/products.json')
         createSlider();
         addBanners();
         localStorageGet();
+        eventListenerForBasket(products);
     });
