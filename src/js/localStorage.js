@@ -167,3 +167,61 @@ function showProductReviews(product){
     }
 }
 
+
+function orderForm(){ // при появлеии формы
+    const btnFormOrder = document.querySelector('.button_basket_price');
+    const checkoutContent = document.querySelector('.checkoutContent_main');
+
+    let namesArray = [
+        'name',
+        'last-name',
+        'tel',
+        'e-mail'
+    ]
+    let patternsArray = [
+        /^[A-Z]\w*/,
+        /^[A-Z]\w*/,
+        /^\+38\d{3}\d{7}$/,
+        /^\w+@\w+.\w{2,4}$/
+    ]
+    btnFormOrder.addEventListener('click', checkOrderForm);
+
+    function checkOrderForm(){
+               
+        
+        initNormalInputs();
+
+        let valuesArray = namesArray.map( item =>{
+            return checkoutContent.elements[item].value;
+        })
+
+        let checkTrigger = 0;
+        valuesArray.forEach( (item , i ) =>{
+            if (!verifyInputValue (item, i)){
+                showFalseInputs(i);
+                checkTrigger++; 
+                console.log(checkTrigger, 'in cikl') 
+            }
+        })
+        console.log(checkTrigger, 'after' ) 
+            if (checkTrigger === 0 ){
+                formInputAccess();
+            }
+        function formInputAccess(){
+            console.log('data recieves saccessfuly');
+        }
+       function verifyInputValue(item , i){
+           return patternsArray[i].test(item);
+       }
+
+       function showFalseInputs(i){
+        checkoutContent.elements[namesArray[i]].classList.add('error');
+       }
+       function initNormalInputs(){
+        namesArray.forEach(item => {
+            checkoutContent.elements[item].classList.remove('error');
+        })
+
+       }
+    }
+}

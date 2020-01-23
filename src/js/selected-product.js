@@ -59,7 +59,6 @@ function showSelectedProduct(product, products) {
 </div>
 <div class="modalWindowToBuy"></div>`;
 
-
     const buttonBuy = document.querySelector('.product-buy_button');
     buttonBuy.addEventListener('click', (event) => {
         showModalToBuy(product, products);
@@ -199,38 +198,36 @@ function showOrderInformation(product, products) {
         <span class="checkout-content__shadow_basketOne">Контактные данные</span>
     
     <div class="checkoutContent">
-    <div class="checkoutContent_main">
+    <form class="checkoutContent_main">
         <div class="form__label">Имя *</div>
-            <input type="text" class="checkoutContent_inform" placeholder=""></Имя>
-            <div class="form__label">Фамилия</div>
-            <input type="text" class="checkoutContent_inform" placeholder="">
-            <div class="form__label">Телефон *</div>
-            <input type="text" class="checkoutContent_inform" placeholder="+38 (___) ___-__-__">
-            <div class="form__label">E-Mail *</div>
-            <input type="text" class="checkoutContent_inform" placeholder="">
-            <div>
-            <button class="button_basket_price"><span>Оформить заказ</span></button>       
-            </div>
-            </div>
-            </div>
-           </div>
+        <input type="text" name="name" class="checkoutContent_inform" placeholder=""></Имя>
+        <div class="form__label">Фамилия</div>
+        <input type="text" name="last-name" class="checkoutContent_inform" placeholder="">
+        <div class="form__label">Телефон *</div>
+        <input type="text" name="tel" class="checkoutContent_inform" placeholder="+38 (___) ___-__-__">
+        <div class="form__label">E-Mail *</div>
+        <input type="text" name="e-mail" class="checkoutContent_inform" placeholder="">
+        <div>
+        <button type="button" class="button_basket_price"><span>Оформить заказ</span></button>       
+        </div></div>
+        </div>
+    </form>
             
             <div class="checkoutContent_main_tov_basket">
-            </div>
-    </div>`;
-
-        const selectedForItems = document.querySelector('.checkoutContent_main_tov_basket');
-        let oldSumm = 0;
-        let newSumm = 0;
-        selectedForItems.innerHTML += `<span class="checkout-content__shadow_basketTwo">В вашей корзине</span>`;
-        basketArray.forEach((element) => {
-            const product = products.filter(item => {
-                    return item.id === element.id;
-                }
-            );
-            oldSumm = oldSumm + product[0].oldPrice;
-            newSumm = newSumm + product[0].newPrice;
-            selectedForItems.innerHTML += `<div class="checkout-content__shadow">
+            </div>`;
+    orderForm();
+    const selectedForItems = document.querySelector('.checkoutContent_main_tov_basket');
+    let oldSumm = 0;
+    let newSumm = 0;
+    selectedForItems.innerHTML += `<span class="checkout-content__shadow_basketTwo">В вашей корзине</span>`;
+    basketArray.forEach((element) => {
+        const product = products.filter(item => {
+                return item.id === element.id;
+            }
+        );
+        oldSumm = oldSumm + product[0].oldPrice;
+        newSumm = newSumm + product[0].newPrice;
+        selectedForItems.innerHTML += `<div class="checkout-content__shadow">
            
             <div class="checkoutContent_main_tov">
                
