@@ -178,8 +178,6 @@ function showModalToBuy(product, products) {
     makeOrder.addEventListener('click', (event) => {
 
         const numberOfItem = parseInt(buttonNumber.innerHTML);
-        console.log('Product Id: ' + product[0].id);
-        console.log('numberOfItem: ' + numberOfItem);
         addItemToTrash(product[0].id, numberOfItem);
         showOrderInformation(product, products);
 
@@ -190,9 +188,13 @@ function showModalToBuy(product, products) {
 function showOrderInformation(product, products) {
     const selectedProduct = document.querySelector('.products');
     let basket = localStorageGet();
+
+
+
     let basketArray = basket.trash;
-    let testorderNumber = basket.trash[0].number;
-    selectedProduct.innerHTML = `
+    if (basketArray.length>0) {
+        let testorderNumber = basket.trash[0].number;
+        selectedProduct.innerHTML = `
 <div class="checkout-title_basket">
 <div class="checkout-title">
         <span class="checkout-content__shadow_basketOne">Контактные данные</span>
@@ -209,25 +211,27 @@ function showOrderInformation(product, products) {
             <input type="text" class="checkoutContent_inform" placeholder="">
             <div>
             <button class="button_basket_price"><span>Оформить заказ</span></button>       
-            </div></div>
+            </div>
+            </div>
             </div>
            </div>
             
             <div class="checkoutContent_main_tov_basket">
-            </div>`;
+            </div>
+    </div>`;
 
-    const selectedForItems = document.querySelector('.checkoutContent_main_tov_basket');
-    let oldSumm = 0;
-    let newSumm = 0;
-    selectedForItems.innerHTML += `<span class="checkout-content__shadow_basketTwo">В вашей корзине</span>`;
-    basketArray.forEach((element) => {
-        const product = products.filter(item => {
-                return item.id === element.id;
-            }
-        );
-        oldSumm = oldSumm + product[0].oldPrice;
-        newSumm = newSumm + product[0].newPrice;
-        selectedForItems.innerHTML += `<div class="checkout-content__shadow">
+        const selectedForItems = document.querySelector('.checkoutContent_main_tov_basket');
+        let oldSumm = 0;
+        let newSumm = 0;
+        selectedForItems.innerHTML += `<span class="checkout-content__shadow_basketTwo">В вашей корзине</span>`;
+        basketArray.forEach((element) => {
+            const product = products.filter(item => {
+                    return item.id === element.id;
+                }
+            );
+            oldSumm = oldSumm + product[0].oldPrice;
+            newSumm = newSumm + product[0].newPrice;
+            selectedForItems.innerHTML += `<div class="checkout-content__shadow">
            
             <div class="checkoutContent_main_tov">
                
@@ -238,7 +242,7 @@ function showOrderInformation(product, products) {
                     <div class="product-code_title_baskets">
                     <span class="product-code_title_basket">Код товара:</span>
                     <span class="product-code_figures_basket">${product[0].id + 23800}</span>
-                    <span class="basketTov_clean">Удалить</span>
+                    <span class="basketTov_clean counter_cursor" id="deleteItem${product[0].id}" data-id="${product[0].id}">Удалить</span>
                     </div>
                     <div class="pic_content_text_basket">
                         <div class="product_pic_content_text_basket">
@@ -248,61 +252,72 @@ function showOrderInformation(product, products) {
                         <div class="product__row_basket">
                             <div class="product__counter_basket">
                                 <div class="counter_basket">
-                                    <div class="counter__sign counter_inline counter_border counter_cursor"
-                                         id="counterminus${product[0].id}">-
-                                    </div>
-                                    <div class="counter__number counter_inline" id="counternumber${product[0].id}">${element.number}</div>
-                                    <div class="counter__sign counter_inline counter_border counter_cursor"
+                                    <div class="counter__sign counter_inline counter_border counter_cursor" id="counterminus${product[0].id}">-</div>
+                                    <div class="counter__number counter_inline counter_border_sign" id="counternumber${product[0].id}">${element.number}</div>
+                                    <div class="counter__sign counter_inline counter_border counter_cursor counter_border_sign"
                                          id="counterplus${product[0].id}">+
                                     </div>
-                                    <div class="product__price counter_inline price_basket" id="priceinmainwindow${product[0].id}">
+                                    <div class="product__price counter_inline price_basket price_basket_counters" id="priceinmainwindow${product[0].id}">
                                         ${product[0].newPrice}<span> грн.</span>
                                     </div></div>
-                                    
-                                    
                                     </div>
                                 </div>
                                 </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    </div>
-                    </div>
-                 </div>
-          </div>`;
-        const price = product[0].newPrice;
-        const buttonMinus = document.getElementById('counterminus' + product[0].id);
-        const buttonNumber = document.getElementById('counternumber' + product[0].id);
-        const buttonPlus = document.getElementById('counterplus' + product[0].id);
-        console.log('products[0].id: ' + product[0].id);
-        const priceinmainwindow = document.getElementById('priceinmainwindow' + product[0].id);
-
-
-        buttonMinus.addEventListener('click', (event) => {
-            let numberOfItem = parseInt(buttonNumber.innerHTML);
-            console.log('button-: ' + numberOfItem);
-            if (numberOfItem > 1) {
-                buttonNumber.innerHTML = numberOfItem - 1;
-                priceinmainwindow.innerHTML = (numberOfItem - 1) * price + ' грн.';
-
-            }
+                    </div>`;
         });
 
-        buttonPlus.addEventListener('click', (event) => {
-            let numberOfItem = parseInt(buttonNumber.innerHTML);
-            console.log('button+: ' + numberOfItem);
-            buttonNumber.innerHTML = numberOfItem + 1;
-            priceinmainwindow.innerHTML = (numberOfItem + 1) * price + ' грн.';
-
-        });
-
-    });
-
-    selectedForItems.innerHTML += `<div class="product__counter_basket_prices">
+        selectedForItems.innerHTML += `<div class="product__counter_basket_prices">
 <div class="product__counter_basket_price">Общая стоимость :</div>
-    <div class="product__counter_basket_priceSumm">${newSumm} грн.</div>
+    <div class="product__counter_basket_priceSumm" id="totalSummBasket">${newSumm} грн.</div>
 </div>`;
+
+        basketArray.forEach((element) => {
+            const product = products.filter(item => {
+                    return item.id === element.id;
+                }
+            );
+
+            const price = product[0].newPrice;
+            const buttonMinus = document.getElementById('counterminus' + product[0].id);
+            const buttonNumber = document.getElementById('counternumber' + product[0].id);
+            const buttonPlus = document.getElementById('counterplus' + product[0].id);
+            const priceinmainwindow = document.getElementById('priceinmainwindow' + product[0].id);
+            const totalSummBasket = document.getElementById('totalSummBasket')
+
+            buttonMinus.addEventListener('click', (event) => {
+                let numberOfItem = parseInt(buttonNumber.innerHTML);
+                let summInBasket = parseInt(totalSummBasket.innerHTML);
+                if (numberOfItem > 1) {
+                    buttonNumber.innerHTML = numberOfItem - 1;
+                    priceinmainwindow.innerHTML = (numberOfItem - 1) * price + ' грн.';
+                    totalSummBasket.innerHTML = (summInBasket - price) + ' грн.';
+                }
+            });
+
+            buttonPlus.addEventListener('click', (event) => {
+                let numberOfItem = parseInt(buttonNumber.innerHTML);
+                let summInBasket = parseInt(totalSummBasket.innerHTML);
+                buttonNumber.innerHTML = numberOfItem + 1;
+                priceinmainwindow.innerHTML = (numberOfItem + 1) * price + ' грн.';
+                totalSummBasket.innerHTML = (summInBasket + price) + ' грн.';
+            });
+
+            const buttonDelete = document.getElementById('deleteItem' + product[0].id);
+            buttonDelete.addEventListener('click', (event) => {
+                const idOfProduct = parseInt(event.target.getAttribute('data-id'));
+                /*console.log('idOfProduct'+idOfProduct);*/
+                removeItemFromTrash(idOfProduct);
+                showOrderInformation(product, products)
+            });
+
+
+        });
+    } else {
+        selectedProduct.innerHTML="Корзинна пуста";
+    }
 }
 
 function modalForBasket() {
@@ -358,6 +373,7 @@ function modalForBasket() {
             </div>
         </div>
     </div>`;
+
 
 /*    <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
