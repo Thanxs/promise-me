@@ -48,14 +48,14 @@ function setEventListenersOnCategories(products) {
             );
             showPreloader(400);
             setTimeout(() => {
-                showProductsSection(arrayOfProductsFromSelectedCategory);
+                showProductsSection(arrayOfProductsFromSelectedCategory, products);
                 const productsSection = document.querySelector(".products");
                 productsSection.scrollIntoView(300);
             }, 400);
         }));
 }
 
-function showProductsSection(productsOfSelectedCategory) {
+function showProductsSection(productsOfSelectedCategory, products) {
     const productsSection = document.querySelector('.products');
     const selectedCategory = productsOfSelectedCategory[0].category;
 
@@ -112,12 +112,12 @@ function showProductsSection(productsOfSelectedCategory) {
     //     }
     // });
 
-    showProductsOfSelectedCategory(productsOfSelectedCategory);
+    showProductsOfSelectedCategory(productsOfSelectedCategory, products);
     showBrandsOfSelectedCategory(productsOfSelectedCategory);
     filterProductsByPriceRange(minPriceFromSelectedProducts, maxPriceFromSelectedProducts, productsOfSelectedCategory);
 }
 
-function showProductsOfSelectedCategory(products) {
+function showProductsOfSelectedCategory(products,productsAll) {
     const amountOfProductsOnOnePage = 12;
     const numberOfPages = (products.lenght % amountOfProductsOnOnePage === 0)
         ? Math.floor(products.length / amountOfProductsOnOnePage)
@@ -193,7 +193,7 @@ function showProductsOfSelectedCategory(products) {
                 return item.id === entityId
             }
         );
-        showSelectedProduct(productFromBD, products);
+        showSelectedProduct(productFromBD, productsAll);
     }));
 }
 
@@ -373,6 +373,7 @@ function showModalToBuy(product) {
             totaloldsumm.innerHTML = (numberOfItem - 1) * price + ' грн.';
         }
     });
+
 
     buttonPlus.addEventListener('click', (event) => {
         let numberOfItem = parseInt(buttonNumber.innerHTML);
