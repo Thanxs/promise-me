@@ -16,7 +16,7 @@
 
 <body>
     <div id="wrapper">
-        <header class="header">
+        <header class="header" id="up">
             <ul class="header__fixed">
                 <div class="container">
                     <li class="header__logo">
@@ -137,71 +137,8 @@
                         </a>
                     </div>
                 </div>
-        </section>
-        <!-- <div class="modal-box">
-            <div class="sign">
-                <div class="modal-inner">
-                    <div class="sign-top">
-                        <div class="sign-tabs">
-                            <div data-tab="1" class="sign__tab ">
-                                <a href="#" id="popup_login_tab">Вход</a>
-                            </div>
-                            <div data-tab="2" class="sign__tab"><a href="#" id="popup_reg_tab">Регистрация</a></div>
-                        </div>
-                    </div>
-
-                    <div class="sign__bottom">
-                        <div class="sign__tabs-contents">
-                            <div class="sign__tab-content">
-                                <form name="system_auth" class="sign__form" onsubmit="return validation()" method="post">
-                                    <div class="sign__input">
-                                        <span>E-Mail*</span>
-                                        <input type="email" name="USER_LOGIN" placeholder="E-mail">
-                                    </div>
-                                    <div class="sign__input last">
-                                        <span>Пароль*</span>
-                                        <input type="password" name="USER_PASSWORD" placeholder="Введите ваш пароль">
-                                    </div>
-                                    <a href="#" class="sign__forgot">Забыли пароль?</a>
-                                    <div class="sign__remember">
-                                        <input type="checkbox" class="checkbox" id="USER_REMEMBER" name="USER_REMEMBER" value="Y">
-                                        <label for="USER_REMEMBER" title="Запомнить меня на этом компьютере">Запомнить меня</label>
-                                    </div>
-                                    <button class="sign__submit" type="submit" name="Login" value="Войти">Войти</button>
-                                </form>
-                            </div>
-                            <div class="sign__tab-content-reg passive">
-                                <form method="post" class="sign__form" name="regform">
-                                    <div class="sign__input">
-                                        <span>Имя*</span>
-                                        <input type="text" name="REGISTER[NAME]" value="" placeholder="Имя">
-                                    </div>
-                                    <div class="sign__input">
-                                        <span>Телефон*</span>
-                                        <input type="text" name="REGISTER[PERSONAL_PHONE]" value="" placeholder="+38 (___) ___-__-__">
-                                    </div>
-                                    <div class="sign__input">
-                                        <span>E-mail*</span>
-                                        <input type="text" id="register_email_input" name="REGISTER[EMAIL]" value="" placeholder="E-mail">
-                                    </div>
-                                    <div class="sign__input last">
-                                        <span>Пароль*</span>
-                                        <input type="password" id="register_password_input" name="REGISTER[PASSWORD]" placeholder="Введите ваш пароль">
-                                    </div>
-                                    <div class="sign__agree">
-                                        <input id="reg_agree" type="checkbox" name="login-agree" value="Y">
-                                        <label for="reg_agree">Я согласен с <a data-fancybox="" data-src="#agreement" href="javascript:;">пользов. соглашением</a></label>
-                                    </div>
-                                    <button class="sign__submit" type="submit" name="register_submit_button" value="Зарегистрироваться">Зарегистрироваться</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="overlay"></div>
-        </div> -->
-
+        </section>
         <section class="video">
             <div class="videoWindow none-displayed"></div>
             <div class="container">
@@ -263,6 +200,7 @@
                 </ul>
             </div>
         </footer>
+        <button type="button" id="page-up"><i class="fas fa-chevron-up"></i></button>
     </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -291,6 +229,7 @@
     <script src="js/service.js"></script>
     <script src="js/index.min.js"></script>
     <script src="js/localStorage.js"></script>
+    <script src="js/page-up.js"></script>
 </body>
 
 </html>
