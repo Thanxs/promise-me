@@ -45,10 +45,9 @@ function numberOfItemsInTrash(){
 function showItemsCounter(){
     const counters = document.querySelectorAll('.fa-shopping-cart');
     counters.forEach(item =>{
-        item.innerHTML = numberOfItemsInTrash();
+        item.innerHTML = `<span class="cart__count">${numberOfItemsInTrash()}</span>`;
     })
 }
-
 
 function addItemToTrash(id, number){
     if(localStorageGet().trash.every((item) =>{
@@ -60,6 +59,7 @@ function addItemToTrash(id, number){
         localStorageSave(localInfo);
     }
 }
+
 function removeItemFromTrash(id){
     localInfo.trash.forEach((item, i)=>{
         if(item.id === id){
@@ -77,6 +77,7 @@ function ItemInTrashIncrease(id){
         }
     })
 }
+
 function ItemInTrashDecrease(id){
     localInfo.trash.forEach((item, i)=>{
         if(item.id === id){
@@ -85,11 +86,6 @@ function ItemInTrashDecrease(id){
         }
     })
 }
-
-
-
-
-
 
 function otziv(product){
     let otz = document.createElement('div');
@@ -124,7 +120,7 @@ function otziv(product){
 		</div>
 	</div>
 </div>
-`
+`;
     document.querySelector('#wrapper').append(otz);
     document.querySelector('.reviews').classList.remove('none-displayed');
     let btnSave = document.querySelector('.reviews .btn-primary');
@@ -134,7 +130,7 @@ function otziv(product){
     let reviewsName = document.querySelector('.reviews input');
     btnClose.addEventListener('click',()=>{
         otz.remove();
-    })
+    });
     btnSave.addEventListener('click', (e)=>{
         if((reviewsName.value)&&(reviewsText.value)){
             addItemComments(product[0].id, reviewsName.value, reviewsText.value)
@@ -143,8 +139,6 @@ function otziv(product){
         }
     })
 }
-
-
 
 function showProductReviews(product){
     let productReviewsWindow = document.querySelector('.product__info');
@@ -190,13 +184,13 @@ function orderForm(){ // при появлеии формы
         'last-name',
         'tel',
         'e-mail'
-    ]
+    ];
     let patternsArray = [
         /^[А-ЯЁ][а-яё]*$/,
         /^[А-ЯЁ][а-яё]*$/,
         /^\+38\d{3}\d{7}$/,
         /^\w+@\w+.\w{2,4}$/
-    ]
+    ];
     btnFormOrder.addEventListener('click', checkOrderForm);
 
     function checkOrderForm(){
@@ -206,7 +200,7 @@ function orderForm(){ // при появлеии формы
 
         let valuesArray = namesArray.map( item =>{
             return checkoutContent.elements[item].value;
-        })
+        });
 
         let checkTrigger = 0;
         valuesArray.forEach( (item , i ) =>{
@@ -214,7 +208,7 @@ function orderForm(){ // при появлеии формы
                 showFalseInputs(i);
                 checkTrigger++; 
             }
-        })
+        });
             if (checkTrigger === 0 ){
                 formInputAccess();
             }

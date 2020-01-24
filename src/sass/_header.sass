@@ -146,6 +146,7 @@
         color: #ffffff
         margin-right: 2rem
         font-size: 1.5rem
+        text-decoration: none
     &__cart
         padding: 5.5rem 1.5rem 0 1rem        
         background-color: $bdsmColor             
@@ -193,12 +194,13 @@
         +flex-center
     &__cart-additional
         margin-right: 2rem
-        +flex-center        
+        +flex-center      
         &:hover
-            text-decoration: none 
+            text-decoration: none
         i
             font-size: 1.9rem
             color: #ffffff
+            text-decoration: none
     &__dropdown-additional        
         background-color: $bdsmColor
         width: 4rem
@@ -219,3 +221,6 @@
             color: $bdsmColor
             &:hover
                 color: lighten($bdsmColor, 25%)
+
+#cart
+    text-decoration: none

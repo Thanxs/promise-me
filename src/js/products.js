@@ -129,10 +129,7 @@ function showProductsOfSelectedCategory(products,productsAll) {
                                                     <div class="products__prices">
                                                         <p class="products__price-new">${product.newPrice} грн.</p>
                                                         <p class="products__price-old">${product.oldPrice} грн.</p>
-                                                    </div>
-                                                    <div class="products__cart">
-                                                        <i class="fas fa-shopping-cart"></i>
-                                                    </div>
+                                                    </div>                                                    
                                                 </div>                                                
                                             </li>`;
     });
@@ -396,10 +393,3 @@ function createPagination(pagesAmount) {
     productsSort.after(pagination);
 }
 
-function refreshInfo(...selectors) {
-    selectors.forEach((selector)=> {
-        if (document.querySelector(selector)) {
-            document.querySelector(selector).remove();
-        }
-    });
-}

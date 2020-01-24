@@ -189,7 +189,6 @@ function showOrderInformation(product, products) {
     const selectedProduct = document.querySelector('.products');
     let basket = localStorageGet();
 
-
     let basketArray = basket.trash;
     if (basketArray.length > 0) {
         let testorderNumber = basket.trash[0].number;
@@ -310,7 +309,6 @@ function showOrderInformation(product, products) {
                 showOrderInformation(product, products)
             });
 
-
         });
     } else {
         selectedProduct.innerHTML = "Корзинна пуста";
@@ -327,7 +325,6 @@ function eventListenerForBasket(products) {
         modalForBasket(products);
     });
 }
-
 
 function modalForBasket(products) {
 

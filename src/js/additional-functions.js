@@ -21,9 +21,9 @@ function makeUniqueArray(arr) {
 }
 
 function refreshInfo(...selectors) {
-    $(selectors).each((i, selector) => {
-        if ($(selector)) {
-            $(selector).remove();
+    selectors.forEach((selector)=> {
+        if (document.querySelector(selector)) {
+            document.querySelector(selector).remove();
         }
     });
 }
