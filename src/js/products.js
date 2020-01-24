@@ -150,6 +150,10 @@ function showProductsOfSelectedCategory(products,productsAll) {
         page.addEventListener('click', (event) => {
             showPreloader(300).then(() => {
                 const pageNumber = parseInt(event.target.dataset.page);
+                for (let i = 0; i < productsPaginationItems.length; i++) {
+                   productsPaginationItems[i].classList.remove('products__pagination-item_active'); 
+                }                           
+                event.target.classList.add('products__pagination-item_active');
 
                 const arrayOfRangeBreakPoints = [];
                 for (let i = 1; i <= products.length; i += amountOfProductsOnOnePage) {
