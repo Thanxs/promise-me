@@ -18,7 +18,6 @@ function sendRequest(method, url) {
     });
 }
 
-
 function createArrayOfCategories(data) {
     const arrayOfCategories = data.map(item => item.category);
 
@@ -101,16 +100,6 @@ function showProductsSection(productsOfSelectedCategory, products) {
                                     </div>
                                 </div>`;
 
-    // const priceRange = document.getElementById('price-range');
-    //
-    // noUiSlider.create(priceRange, {
-    //     start: [1, 100],
-    //     range: {
-    //         'min': [10],
-    //         'max': [90]
-    //     }
-    // });
-
     showProductsOfSelectedCategory(productsOfSelectedCategory, products);
     showBrandsOfSelectedCategory(productsOfSelectedCategory);
     filterProductsByPriceRange(minPriceFromSelectedProducts, maxPriceFromSelectedProducts, productsOfSelectedCategory);
@@ -159,8 +148,7 @@ function showProductsOfSelectedCategory(products,productsAll) {
 
     productsPaginationItems.forEach((page, idx) => {
         page.addEventListener('click', (event) => {
-            showPreloader(300);
-            setTimeout(() => {
+            showPreloader(300).then(() => {
                 const pageNumber = parseInt(event.target.dataset.page);
 
                 const arrayOfRangeBreakPoints = [];
@@ -182,7 +170,8 @@ function showProductsOfSelectedCategory(products,productsAll) {
                         }
                     }
                 }
-            }, 300);
+            });
+
         })
     });
 
@@ -249,8 +238,7 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
     });
 
     btnToFilterByBrand.addEventListener('click', (event) => {
-        showPreloader(300);
-        setTimeout(() => {
+        showPreloader(300).then(() => {
             let allCheckedBrands = [];
             for (let i = 0; i < arrayOfSelectedBrandsForFilter.length; i++) {
                 allCheckedBrands.push([...productsOfSelectedCategory.filter(brand => {
@@ -285,12 +273,11 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
                     }
                 });
             });
-        }, 300)
+        });
     });
 
     btnToResetBrandFilters.addEventListener('click', () => {
-        showPreloader(300);
-        setTimeout(() => {
+        showPreloader(300).then(() => {
             brandCheckBoxes.forEach(checkBox => {
                     checkBox.checked = false;
                     arrayOfSelectedBrandsForFilter = [];
@@ -298,100 +285,9 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
             );
             productsEntitiesList.innerHTML = '';
             showProductsOfSelectedCategory(productsOfSelectedCategory);
-        }, 300);
+        });
     });
 }
-
-function showModalToBuy(product) {
-    const selectedProduct = document.querySelector('.modalWindowToBuy');
-    selectedProduct.innerHTML = `<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div>
-                        <div class="modal-footer">
-                            <div class="content_text">
-                                <div class="title_text1">Товар добавлен в корзину</div>
-                                <div class="pic_img_content">
-                                    <img class="pic_content" src="${product[0].src}">
-                                </div>
-                                <div class="pic_content_text">
-                                    <div class="product_pic_content_text">
-                                        <a class="product_title">${product[0].name}
-                                        </a>
-                                    </div>
-                                    <div class="product__row">
-                                        <div class="product__counter">
-                                            <div class="counter">
-                                                <div class="counter__sign counter_inline counter_border counter_cursor" id="counterminus">-
-                                                </div>
-                                                <div class="counter__number counter_inline" id="counternumber">1</div>
-                                                <div class="counter__sign counter_inline counter_border counter_cursor" id="counterplus">+
-                                                </div>
-                                                <div class="product__price counter_inline" id="priceinmainwindow">${product[0].newPrice}<span> грн.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="price-footer">
-                    <div class="foot_grey">
-                        <a class="btn pic_grey">
-                            <span class="modal-title_price" id="totalsumm">К оплате: ${product[0].newPrice} </span>
-                            <span class="title_price" id="totaloldsumm">${product[0].oldPrice}  грн</span></a>
-                    </div>
-                    <div>
-                        <a class="btn pic_red " id="makeOrder" class="close" data-dismiss="modal" aria-label="Close">Оформить заказ</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>`;
-
-    const price = product[0].newPrice;
-    const buttonMinus = document.getElementById('counterminus');
-    const buttonNumber = document.getElementById('counternumber');
-    const buttonPlus = document.getElementById('counterplus');
-    const makeOrder = document.getElementById('makeOrder');
-
-    const priceinmainwindow = document.getElementById('priceinmainwindow');
-    const totalsumm = document.getElementById('totalsumm');
-    const totaloldsumm = document.getElementById('totaloldsumm');
-
-    buttonMinus.addEventListener('click', (event) => {
-        let numberOfItem = parseInt(buttonNumber.innerHTML);
-        if (numberOfItem > 1) {
-            buttonNumber.innerHTML = numberOfItem - 1;
-            priceinmainwindow.innerHTML = (numberOfItem - 1) * price + ' грн.';
-            totalsumm.innerHTML = (numberOfItem - 1) * price;
-            totaloldsumm.innerHTML = (numberOfItem - 1) * price + ' грн.';
-        }
-    });
-
-
-    buttonPlus.addEventListener('click', (event) => {
-        let numberOfItem = parseInt(buttonNumber.innerHTML);
-        buttonNumber.innerHTML = numberOfItem + 1;
-        priceinmainwindow.innerHTML = (numberOfItem + 1) * price + ' грн.';
-        totalsumm.innerHTML = (numberOfItem + 1) * price;
-        totaloldsumm.innerHTML = (numberOfItem + 1) * price + ' грн.';
-    });
-
-    makeOrder.addEventListener('click', (event) => {
-
-        const numberOfItem = parseInt(buttonNumber.innerHTML);
-        console.log('Product Id: ' + product[0].id);
-        console.log('numberOfItem: ' + numberOfItem);
-        addItemToTrash(product[0].id, numberOfItem);
-    });
-
-}
-
 
 function createBtnToWorkWithBrandFilters(element, className, text) {
     const btnToFilterByBrand = document.createElement('button');
@@ -495,11 +391,9 @@ function createPagination(pagesAmount) {
 }
 
 function refreshInfo(...selectors) {
-    $(selectors).each((i, selector) => {
-        if ($(selector)) {
-            $(selector).remove();
+    selectors.forEach((selector)=> {
+        if (document.querySelector(selector)) {
+            document.querySelector(selector).remove();
         }
     });
 }
-
-

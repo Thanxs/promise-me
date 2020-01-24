@@ -17,7 +17,8 @@ function showPreloader(ms) {
             if (!preloader.classList.contains('preloader-done')) {
                 preloader.classList.add('preloader-done');
             }
+            resolve();
         }, ms);
-        resolve();
+
     });
 }
