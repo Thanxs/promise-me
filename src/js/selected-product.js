@@ -1,4 +1,5 @@
 function showSelectedProduct(product, products) {
+    showPreloader(200);
     const selectedProduct = document.querySelector('.products');
     selectedProduct.innerHTML = `
 <div class="breadscrumbs">

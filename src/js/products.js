@@ -54,6 +54,7 @@ function setEventListenersOnCategories(products) {
 }
 
 function showProductsSection(productsOfSelectedCategory, products) {
+    playSound('../sounds/select-category');
     const productsSection = document.querySelector('.products');
     const selectedCategory = productsOfSelectedCategory[0].category;
 
@@ -189,7 +190,7 @@ function showProductsOfSelectedCategory(products,productsAll) {
     }));
 }
 
-function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
+function showBrandsOfSelectedCategory(productsOfSelectedCategory) {    
     const brandsFilterArea = document.querySelector('.products__brand-filter');
     const arrayOfBrandsFromSelectedCategory = productsOfSelectedCategory.map(product => product.brand);
     const uniqueBrands = makeUniqueArray(arrayOfBrandsFromSelectedCategory);
@@ -212,6 +213,7 @@ function showBrandsOfSelectedCategory(productsOfSelectedCategory) {
 
     brandCheckBoxes.forEach(brand => {
         brand.addEventListener('click', (event) => {
+            playSound('../sounds/brand');
             if (brandCheckBoxesArray.some((checkBox) => checkBox.checked)) {
                 btnToFilterByBrand.classList.add('products__brand-filter-btn_active');
             } else {

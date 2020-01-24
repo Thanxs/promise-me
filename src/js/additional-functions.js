@@ -27,3 +27,9 @@ function refreshInfo(...selectors) {
         }
     });
 }
+
+function playSound(name) {
+    const sound = new Audio();
+    sound.src = `./audio/${name}.mp3`;
+    sound.autoplay = true;
+}

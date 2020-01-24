@@ -15,14 +15,14 @@ function showListOfCategoriesInDropDownMenu(data) {
 function setEventListenersOnCategories(products) {
     const categories = document.querySelectorAll('.header__dropdown-item');
     categories.forEach(category => category
-        .addEventListener('click', (event) => {
+        .addEventListener('click', (event) => {            
             const categoryNumber = parseInt(event.target.getAttribute('data-category-number'));
             const arrayOfProductsFromSelectedCategory = products.filter(item => {
                     return item.categoryNumber === categoryNumber
                 }
             );
             showPreloader(400);
-            setTimeout(() => {
+            setTimeout(() => {                
                 showProductsSection(arrayOfProductsFromSelectedCategory);
                 const productsSection = document.querySelector(".products");
                 productsSection.scrollIntoView(300);
